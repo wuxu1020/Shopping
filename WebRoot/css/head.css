@@ -1,0 +1,101 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*公用*/
+.comWidth{width:900px;margin-left:auto;margin-right:auto;}
+.comWidth1{width:1090px;margin-left:auto;margin-right:auto;}
+.fr{float:right;}
+.fl{float:left;}
+.hide{display:none;}
+.show{display:block;}
+
+/*top*/
+.top{height:31px;width:100%;background-color:#F9F9F9 ;line-height:31px;}
+.top a:hover{color:red;}
+.login{font-weight:bold;}
+.leftarea{font-weight:bold;}
+
+/*logo*/
+.logo{height:108px;background-color:#EA0000;}
+/*.logoimage{padding-top:8px;}*/
+/*search*/
+.search_box{width:440px;padding-top:29px;padding-left:185px;}
+.search_text{width:350px;height:35px;padding:0 5px;}
+.search_button{width:80px;height:35px;font-size:14px;font-family:"Microsoft YaHei","微软雅黑";background-color:#F00;color:#FFF; }
+
+/*购物车*/ 
+/*.shopcar{width:145;height:35px;background-color:#F00;margin-top:23px;}
+.shoptext{font-size:14px;font-family:"Microsoft YaHei","微软雅黑";color:#FFF;height:100%;width:87px;border-right:#E27A00 solid 1px;line-height:35px;padding-left:5px;}
+*/
+
+/*导航*/
+.navbox{height:36px;background-color:#FF4848;color:#FFF; }
+.shopclass{width:190px;position:relative;}
+.shopclass p{text-align:center;padding-top:10px;font-size:18px;}
+.nav,shopclass p{font-family:"Microsoft YaHei","微软雅黑";}
+.nav{line-height:35px;}
+.nav li{float:left;}
+.nav a{height:36px;display:inline-block;padding:0 35px;color:#FFF; }
+.nav .active{background-color:#FF9D9D;}
+
+/*商品列表*/
+.shopclass_show{background-color:#FF6060;position:absolute;left:0px;top:36px;width:100%;}
+/*.shopclass_item .b{font-size:14px;font-weight:bold;font-family:"Microsoft YaHei","微软雅黑";}*/
+/*.shopclass_item a{color:#FFF;}*/
+.shopclass_item{padding:30px 15px;border-bottom:#FFACAC solid 1px; }
+
+/*shopclass_item active状态*/
+.shopclass_active{background-color:#FFF;border-left:#FF9B9B solid 1px;}
+.shopclass_active li{color:#000;}
+
+/*弹出的菜单*/
+.shopclass_list{width:568px;border:#CCC solid 1px;position:absolute;left:190px;top:35px;}
+.shopclass_cont{padding:5px 20px;}
+.shoplist_item dt{color:#FF7373;font-weight:bold;height:14px;line-height:24px;
+}
+.shoplist_item dd{padding-left:80px;margin-top:-14px;line-height:24px;}
+.shoplist_item dd a{margin-right:12px;}
+.shoplist_item{padding:10px 0;border-bottom:#CCC solid 1px;}
+
+/*乱七八糟*/
+body,ul,li,p,h3,div{margin:0;padding:0;}
+body{font-size:12px;}
+img{border:none;}
+li{list-style:none;}
+input{border:none;}
+hr{color:#FFF;}
+dt{padding-left:10px;paddind-top:5px;}
+/*dl{border-bottom:1px solid #FFF;}*/
+a{text-decoration:none;color:#666;}
+
+/*轮播*/
+.middle{
+	width:auto;
+	height:auto;
+	background-color:#FFE3E3;
+}
+.slider{width:830px;height:440px;position:relative;left:415px;}
+.slider .main .main-i,.slider .main{width:100%;height:440px;position:relative;}
+/*幻灯片区域*/
+.slider .main{overflow:hidden;}
+.slider .main .main-i img{width:100%;position:absolute;left:0;top:0;}
+
+/*控制按钮*/ 
+.slider .ctrl{width:100%;height:13px;line-height:13px;text-align:center;position:absolute;left:0;bottom:-1px;}
+.slider .ctrl .ctrl-i{display:inline-block;width:100px;height:10px;background-color:#8A8A8A;box-shadow:0 1px 1px rgba(0,0,0,.3);position:relative;}
+.slider .ctrl .ctrl-i img{width:100%;position:absolute;left:0;bottom:50px;z-index:2;opacity:0;-webkit-transition:all .2s;}
+
+/*hover到控制按钮的样式*/
+.slider .ctrl .ctrl-i:hover{background-color:#f0f0f0;}
+.slider .ctrl .ctrl-i:hover img{bottom:13px;
+-webkit-box-reflect:below 0px -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(50%,transparent),to(rgba(255,255,255,.3)));opacity:1;}
+
+/*active 当前展现的状态*/
+.slider .ctrl .ctrl-i_active:hover,.slider .ctrl .ctrl-i_active{background-color: #5C5C5C;}
+.slider .ctrl .ctrl-i_active:hover img{ opacity:0;}
+/*幻灯片切换样式*/
+.slider .main ,.slider .main .main-i{opacity:0;position:absolute;right:50%;top:0;-webkit-transition:all .5s;}
+.slider .main ,.slider .main .main-i_active{right:0;opacity:1;}
+
+
+
