@@ -208,8 +208,8 @@ function previewImage(file)
 </div>
   <div class="formm">
   <label class="name">商品类别：</label>
-  <input type="checkbox" value="手机" />手机
-  <input type="checkbox" value="电脑" />电脑
+  <input type="checkbox" name="ptype" value="手机" />手机
+  <input type="checkbox" name="ptype" value="电脑" />电脑
   </div>
 
 
