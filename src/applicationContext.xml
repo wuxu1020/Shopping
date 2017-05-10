@@ -25,6 +25,7 @@
 			<list>
 				<value>User.hbm.xml</value>
 				<value>Admin.hbm.xml</value>
+				<value>Product.hbm.xml</value>
 			</list>
 		</property> 
 		<property name="hibernateProperties">
@@ -70,4 +71,8 @@
 		</property>
 	</bean>
 	
-	</beans>
+	<bean id="ProductDAO" class="shopping.dao.ProductDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean></beans>
