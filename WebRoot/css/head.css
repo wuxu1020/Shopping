@@ -42,7 +42,7 @@
 .shopclass_show{background-color:#FF6060;position:absolute;left:0px;top:36px;width:100%;}
 /*.shopclass_item .b{font-size:14px;font-weight:bold;font-family:"Microsoft YaHei","微软雅黑";}*/
 /*.shopclass_item a{color:#FFF;}*/
-.shopclass_item{padding:30px 15px;border-bottom:#FFACAC solid 1px; }
+.shopclass_item{padding:26px 70px;border-bottom:#FFACAC solid 1px;font-size:16px; }
 
 /*shopclass_item active状态*/
 .shopclass_active{background-color:#FFF;border-left:#FF9B9B solid 1px;}

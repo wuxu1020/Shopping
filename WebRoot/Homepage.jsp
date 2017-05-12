@@ -130,19 +130,22 @@ function switchSlider(n){
         <p>全部商品分类</p>
         <div class="shopclass_show">
           <ul class="shopclass_item ">
-            <li >智能数码 / 手机 / 电脑</li>
+            <li >数码 </li>
           </ul>
           <ul class="shopclass_item">
-            <li>家电 / 空调 / 冰箱 /洗衣机</li>
+            <li>家电 </li>
           </ul>
           <ul class="shopclass_item">
-            <li>男装 / 女装 / 连衣裙</li>
+            <li>服装</li>
           </ul>
           <ul class="shopclass_item">
-            <li>食品 / 生鲜 / 酒水</li>
+            <li>食品</li>
           </ul>
           <ul class="shopclass_item">
-            <li>个护化妆 / 纸品清洁 </li>
+            <li>个护</li>
+          </ul>
+           <ul class="shopclass_item">
+            <li>其他</li>
           </ul>
         </div>
         <div class="shopclass_list show" >

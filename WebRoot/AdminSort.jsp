@@ -129,7 +129,29 @@ a{text-decoration:none;color:#666;}
       </ul>
    </div>
   </div>
-   <div>这是分类管理</div>
+  
+  <div class="comWidth">
+  <h2>添加分类：</h2>
+   <div> 
+   <label  class="name">分类名称 ：</label>
+    <input type="text" class="addsorttext" />
+   </div>
+     <div> 
+   <label  class="name">所属类别 ：</label>
+    <select>
+    <option>请选择所属类别</option>
+    <option>智能数码</option>
+    <option>家用电器</option>
+    <option>服装</option>
+     <option>食品</option>
+    <option>个人护理</option>
+    <option>其他</option>
+    </select>
+   </div>
+   
+   <input type="button" value="确认提交" class="btn" />
+   
+   </div>
    </div>
   </body>
   
