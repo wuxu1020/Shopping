@@ -1,4 +1,4 @@
-/*package shopping.action;
+package shopping.action;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,70 +13,101 @@ import java.util.UUID;
 
 import org.apache.struts2.ServletActionContext;
 
+import shopping.json.JsonUtil;
+import shopping.model.Product;
+import shopping.service.ProductService;
 
 
-public class SupplierUpProductAction extends SuperAction{
+
+public class ProductAction extends SuperAction{
 	private String pname;
 	private Double price;
-	private Integer inventory;
-	private String ptype;
-	private List<String> gfbigname;
+	private Integer stock;
+	private List<String> ptype;
 	private String gdetails;
 	private String gexplain;
-	private String gdeliver;
 	private List<String> goodpicaddr;
-	private Good good;
+	private Product product;
+	private String searchvalue;
+	private String searchresult;
+	private Integer page;
+	private Integer maxpage;
 	private String jsonResult;
-	
+	private ProductService productservice;
 	 //上传文件存放路径   
     private final static String UPLOADDIR = "/product";
     
     private List<File> mainpic;
     private List<String> mainpicFileName; 
     private List<String> mainpicContentType;
-    
 	private List<File> detimgUpload;   
     //上传文件名集合   
     private List<String> detimgUploadFileName;   
     //上传文件内容类型集合   
     private List<String> detimgUploadContentType;
 	
-    public Good getGood() {
-		return good;
+    
+	
+	public String getSearchresult() {
+		return searchresult;
 	}
-	public void setGood(Good good) {
-		this.good = good;
+	public void setSearchresult(String searchresult) {
+		this.searchresult = searchresult;
 	}
-	public String getGname() {
-		return gname;
+	public Integer getPage() {
+		return page;
 	}
-	public void setGname(String gname) {
-		this.gname = gname.trim();
+	public void setPage(Integer page) {
+		this.page = page;
 	}
-	public Double getGprice() {
-		return gprice;
+	public Integer getMaxpage() {
+		return maxpage;
 	}
-	public void setGprice(Double gprice) {
-		this.gprice = gprice;
+	public void setMaxpage(Integer maxpage) {
+		this.maxpage = maxpage;
 	}
-	public Integer getGcount() {
-		return gcount;
+	public String getSearchvalue() {
+		return searchvalue;
 	}
-	public void setGcount(Integer gcount) {
-		this.gcount = gcount;
+	public void setSearchvalue(String searchvalue) {
+		this.searchvalue = searchvalue;
 	}
-	public String getGoodstyle() {
-		return goodstyle;
+	public String getPname() {
+		return pname;
 	}
-	public void setGoodstyle(String goodstyle) {
-		this.goodstyle = goodstyle.trim();
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 	
-	public List<String> getGfbigname() {
-		return gfbigname;
+	public Integer getStock() {
+		return stock;
 	}
-	public void setGfbigname(List<String> gfbigname) {
-		this.gfbigname = gfbigname;
+	public void setStock(Integer stock) {
+		this.stock = stock;
+	}
+	public List<String> getPtype() {
+		return ptype;
+	}
+	public void setPtype(List<String> ptype) {
+		this.ptype = ptype;
+	}
+	public List<String> getGoodpicaddr() {
+		return goodpicaddr;
+	}
+	public void setGoodpicaddr(List<String> goodpicaddr) {
+		this.goodpicaddr = goodpicaddr;
+	}
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 	public String getGdetails() {
 		return gdetails;
@@ -90,11 +121,12 @@ public class SupplierUpProductAction extends SuperAction{
 	public void setGexplain(String gexplain) {
 		this.gexplain = gexplain.trim();
 	}
-	public String getGdeliver() {
-		return gdeliver;
+	
+	public ProductService getProductservice() {
+		return productservice;
 	}
-	public void setGdeliver(String gdeliver) {
-		this.gdeliver = gdeliver.trim();
+	public void setProductservice(ProductService productservice) {
+		this.productservice = productservice;
 	}
 	public List<File> getDetimgUpload() {
 		return detimgUpload;
@@ -140,12 +172,20 @@ public class SupplierUpProductAction extends SuperAction{
 		this.jsonResult = jsonResult;
 	}
 	
-	
+	public String showproduct(){
+		page=1; 
+		List<Product> plist=new ArrayList<Product>();
+		if(searchvalue==null){
+			System.out.println(JsonUtil.listToJson(productservice.getProductDAO().findAll().subList(0, 2)));
+		}
+		return "AjaxResult";
+	}
 	
 	public String upProduct() throws Exception{
-		if(session.getAttribute("SupplierID")==null){
+		/*if(session.getAttribute("SupplierID")==null){
 			return "SupplierNotLogin";
-		}
+		}*/
+		product=new Product();
 		uploadmainPic(0);
     	for (int i = 0; i < detimgUpload.size(); i++) {   
             //循环上传每个文件   
@@ -153,25 +193,24 @@ public class SupplierUpProductAction extends SuperAction{
         }  
     	for(int i=0;i<goodpicaddr.size();i++)
     		if(goodpicaddr.get(i).equals("")) goodpicaddr.remove(i);
-    	for(int i=0;i<gfbigname.size();i++)
-    		if(gfbigname.get(i).equals("")) gfbigname.remove(i);
+    	
     	if(goodpicaddr.size()>0){
     		jsonResult = JsonUtil.listToJson(goodpicaddr);
-    		good.setGdetailpic(jsonResult);
+    		product.setPdpic(jsonResult);
     	}
-    	if(gfbigname.size()>0){
-    		jsonResult = JsonUtil.listToJson(gfbigname);
-    		good.setGfbigname(jsonResult);
+    	if(ptype.size()>0){
+    		jsonResult = JsonUtil.listToJson(ptype);
+    		product.setPtype(jsonResult);
     	}
     	//good.setGsid(session.getAttribute("SupplierID").toString());
-    	good.setGid(UUID.randomUUID().toString());
-    	good.setGcount(gcount);
-    	good.setGdeliver(gdeliver);
-    	good.setGdetails(gdetails);
-    	good.setGexplain(gexplain);
-    	good.setGname(gname);
-    	good.setGprice(gprice);
-        return "SupplierUpProduct";
+    	product.setPid(UUID.randomUUID().toString());
+    	product.setPstock(stock);
+    	product.setPdetail(gdetails);
+    	product.setPdescription(gexplain);
+    	product.setPname(pname);
+    	product.setPrice(price);
+    	productservice.getProductDAO().merge(product);
+        return "UpProduct";
     }
     
     private void uploadFile(int i) throws FileNotFoundException, IOException {   
@@ -229,7 +268,7 @@ public class SupplierUpProductAction extends SuperAction{
             while ((length = in.read(buffer)) > 0) {   
                 out.write(buffer, 0, length);   
             }
-            good.setGpic(fileName);
+            product.setPmpic(fileName);
             in.close();   
             out.close();   
         } catch (FileNotFoundException ex) {   
@@ -263,4 +302,3 @@ public class SupplierUpProductAction extends SuperAction{
     	return "SupplierJsonResult";
     }
 }
-*/

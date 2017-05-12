@@ -71,6 +71,12 @@
 		</property>
 	</bean>
 	
+	<bean id="productservice" class="shopping.service.ProductService">
+		<property name="productDAO">
+			<ref bean="ProductDAO" />
+		</property>
+	</bean>
+	
 	<bean id="ProductDAO" class="shopping.dao.ProductDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />

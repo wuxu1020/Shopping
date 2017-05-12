@@ -11,12 +11,15 @@ import java.util.List;
          *            任意对象 
          * @return java.lang.String 
          */  
-        public static String objectToJson(Object object) {  
+        public static String objectToJson(Object object,String name) {  
             StringBuilder json = new StringBuilder();  
             if (object == null) {  
                 json.append("\"\"");  
-            } else if (object instanceof String || object instanceof Integer || object instanceof Double||object instanceof Timestamp) {  
-                json.append("\"").append(object.toString()).append("\"");  
+            } else if (object instanceof String || object instanceof Integer || object instanceof Double||object instanceof Timestamp) { 
+            	if(name.equals("\"pdpic\"")||name.equals("\"ptype\""))
+            		json.append(object.toString());
+            	else
+            		json.append("\"").append(object.toString()).append("\"");  
             } else {  
                 json.append(beanToJson(object));  
             }  
@@ -41,8 +44,8 @@ import java.util.List;
             if (props != null) {  
                 for (int i = 0; i < props.length; i++) {  
                     try {  
-                        String name = objectToJson(props[i].getName());  
-                        String value = objectToJson(props[i].getReadMethod().invoke(bean));  
+                        String name = objectToJson(props[i].getName(),"");  
+                        String value = objectToJson(props[i].getReadMethod().invoke(bean),name);  
                         json.append(name);  
                         json.append(":");  
                         json.append(value);  
@@ -68,7 +71,7 @@ import java.util.List;
             json.append("["); 
             if (list != null && list.size() > 0) {  
                 for (Object obj : list) {  
-                    json.append(objectToJson(obj));  
+                    json.append(objectToJson(obj,""));  
                     json.append(",");  
                 }  
                 json.setCharAt(json.length() - 1, ']');  

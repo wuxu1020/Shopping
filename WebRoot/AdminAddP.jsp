@@ -193,7 +193,8 @@ function previewImage(file)
       <div class="logoimage fl"> <a href="#"><img src="image/haigou.png" alt="嗨购"></a> </div>
     </div>
   </div>
-  
+  <form class="form-horizontal" action="<%=basePath%>Product_upProduct.action" 
+							method="post" enctype="multipart/form-data">
   <div class="formm">
     <label  class="name">商品名 ：</label>
     <input type="text" class="formtext" onfocus="" id="pname" name="pname" style="margin-top: 7px;height: 30px;" >
@@ -204,7 +205,7 @@ function previewImage(file)
 </div>
   <div class="formm">
   <label class="name">库 存 ：</label>
-    <input type="number" class="formtext2" onfocus="" id="inventory" name="inventory" style="margin-top: 7px;height: 30px;" >
+    <input type="number" class="formtext2" onfocus="" id="stock" name="inventory" style="margin-top: 7px;height: 30px;" >
 </div>
   <div class="formm">
   <label class="name">商品类别：</label>
@@ -276,7 +277,7 @@ required="required"  >
 								</div>
 							</div>
 
-
+</form>
     </div>
     <script src="js/jquery.nouislider.js"></script>
 	<script type="text/javascript">
@@ -284,10 +285,8 @@ required="required"  >
       
         /* location.href=""; */
     } 
-} 
 	
 	</script>
-    
   </body>
 <script type="text/javascript">
 $('#test').diyUpload({

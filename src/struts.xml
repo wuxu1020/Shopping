@@ -11,6 +11,8 @@
 			<result name="AdminLoginSuccess">/AdminManage.jsp</result>
 			<result name="AdminLoginFailed">/AdminLogin.jsp</result>
 			<result name="AdminUser">/AdminUser.jsp</result>
+			<result name="UpProduct">/AdminAddP.jsp</result>
+			<result name="AjaxResult" type="json"></result>
 		</action>
 	</package>
 
