@@ -121,7 +121,7 @@ public class ProductDAO {
 				+ ", value: " + value);
 		try {
 			String queryString = "from Product as model where model."
-					+ propertyName + "= ?";
+					+ propertyName + " like ?";
 			Query queryObject = getCurrentSession().createQuery(queryString);
 			queryObject.setParameter(0, "%"+value+"%");
 			return queryObject.list();
