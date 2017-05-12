@@ -98,9 +98,29 @@ a{text-decoration:none;color:#666;}
 }
 .btn:active {position:relative;top:1px;}
 </style>
+
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	function productshow(){
+		var plist=${request.productlist};
+		$('#productshow').find("div.comWidth2").remove();
+		for(var i=0;i<plist.length;i++){
+		var showitem='<div class="comWidth2"><div class="pimage fl">'
+					+'<img alt="正在加载图片..." src="product/'+plist[i].pmpic+'"></div>'
+     				+'<div class="pright fl">'
+     				+'<div class="title ">商品名称:'+plist[i].pname+'</div>'
+     				+'<div class="price">商品价格:'+plist[i].price+'</div>'
+     				+'<div class="inventory"> 库存:'+plist[i].pstock+'</div>'
+     				+'<a href="Product.jsp?pid='+plist[i].pid+'" >'
+     				+'<input type="button" value="详情" class="btn fr s" /></a>'
+     				+'</div></div></div>';
+     		$('#productshow').append(showitem);
+     	}
+	}
+</script>
 </head>
 
-<body>
+<body onload="productshow()">
 <div class="header">
 
 
@@ -125,14 +145,16 @@ a{text-decoration:none;color:#666;}
   <div class="logo">
     <div class="comWidth1">
       <div class="logoimage fl"> <a href="#"><img src="image/haigou.png" alt="嗨购"></a> </div>
+      <form action="Product_showproductToUser.action?page=1" method="post">
       <div class="search_box fl">
-        <input type="text" class="search_text fl" />
-        <input type="button" value="搜索" class="search_button fr" />
+        <input type="text" class="search_text fl" name="searchvalue"/>
+        <input type="submit" value="搜索"  class="search_button fr" />
       </div>
+      </form>
     </div>
   </div>
  
- <div class="quanping">
+ <div class="quanping" id="productshow">
   <div class="comWidth2">
      <div class="pimage fl">
      显示商品图片   

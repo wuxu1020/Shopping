@@ -32,6 +32,8 @@ public class ProductAction extends SuperAction{
 	private String searchresult;
 	private Integer page;
 	private Integer maxpage;
+	private String pid;
+	private String detailproduct;
 	private String jsonResult;
 	private ProductService productservice;
 	 //上传文件存放路径   
@@ -48,6 +50,18 @@ public class ProductAction extends SuperAction{
 	
     
 	
+	public String getPid() {
+		return pid;
+	}
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
+	public String getDetailproduct() {
+		return detailproduct;
+	}
+	public void setDetailproduct(String detailproduct) {
+		this.detailproduct = detailproduct;
+	}
 	public String getSearchresult() {
 		return searchresult;
 	}
@@ -188,6 +202,35 @@ public class ProductAction extends SuperAction{
 			int toindex=(i+perpage)<=plist.size()?i+10:plist.size();
 			searchresult=JsonUtil.listToJson(plist.subList(i, toindex));
 		}
+		return "AjaxResult";
+	}
+	
+	public String showproductToUser(){
+		int perpage=10;
+		List<Product> plist;
+		if(searchvalue.equals("")||searchvalue==null){
+			plist=productservice.getProductDAO().findAll();
+		}
+		else {
+			plist=productservice.getProductDAO().findByPropertyV("pname", searchvalue);
+			
+		}
+		maxpage=(plist.size()+perpage-1)/perpage;
+		int i=(page-1)*perpage;
+		if(i<plist.size()){
+			int toindex=(i+perpage)<=plist.size()?i+10:plist.size();
+			searchresult=JsonUtil.listToJson(plist.subList(i, toindex));
+		}
+		request.setAttribute("productlist", searchresult);
+		return "UserProductShow";
+	}
+	
+	public String productdetail(){
+		product=productservice.getProductDAO().findById(pid);
+		if(product!=null){
+			detailproduct=JsonUtil.objectToJson(product, "");
+		}
+		else detailproduct="[]";
 		return "AjaxResult";
 	}
 	
