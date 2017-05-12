@@ -31,8 +31,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	           }
 	           }
  </script>
- <style>
+ <style type="text/css">
 .comWidth{width:900px;margin-left:auto;margin-right:auto;}
+.comWidth .fenlei{height:50px;font-size:16px;}
+.comWidth .fenlei input[type="text"]{height:25px;padding-left:4px;}
+.comWidth .fenlei .lihai{height:30px;padding-left:4px;}
 .comWidth1{width:1090px;margin-left:auto;margin-right:auto;}
 .quanping{width:auto;height:1000px;margin-left:auto;margin-right:auto;background-color:#FFE3E3;}
 .fr{float:right;}
@@ -60,6 +63,7 @@ a{text-decoration:none;color:#666;}
 .nav li{float:left;}
 .nav a{height:36px;display:inline-block;padding:0 60px;color:#FFF; }
 .nav a:hover{color:black;}
+.name{top:5px;}
 .nav .active{background-color:#FF9D9D;}
 .btn {
 	-moz-box-shadow: 0px 10px 14px -7px #bd4c4c;
@@ -132,13 +136,13 @@ a{text-decoration:none;color:#666;}
   
   <div class="comWidth">
   <h2>添加分类：</h2>
-   <div> 
+   <div class="fenlei"> 
    <label  class="name">分类名称 ：</label>
     <input type="text" class="addsorttext" />
    </div>
-     <div> 
+     <div class="fenlei"> 
    <label  class="name">所属类别 ：</label>
-    <select>
+    <select class="lihai">
     <option>请选择所属类别</option>
     <option>智能数码</option>
     <option>家用电器</option>

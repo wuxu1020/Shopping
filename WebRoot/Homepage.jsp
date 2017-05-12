@@ -93,7 +93,10 @@ function switchSlider(n){
 		switchSlider(1);
 		}
 </script>
-
+<style>
+.shopclass_item hover{color:black}
+.shopclass_show hover{background-color:#FF9D9D;}
+</style>
 </head>
 
 <body>
@@ -150,29 +153,9 @@ function switchSlider(n){
         </div>
         <div class="shopclass_list show" >
           <div class="shopclass_cont">
-            <dl class="shoplist_item ">
-              <dt>手机</dt>
-              <dd> <a href="#">智能机</a> <a href="#">老人机</a> <a href="#">华为</a> <a href="#">OPPO</a> <a href="#">小米</a> </dd>
-            </dl>
             <dl class="shoplist_item">
-              <dt>电脑</dt>
-              <dd> <a href="#">台式</a> <a href="#">笔记本</a> <a href="#">一体机</a> <a href="#">联想</a> <a href="#">戴尔</a> <a href="#">华硕</a> </dd>
-            </dl>
-            <dl class="shoplist_item">
-              <dt>平板电脑</dt>
-              <dd> <a href="#">华为</a> <a href="#">苹果</a> <a href="#">小米</a> </dd>
-            </dl>
-            <dl class="shoplist_item">
-              <dt>外设附件</dt>
-              <dd> <a href="#">鼠标</a> <a href="#">键盘</a> <a href="#">电脑包</a> <a href="#">U盘</a> </dd>
-            </dl>
-            <dl class="shoplist_item">
-              <dt>游戏设备</dt>
-              <dd> <a href="#">游戏耳机</a> <a href="#">游戏手柄</a> <a href="#">游戏机</a> </dd>
-            </dl>
-            <dl class="shoplist_item">
-              <dt>摄影摄像</dt>
-              <dd> <a href="#">单反</a> <a href="#">数码相机</a> <a href="#">摄像机</a> <a href="#">佳能</a> <a href="#">拍立得</a> </dd>
+            <dt>摄影摄像</dt>
+              <dd> <a href="#">单反</a> </dd>
             </dl>
           </div>
         </div>
