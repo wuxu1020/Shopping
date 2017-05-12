@@ -173,10 +173,20 @@ public class ProductAction extends SuperAction{
 	}
 	
 	public String showproduct(){
-		page=1; 
-		List<Product> plist=new ArrayList<Product>();
-		if(searchvalue==null){
-			System.out.println(JsonUtil.listToJson(productservice.getProductDAO().findAll().subList(0, 2)));
+		int perpage=10;
+		List<Product> plist;
+		if(searchvalue.equals("")||searchvalue==null){
+			plist=productservice.getProductDAO().findAll();
+		}
+		else {
+			plist=productservice.getProductDAO().findByPropertyV("pname", searchvalue);
+			
+		}
+		maxpage=(plist.size()+perpage-1)/perpage;
+		int i=(page-1)*perpage;
+		if(i<plist.size()){
+			int toindex=(i+perpage)<=plist.size()?i+10:plist.size();
+			searchresult=JsonUtil.listToJson(plist.subList(i, toindex));
 		}
 		return "AjaxResult";
 	}
