@@ -70,4 +70,12 @@ public class UserAction extends SuperAction{
 		}
 		return "RegisterFailed";
 	}
+	
+	public String deluser(){
+		User user=userservice.getUserDAO().findById(username);
+		if(user!=null){
+			userservice.getUserDAO().delete(user);
+		}
+		return "AjaxResult";
+	}
 }

@@ -117,6 +117,31 @@ a{text-decoration:none;color:#666;}
 	           }
 	           }
 	           
+	           
+	  function getproduct(){
+	  		var pid='<%=request.getParameter("pid")%>';
+	  		var path='<%=basePath%>';
+	  		$.ajax({
+			type : "post",
+			url : "Product_getproduct.action",
+			data : {'pid':pid},
+			datatype : "json",
+			success : function(json) {
+				var product=json.product;
+				$('#productid').val(product.pid);
+				$('#pname').val(product.pname);
+				$('#price').val(product.price);
+				$('#inventory').val(product.pstock);
+				$('#gdetails').val(product.pdetail);
+				$('#gexplain').val(product.pdescription);
+				$('#imghead').attr('src',path+'product/'+product.pmpic);
+			},
+			error : function(text) {
+				alert("访问服务器失败！");
+			}
+		});
+	  }
+	           
 function previewImage(file)
         {
         	var f=file.files;
@@ -177,7 +202,7 @@ function previewImage(file)
 
   </script>
   
-  <body>
+  <body onload="getproduct()">
   <div class="quanping">
   <div class="top">
     <div class="comWidth">
@@ -193,13 +218,15 @@ function previewImage(file)
       <div class="logoimage fl"> <a href="#"><img src="image/haigou.png" alt="嗨购"></a> </div>
     </div>
   </div>
-  
+  <form class="form-horizontal" action="<%=basePath%>Product_editProduct.action" 
+							method="post" enctype="multipart/form-data">
+  <input type="hidden" id="productid" name="pid">
   <div class="formm">
-    <label  class="name">商品名 ：</label>
+    <label  class="name" >商品名 ：</label>
     <input type="text" class="formtext" onfocus="" id="pname" name="pname" style="margin-top: 7px;height: 30px;" >
   </div>
   <div class="formm">
-  <label class="name">价 格 ：</label>
+  <label class="name" >价 格 ：</label>
     <input type="number" class="formtext2" onfocus="" id="price" name="price" style="margin-top: 7px;height: 30px;" >
 </div>
   <div class="formm">
@@ -221,7 +248,7 @@ function previewImage(file)
 	onclick="$('#previewImg').click();">
 </div>
 <input type="file" onchange="previewImage(this)" name="mainpic" style="display: none;margin-top:-29px" accept="image/*" id="previewImg"
-required="required"  >
+  >
 </div>
 
 
@@ -256,7 +283,7 @@ required="required"  >
 <div class="form">
 <label for="sKnot" class="col-xs-4 control-label">商品详情：</label>
 <div class="col-xs-5">
-	<textarea placeholder="对商品的描述" name="gdetails" maxlength="200"style="width: 350px; height: 200px;float:left;margin-top:1px"></textarea>
+	<textarea placeholder="对商品的描述" name="gdetails" id="gdetails" maxlength="200"style="width: 350px; height: 200px;float:left;margin-top:1px"></textarea>
 </div>
 </div>
 
@@ -264,7 +291,7 @@ required="required"  >
 <div class="form">
 <label for="sKnot" class="col-xs-4 control-label">商品说明：</label>
 <div class="col-xs-5">
-<textarea placeholder="商品细节的详细说明" name="gexplain" maxlength="200" style="width: 350px; height: 200px;float:left;margin-top:1px"></textarea>
+<textarea placeholder="商品细节的详细说明" name="gexplain" id="gexplain" maxlength="200" style="width: 350px; height: 200px;float:left;margin-top:1px"></textarea>
 </div>
 </div>
 
@@ -276,7 +303,7 @@ required="required"  >
 								</div>
 							</div>
 
-
+</form>
     </div>
     <script src="js/jquery.nouislider.js"></script>
 	<script type="text/javascript">
@@ -284,7 +311,8 @@ required="required"  >
       
         /* location.href=""; */
     } 
-} 
+    
+    
 	
 	</script>
     

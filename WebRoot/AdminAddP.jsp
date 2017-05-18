@@ -197,6 +197,7 @@ function previewImage(file)
   </div>
   <form class="form-horizontal" action="<%=basePath%>Product_upProduct.action" 
 							method="post" enctype="multipart/form-data">
+	
   <div class="formm">
     <label  class="nameb">商品名：</label>
     <input type="text" class="formtext" onfocus="" id="pname" name="pname" style="margin-top: 7px;height: 30px;" >

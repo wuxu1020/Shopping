@@ -205,6 +205,12 @@ public class ProductAction extends SuperAction{
 		return "AjaxResult";
 	}
 	
+	
+	public String getproduct(){
+		product=productservice.getProductDAO().findById(pid);
+		return "AjaxResult";
+	}
+	
 	public String showproductToUser(){
 		int perpage=10;
 		List<Product> plist;
@@ -234,6 +240,49 @@ public class ProductAction extends SuperAction{
 		return "AjaxResult";
 	}
 	
+	public String delproduct(){
+		product=productservice.getProductDAO().findById(pid);
+		if(product!=null){
+			productservice.getProductDAO().delete(product);
+		}
+		return "AjaxResult";
+	}
+	
+	public String editProduct() throws Exception{
+		product=productservice.getProductDAO().findById(pid);
+		if(product!=null){
+		if(mainpic!=null)
+			uploadmainPic(0);
+		if(detimgUpload!=null){
+    	for (int i = 0; i < detimgUpload.size(); i++) {   
+            //循环上传每个文件   
+				uploadFile(i);
+        }  
+    	for(int i=0;i<goodpicaddr.size();i++)
+    		if(goodpicaddr.get(i).equals("")) goodpicaddr.remove(i);
+    	
+    	if(goodpicaddr.size()>0){
+    		jsonResult = JsonUtil.listToJson(goodpicaddr);
+    		product.setPdpic(jsonResult);
+    	}
+		}
+    	if(ptype!=null)
+    	{
+    		jsonResult = JsonUtil.listToJson(ptype);
+    		product.setPtype(jsonResult);
+    	}
+    	else product.setPtype("");
+    	//good.setGsid(session.getAttribute("SupplierID").toString());
+    	product.setPstock(stock);
+    	product.setPdetail(gdetails);
+    	product.setPdescription(gexplain);
+    	product.setPname(pname);
+    	product.setPrice(price);
+    	productservice.getProductDAO().merge(product);
+		}
+        return "editProduct";
+    }
+	
 	public String upProduct() throws Exception{
 		/*if(session.getAttribute("SupplierID")==null){
 			return "SupplierNotLogin";
@@ -251,10 +300,12 @@ public class ProductAction extends SuperAction{
     		jsonResult = JsonUtil.listToJson(goodpicaddr);
     		product.setPdpic(jsonResult);
     	}
-    	if(ptype.size()>0){
+    	if(ptype!=null)
+    	{
     		jsonResult = JsonUtil.listToJson(ptype);
     		product.setPtype(jsonResult);
     	}
+    	else product.setPtype("");
     	//good.setGsid(session.getAttribute("SupplierID").toString());
     	product.setPid(UUID.randomUUID().toString());
     	product.setPstock(stock);
@@ -265,6 +316,8 @@ public class ProductAction extends SuperAction{
     	productservice.getProductDAO().merge(product);
         return "UpProduct";
     }
+	
+	 
     
     private void uploadFile(int i) throws FileNotFoundException, IOException {   
         try {   

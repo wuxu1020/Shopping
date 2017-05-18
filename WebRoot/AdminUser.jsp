@@ -21,12 +21,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<script src="js/jquery.min.js"></script>
  <script type="text/javascript">
  function check() {
 	      if(confirm("您确定要退出吗?")){
 		        window.location.href = "Homepage.jsp"
 	           }
 	           }
+	           
+	 function delUser(uid,delid){
+	 	var id=uid;
+	 	if (confirm("您确定要删除该用户吗?")) {
+			$.ajax({
+			type : "post",
+			url : "User_deluser.action",
+			data : {'username':id},
+			datatype : "json",
+			success : function(json) {
+				$("#"+delid).remove();
+			},
+			error : function(text) {
+				alert("删除失败！");
+			}
+		});
+		}
+	 }
  </script>
  <style>
 .comWidth{width:900px;margin-left:auto;margin-right:auto;}
@@ -149,7 +168,7 @@ a{text-decoration:none;color:#666;}
 
 			</tr>
 			<c:forEach items="${request.userlist}" var="user" varStatus="status" >
-				<tr class="yonghu">
+				<tr class="yonghu" align="center" id='${status.index}'>
 					<td>
 						${user.username}
 					</td>
@@ -167,7 +186,7 @@ a{text-decoration:none;color:#666;}
 					    ${user.phone}
 					</td>
 					<td>
-						<a onclick="delUser()" class="btn">删除</a>
+						<a onclick="delUser('${user.username}','${status.index}')" class="btn">删除</a>
 					</td>	
 				</tr>
 	</c:forEach>

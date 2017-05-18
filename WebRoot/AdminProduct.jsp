@@ -35,6 +35,24 @@
 		}
 	}
 	
+	function delp(pid){  
+		var id=pid;
+		if (confirm("您确定要删除吗?")) {
+			$.ajax({
+			type : "post",
+			url : "Product_delproduct.action",
+			data : {'pid':id},
+			datatype : "json",
+			success : function(json) {
+				$("#"+id).parent().parent().remove();
+			},
+			error : function(text) {
+				alert("删除失败！");
+			}
+		});
+		}
+	}
+	
 	function getproduct(){
 		var serchvalue=$('#searchproduct').val().replace(/\s+/g,"");
 		$.ajax({
@@ -52,8 +70,8 @@
 						+'<div class="title ">商品名称:'+result[i].pname+'</div>'
 						+'<div class="price">商品价格:'+result[i].price+'</div>'
 						+'<div class="inventory">库存:'+result[i].pstock+'</div>'
-						+'<input type="button" value="删除" class="btn" '+'/>'
-						+'<a href="AdminModifyP.jsp"><input type="button" value="修改" class="btn" /></a>'
+						+'<input type="button" value="删除" class="btn" id="'+result[i].pid+"\" onclick=\"delp('"+result[i].pid+"')\"/>"
+						+'<a href="AdminModifyP.jsp?pid='+result[i].pid+'"><input type="button" value="修改" class="btn" /></a>'
 						+'</div>';
 					$('#show').append(s);
 				}
@@ -313,7 +331,7 @@ input[type="text"] {
 
 				<div class="price">商品价格:</div>
 				<div class="inventory">库存:</div>
-				<input type="button" value="删除" class="btn" /> 
+				<input type="button" value="删除" class="btn" onclick="" /> 
 				<a
 					href="AdminModifyP.jsp"><input type="button" value="修改"
 					class="btn" /></a>
