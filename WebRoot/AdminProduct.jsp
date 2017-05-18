@@ -298,10 +298,9 @@ input[type="text"] {
 		<div class="comWidth">
 			<div class="search">
 				<form action="searchById" method="post">
-					<input type="text" name="searchproduct" id="searchproduct" class="searchtext"> <input
-						type="button" onclick="getproduct()" value="搜索" class="btn" /> <a href="AdminAddP.jsp">
-						<input type="button" value="商品上架" class="btn fr s" />
-					</a>
+					<input type="text" name="searchproduct" id="searchproduct" class="searchtext" /> <input
+						type="button" onclick="getproduct()" value="搜索" class="btn" /> 
+			<a href="AdminAddP.jsp"><input type="button" value="商品上架" class="btn fr s" /></a>
 
 				</form>
 			</div>

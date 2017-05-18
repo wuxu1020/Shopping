@@ -133,9 +133,7 @@ a{text-decoration:none;color:#666;}
   </div>
  
  <div class="quanping">
- <div>
- 购物车
- </div>
+ 
   <div class="comWidth2">
      <div class="pimage fl">
      显示商品图片   
@@ -154,6 +152,8 @@ a{text-decoration:none;color:#666;}
  <a href="Product.jsp" > <input type="button" value="详情" class="btn fr s" /></a>
      </div>
      </div>
+   <a href="UserPay.jsp" > <input type="button" value="结算" class="btn fr s" /></a>  
+     
      </div>
   </div>
   </body>

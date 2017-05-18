@@ -92,6 +92,18 @@ function switchSlider(n){
 		addSliders(1);
 		switchSlider(1);
 		}
+//鼠标悬浮显现内容
+function show( ){ 
+ document.getElementById("shopclass_list1").style.display='block'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function noshow( ){ 
+ document.getElementById("shopclass_list1").style.display='none'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+
 </script>
 <style>
 .shopclass_item hover{color:black}
@@ -121,10 +133,12 @@ function switchSlider(n){
   <div class="logo">
     <div class="comWidth1">
       <div class="logoimage fl"> <a href="#"><img src="image/haigou.png" alt="嗨购"></a> </div>
+      <form action="Product_showproductToUser.action?page=1" method="post">
       <div class="search_box fl">
-        <input type="text" class="search_text fl" />
-        <input type="button" value="搜索" class="search_button fr" />
+        <input type="text" class="search_text fl" name="searchvalue"/>
+        <input type="submit" value="搜索" class="search_button fr" />
       </div>
+      </form>
     </div>
   </div>
   <div class="navbox">
@@ -132,30 +146,71 @@ function switchSlider(n){
       <div class="shopclass fl">
         <p>全部商品分类</p>
         <div class="shopclass_show">
-          <ul class="shopclass_item ">
+          <ul class="shopclass_item " id="l1" onmouseover="show( )" onmouseout="noshow()">
             <li >数码 </li>
           </ul>
           <ul class="shopclass_item">
-            <li>家电 </li>
+            <li id="l2" onmouseover="">家电 </li>
           </ul>
           <ul class="shopclass_item">
-            <li>服装</li>
+            <li id="l3" onmouseover="">服装</li>
           </ul>
           <ul class="shopclass_item">
-            <li>食品</li>
+            <li id="l4" onmouseover="">食品</li>
           </ul>
           <ul class="shopclass_item">
-            <li>个护</li>
+            <li id="l5" onmouseover="">个护</li>
           </ul>
            <ul class="shopclass_item">
-            <li>其他</li>
+            <li id="l6" onmouseover="">其他</li>
           </ul>
         </div>
-        <div class="shopclass_list show" >
+        <div id="shopclass_list1" >
           <div class="shopclass_cont">
             <dl class="shoplist_item">
-            <dt>摄影摄像</dt>
-              <dd> <a href="#">单反</a> </dd>
+              <dd > <a href="#">单反</a> </dd>
+            </dl>
+          </div>
+        </div>
+        <div id="shopclass_list1" >
+          <div class="shopclass_cont">
+            <dl class="shoplist_item">
+              <dd > <a href="#">单反</a> </dd>
+            </dl>
+          </div>
+        </div>
+        <div id="shopclass_list2" >
+          <div class="shopclass_cont">
+            <dl class="shoplist_item">
+              <dd > <a href="#">单反</a> </dd>
+            </dl>
+          </div>
+        </div>
+        <div id="shopclass_list3" >
+          <div class="shopclass_cont">
+            <dl class="shoplist_item">
+              <dd > <a href="#">单反</a> </dd>
+            </dl>
+          </div>
+        </div>
+        <div id="shopclass_list4" >
+          <div class="shopclass_cont">
+            <dl class="shoplist_item">
+              <dd > <a href="#">单反</a> </dd>
+            </dl>
+          </div>
+        </div>
+        <div id="shopclass_list5" >
+          <div class="shopclass_cont">
+            <dl class="shoplist_item">
+              <dd > <a href="#">单反</a> </dd>
+            </dl>
+          </div>
+        </div>
+        <div id="shopclass_list6" >
+          <div class="shopclass_cont">
+            <dl class="shoplist_item">
+              <dd > <a href="#">单反</a> </dd>
             </dl>
           </div>
         </div>
@@ -165,11 +220,11 @@ function switchSlider(n){
         <li><a href="#" >最热商品</a></li>
         <li><a href="#" class=active>数码城</a></li>
         <li><a href="#">连衣裙</a></li>
-        <li><a href="#" class=active
-       >抢购</a></li>
+        <li><a href="#" class=active>抢购</a></li>
       </ul>
     </div>
   </div>
+<!--   轮播图 -->
   <div class="middle">
     <div class="slider"> 
       <!--0.修改view->Template 关键字替换，增加template id-->

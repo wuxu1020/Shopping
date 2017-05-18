@@ -65,6 +65,7 @@ a{text-decoration:none;color:#666;}
 .nav a:hover{color:black;}
 .name{top:5px;}
 .nav .active{background-color:#FF9D9D;}
+.searchtext {width: 300px;height: 35px;padding: 0 5px;margin-left:18px; }
 .btn {
 	-moz-box-shadow: 0px 10px 14px -7px #bd4c4c;
 	-webkit-box-shadow: 0px 10px 14px -7px #bd4c4c;
@@ -152,9 +153,20 @@ a{text-decoration:none;color:#666;}
     <option>其他</option>
     </select>
    </div>
-   
    <input type="button" value="确认提交" class="btn" />
-   
+     <hr/>
+   </div>
+ 
+   <div class="comWidth">
+     <h2>查询分类：</h2>
+     <input type="button" onclick="getproduct()" value="搜索" class="btn" /> 
+   <input type="text" name="searchsort" id="searchsort" class="searchtext" /> 
+  显示查询结果
+  <hr/>
+   </div>
+   <div class="comWidth">
+     <h2>所有分类：</h2>
+     显示所有分类，能删除修改
    </div>
    </div>
   </body>
