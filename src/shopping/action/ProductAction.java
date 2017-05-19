@@ -206,7 +206,7 @@ public class ProductAction extends SuperAction{
 	}
 	
 	
-	public String getproduct(){
+	public String getproducts(){
 		product=productservice.getProductDAO().findById(pid);
 		return "AjaxResult";
 	}

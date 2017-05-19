@@ -26,6 +26,8 @@
 				<value>User.hbm.xml</value>
 				<value>Admin.hbm.xml</value>
 				<value>Product.hbm.xml</value>
+				<value>Sort.hbm.xml</value>
+				<value>Cart.hbm.xml</value>
 			</list>
 		</property> 
 		<property name="hibernateProperties">
@@ -77,7 +79,34 @@
 		</property>
 	</bean>
 	
+	<bean id="sortservice" class="shopping.service.SortService">
+		<property name="sortDAO">
+			<ref bean="SortDAO" />
+		</property>
+	</bean>
+	
+	<bean id="cartservice" class="shopping.service.CartService">
+		<property name="cartDAO">
+			<ref bean="CartDAO" />
+		</property>
+	</bean>
+	
 	<bean id="ProductDAO" class="shopping.dao.ProductDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="SortDAO" class="shopping.dao.SortDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="OrderDAO" class="shopping.dao.OrderDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="CartDAO" class="shopping.dao.CartDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>

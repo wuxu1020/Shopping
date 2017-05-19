@@ -176,10 +176,32 @@ function previewImage(file)
             param.top = Math.round((maxHeight - param.height) / 2);
             return param;
         }
+        
+        function gettype(){
+        	var searchsortvalue="";
+		$.ajax({
+			type : "post",
+			url : "Sort_searchSort.action",
+			data : {'sname':searchsortvalue},
+			datatype : "json",
+			success : function(json) {
+				var sortlist=json.sortlist;
+				var showitem='';
+				$("#allsort").find('tr').remove();
+				for(var i=0;i<sortlist.length;i++){
+					showitem+='<input type="checkbox" name="ptype" value="'+sortlist[i].sname+'" />'+sortlist[i].sname;
+				}
+				$("#ptypeitem").append(showitem);
+			},
+			error : function(text) {
+				alert("访问服务器失败！");
+			}
+		});
+        }
 
   </script>
   
-  <body>
+  <body onload="gettype()">
   <div class="quanping">
   <div class="top">
     <div class="comWidth">
@@ -208,12 +230,11 @@ function previewImage(file)
 </div>
   <div class="formm">
   <label class="namea">库存：</label>
-    <input type="number" class="formtext2" onfocus="" id="stock" name="inventory" style="margin-top: 7px;height: 30px;" >
+    <input type="number" class="formtext2" onfocus="" id="stock" name="stock" style="margin-top: 7px;height: 30px;" >
 </div>
-  <div class="formm">
+  <div class="formm" id="ptypeitem">
   <label class="name">商品类别：</label>
-  <input type="checkbox" name="ptype" value="手机" />手机
-  <input type="checkbox" name="ptype" value="电脑" />电脑
+  
   </div>
 
 

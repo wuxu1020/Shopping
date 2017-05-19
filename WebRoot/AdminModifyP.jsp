@@ -123,7 +123,7 @@ a{text-decoration:none;color:#666;}
 	  		var path='<%=basePath%>';
 	  		$.ajax({
 			type : "post",
-			url : "Product_getproduct.action",
+			url : "Product_getproducts.action",
 			data : {'pid':pid},
 			datatype : "json",
 			success : function(json) {
@@ -135,6 +135,7 @@ a{text-decoration:none;color:#666;}
 				$('#gdetails').val(product.pdetail);
 				$('#gexplain').val(product.pdescription);
 				$('#imghead').attr('src',path+'product/'+product.pmpic);
+				gettype();
 			},
 			error : function(text) {
 				alert("访问服务器失败！");
@@ -199,6 +200,28 @@ function previewImage(file)
             param.top = Math.round((maxHeight - param.height) / 2);
             return param;
         }
+        
+        function gettype(){
+        	var searchsortvalue="";
+		$.ajax({
+			type : "post",
+			url : "Sort_searchSort.action",
+			data : {'sname':searchsortvalue},
+			datatype : "json",
+			success : function(json) {
+				var sortlist=json.sortlist;
+				var showitem='';
+				$("#allsort").find('tr').remove();
+				for(var i=0;i<sortlist.length;i++){
+					showitem+='<input type="checkbox" name="ptype" value="'+sortlist[i].sname+'" />'+sortlist[i].sname;
+				}
+				$("#ptypeitem").append(showitem);
+			},
+			error : function(text) {
+				alert("访问服务器失败！");
+			}
+		});
+        }
 
   </script>
   
@@ -233,10 +256,9 @@ function previewImage(file)
   <label class="name">库 存 ：</label>
     <input type="number" class="formtext2" onfocus="" id="inventory" name="inventory" style="margin-top: 7px;height: 30px;" >
 </div>
-  <div class="formm">
+  <div class="formm" id="ptypeitem">
   <label class="name">商品类别：</label>
-  <input type="checkbox" value="手机" />手机
-  <input type="checkbox" value="电脑" />电脑
+  
   </div>
 
 

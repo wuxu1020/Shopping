@@ -10,19 +10,94 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>购物车</title>
 <link href="css/head.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery.min.js"></script>
 <script type="text/javascript">
-myFocus.set({
+	/* myFocus.set({
 	id:'template_main',
 	time:'2'
 }
-)
+) */ 
 
  function check() {
 	      if(confirm("您确定要退出吗?")){
 		        window.location.href = "UserLogout.jsp"
 	           }
 	           }
-</script>
+	           
+	 function show(){
+	 	var uid='<%=session.getAttribute("UID")%>';
+		if(uid=='null'){
+			if (confirm("您未登录，是否跳转登录页面？")) {
+			location.href='<%=basePath%>'+"UserLogin.jsp";
+			}
+			return false;
+		}
+	 	$.ajax({
+			type : "post",
+			url : "Cart_showcart.action",
+			data : {'uid':uid},
+			datatype : "json",
+			success : function(json) {
+				var cartlist=json.cartlist;
+				$('#showcart').find('ul').remove();
+				for(var i=0;i<cartlist.length;i++){
+					var showitem='';
+					showitem+='<ul class="item-content clearfix" id="'+cartlist[i].cid+'"><li class="td td-chk">'
+							+'<div class="td-inner"><div class="cart-checkbox ">'
+							+'<input class="J_CheckBoxItem1475" id="J_CheckBox_445439946879" type="checkbox" name="items[]" value="445439946879" '+"onclick=\"checkboxin('"+cartlist[i].cid+"')\">"
+							+'<label for="J_CheckBox_445439946879">勾选商品</label></div></div> </li>'
+							+'<li class="td td-item"><div class="td-inner"><div class="item-pic J_ItemPic img-loaded">'
+							+'<a href="" target="_blank"  class="J_MakePoint" data-point="tbcart.8.12">'
+							+'<img src="" class="itempic J_ItemImg"></a></div><div class="item-info">'
+							+'<div class="item-basic-info">'
+							+'<a href="'+cartlist[i].pmpic+'" target="_blank"  class="item-title J_MakePoint" data-point="tbcart.8.11">'+cartlist[i].ptitle+'</a>'
+							+'</div></div></div> </li>'
+							+'<li class="td td-price"><div class="td-inner">'
+							+'<div class="item-price price-promo-seller"><div class="price-content">'
+							+'<div class="price-line">'
+							+'<em class="J_Price price-now" tabindex="0">￥<span class="price">'+cartlist[i].price+'</span></em></div></div>'
+							+'</div></div> </li><li class="td td-amount">'
+							+'<div class="td-inner"><div class="amount-wrapper "><div class="item-amount ">'
+							+'<input type="number" value="'+cartlist[i].ptotal+'" class="text text-amount J_ItemAmount ptotal" min="1" max="9805" data-now="1" autocomplete="off"'+" onchange=\"changetotalprice('"+cartlist[i].cid+"')\">"
+							+'</div><div class="amount-msg J_AmountMsg"></div></div></div> </li>'
+							+'<li class="td td-sum"><div class="td-inner">'
+							+'<em tabindex="0" class="J_ItemSum number">￥<span class="totalprice">'+cartlist[i].price*cartlist[i].ptotal+'</span></em>'
+							+'<div class="J_ItemLottery"></div></div> </li><li class="td td-op">'
+							+'<div class="td-inner">'
+							+'<a href="" data-point-url="" class="J_Del J_MakePoint">删除</a></div>'
+							+'</li></ul>';
+						$('#showcart').append(showitem);
+				}
+			},
+			error : function(text) {
+				alert("访问服务器失败！");
+			}
+		});
+	 }
+	 
+	 function changetotalprice(cid){
+	 	var ptotal=$('#'+cid).find('.ptotal').val();
+	 	var price=$('#'+cid).find('.price').html();
+	 	var tp=ptotal*price;
+	 	var oldtp=$('#'+cid).find('.totalprice').html();
+	 	$('#'+cid).find('.totalprice').html(tp);
+	 	if($('#'+cid).find('.J_CheckBoxItem1475').eq(0).is(':checked')){
+	 		var total=$('#totalpay').html();
+	 		if(parseFloat(oldtp)<parseFloat(tp))
+	 			$('#totalpay').html(total-(-price));
+	 		else $('#totalpay').html(total-price);
+	 	}
+	 }
+	 
+	 function checkboxin(cid){
+	 	var tp=$('#'+cid).find('.totalprice').html();
+	 	var total=$('#totalpay').html();
+	 	if($('#'+cid).find('.J_CheckBoxItem1475').eq(0).is(':checked')){
+	 		$('#totalpay').html(total-(-tp));
+	 	}
+	 	else $('#totalpay').html(total-tp);
+	 }
+</script> 
 <style>
 .comWidth{width:900px;margin-left:auto;margin-right:auto;}
 .comWidth2{width:900px;margin-left:auto;margin-right:auto;padding-top:10px;}
@@ -523,7 +598,7 @@ a {
 </style>
 </head>
 
-<body>
+<body onload="show()">
 <div class="header">
 
 
@@ -563,7 +638,7 @@ a {
 <div class="th th-chk">
 <div id="J_SelectAll1" class="select-all J_SelectAll">
 <div class="cart-checkbox">
-<input class="J_CheckBoxShop" id="J_SelectAllCbx1" type="checkbox" name="select-all" value="true">
+<input class="J_CheckBoxShop"  id="J_SelectAllCbx1" type="checkbox" name="select-all" value="true">
 <label for="J_SelectAllCbx1">勾选购物车内所有商品</label></div>&nbsp;&nbsp;全选</div></div>
 <div class="th th-item">
 <div class="td-inner">商品信息</div></div>
@@ -580,8 +655,11 @@ a {
 </div></div>
 <!-- 订单内容 -->
 <div  class="order-body">
-<div class="order-content"> 
-<ul class="item-content clearfix"> 
+<div class="order-content" id="showcart"> 
+
+
+
+<ul class="item-content clearfix cartitem" > 
 <!-- 勾选框 -->
 <li class="td td-chk"> 
 <div class="td-inner">
@@ -592,11 +670,11 @@ a {
 <li class="td td-item"> 
 <div class="td-inner"> 
 <div class="item-pic J_ItemPic img-loaded">
-<a href="" target="_blank" data-title="夏季韩版新款百搭高腰显瘦牛仔裙单排扣短裙半身裙纯色A字裙女夏" class="J_MakePoint" data-point="tbcart.8.12">
+<a href="" target="_blank"  class="J_MakePoint" data-point="tbcart.8.12">
 <img src="" class="itempic J_ItemImg"></a></div> 
 <div class="item-info"> 
 <div class="item-basic-info"> 
-<a href="" target="_blank" title="夏季韩版新款百搭高腰显瘦牛仔裙单排扣短裙半身裙纯色A字裙女夏" class="item-title J_MakePoint" data-point="tbcart.8.11">夏季韩版新款百搭高腰显瘦牛仔裙单排扣短裙半身裙纯色A字裙女夏</a> 
+<a href="" target="_blank"  class="item-title J_MakePoint" data-point="tbcart.8.11">夏季韩版</a> 
 </div></div></div> </li> 
 <!-- 商品价格 -->
 <li class="td td-price"> 
@@ -604,21 +682,21 @@ a {
 <div class="item-price price-promo-seller">
 <div class="price-content">
 <div class="price-line">
-<em class="J_Price price-now" tabindex="0">￥</em></div></div>
+<em class="J_Price price-now" tabindex="0">￥<span class="price">10</span></em></div></div>
 </div></div> </li> 
 <!-- 商品数量 -->
 <li class="td td-amount"> 
 <div class="td-inner">
 <div class="amount-wrapper ">
-<div class="item-amount ">
+<div class="item-amount "> 
 
-<input type="number" value="1" class="text text-amount J_ItemAmount" data-max="9805" data-now="1" autocomplete="off">
+<input type="number" value="1" class="text text-amount J_ItemAmount" min="1" max="9805" data-now="1" autocomplete="off">
 </div>
 <div class="amount-msg J_AmountMsg"></div></div></div> </li> 
-<!-- 商品总价 -->
+<!-- 商品总价 --> 
 <li class="td td-sum"> 
 <div class="td-inner">
-<em tabindex="0" class="J_ItemSum number">￥</em>
+<em tabindex="0" class="J_ItemSum number">￥<span class='totalprice'>100</span></em>
 <div class="J_ItemLottery"></div></div> </li>
 <!-- 删除商品 -->
 <li class="td td-op"> 
@@ -626,6 +704,14 @@ a {
 <a href="" data-point-url="" class="J_Del J_MakePoint">删除</a></div> 
 </li>
 </ul>  
+
+
+
+
+
+
+
+
 </div> 
 </div>
 <!-- 固定条 -->
@@ -652,7 +738,7 @@ a {
 <div class="pipe"></div>
 <div class="price-sum">
 <span class="txt">合计（不含运费）：</span>
-<strong class="price"><em id="J_Total"><span class="total-symbol">&nbsp;</span>0.00</em></strong></div>
+<strong class="price"><em id="J_Total"><span class="total-symbol">&nbsp;</span><span id="totalpay">0.00</span></em></strong></div>
 <div class="btn-area">
 <a href="UserPay.jsp" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
 <span>结&nbsp;算</span>

@@ -39,11 +39,11 @@
 					var s='<div class="comWidth2"><div class="pimage fl">'
 						+'<img alt="正在加载图片..." src="product/'+result.pmpic+'"></div>'
 						+'<div class="pright fl">'
-						+'<div class="title ">商品名称:'+result.pname+'</div>'
+						+'<div class="title " >商品名称:<span id="pname">'+result.pname+'</span></div>'
 						+'<div class="price">商品价格:'+result.price+'</div>'
 						+'<div class="inventory">库存:'+result.pstock+'</div>'
 						+'<div class="describe">描述:'+result.pdescription+'</div>'
-						+'<div><input type="button" value="加入购物车" class="btn" />'
+						+'<div><input type="button" value="加入购物车" class="btn"'+" onclick=\"addtocart('"+result.pid+"')\"/>"
 						+'<a href="UserPay.jsp"><input type="button" value="立即购买" class="btn" /></a>'
 						+'</div></div></div>'
 						+'<div class="comWidth3 fl"><hr>';
@@ -53,6 +53,30 @@
 						}
 					$('#show').append(s);
 				}
+			},
+			error : function(text) {
+				alert("访问服务器失败！");
+			}
+		});
+	}
+	
+	function addtocart(proid){
+		var uid='<%=session.getAttribute("UID")%>';
+		if(uid=='null'){
+			if (confirm("您未登录，是否跳转登录页面？")) {
+			location.href='<%=basePath%>'+"UserLogin.jsp";
+			}
+			return false;
+		}
+		var pid=proid;
+		$.ajax({
+			type : "post",
+			url : "Cart_addcart.action",
+			data : {'pid':pid,'uid':uid},
+			datatype : "json",
+			success : function(json) {
+				var pname=$('#pname').html();
+				alert("商品   "+pname+" 已添加到购物车");
 			},
 			error : function(text) {
 				alert("访问服务器失败！");

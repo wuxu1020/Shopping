@@ -57,7 +57,7 @@
 		var serchvalue=$('#searchproduct').val().replace(/\s+/g,"");
 		$.ajax({
 			type : "post",
-			url : "Product_showproduct.action",
+			url : "ProductAjax_showproduct.action",
 			data : {'page':1,'searchvalue':serchvalue},
 			datatype : "json",
 			success : function(json) {
@@ -76,8 +76,9 @@
 					$('#show').append(s);
 				}
 			},
-			error : function(text) {
+			error : function(xhr) {
 				alert("访问服务器失败！");
+				alert(xhr.responseText);
 			}
 		});
 	}
@@ -288,7 +289,7 @@ input[type="text"] {
 }
 </style>
 </head>
-<body onload="getproduct()">
+<body >
 	<div class="quanping" id="show">
 		<div class="top">
 			<div class="comWidth">
@@ -328,22 +329,7 @@ input[type="text"] {
 			</div>
 		</div>
 
-		<div class="comWidth pshow" >
-			<div class="pimage fl">显示商品图片</div>
-			<div class="pright fl">
-				<div class="title ">商品名称:</div>
-
-				<div class="price">商品价格:</div>
-				<div class="inventory">库存:</div>
-				<input type="button" value="删除" class="btn" onclick="" /> 
-				<a
-					href="AdminModifyP.jsp"><input type="button" value="修改"
-					class="btn" /></a>
-			</div>
-
-
-
-		</div>
+		
 
 	</div>
 </body>

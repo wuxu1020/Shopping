@@ -120,7 +120,7 @@ public class ProductDAO {
 		log.debug("finding Product instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
-			String queryString = "from Product as model where model."
+			String queryString = "from Product as model where model.ptype like '%"+value+"%' or model."
 					+ propertyName + " like ?";
 			Query queryObject = getCurrentSession().createQuery(queryString);
 			queryObject.setParameter(0, "%"+value+"%");
