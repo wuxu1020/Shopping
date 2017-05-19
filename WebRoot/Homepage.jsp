@@ -93,13 +93,63 @@ function switchSlider(n){
 		switchSlider(1);
 		}
 //鼠标悬浮显现内容
-function show( ){ 
+function showa( ){ 
  document.getElementById("shopclass_list1").style.display='block'; 
  document.getElementsByName("shopclass_item").style.color='#FF9D9D';
 
 } 
-function noshow( ){ 
+function noshowa( ){ 
  document.getElementById("shopclass_list1").style.display='none'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function showb( ){ 
+ document.getElementById("shopclass_list2").style.display='block'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function noshowb( ){ 
+ document.getElementById("shopclass_list2").style.display='none'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function showc( ){ 
+ document.getElementById("shopclass_list3").style.display='block'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function noshowc( ){ 
+ document.getElementById("shopclass_list3").style.display='none'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function showd( ){ 
+ document.getElementById("shopclass_list4").style.display='block'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function noshowd( ){ 
+ document.getElementById("shopclass_list4").style.display='none'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function showe( ){ 
+ document.getElementById("shopclass_list5").style.display='block'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function noshowe( ){ 
+ document.getElementById("shopclass_list5").style.display='none'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function showf( ){ 
+ document.getElementById("shopclass_list6").style.display='block'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function noshowf( ){ 
+ document.getElementById("shopclass_list6").style.display='none'; 
  document.getElementsByName("shopclass_item").style.color='#FF9D9D';
 
 } 
@@ -146,31 +196,24 @@ function noshow( ){
       <div class="shopclass fl">
         <p>全部商品分类</p>
         <div class="shopclass_show">
-          <ul class="shopclass_item " id="l1" onmouseover="show( )" onmouseout="noshow()">
+          <ul class="shopclass_item " id="l1" onmouseover="showa( )" onmouseout="noshowa()">
             <li >数码 </li>
           </ul>
-          <ul class="shopclass_item">
+          <ul class="shopclass_item" id="l1" onmouseover="showb( )" onmouseout="noshowb()">
             <li id="l2" onmouseover="">家电 </li>
           </ul>
-          <ul class="shopclass_item">
+          <ul class="shopclass_item" id="l1" onmouseover="showc( )" onmouseout="noshowc()">
             <li id="l3" onmouseover="">服装</li>
           </ul>
-          <ul class="shopclass_item">
+          <ul class="shopclass_item" id="l1" onmouseover="showd( )" onmouseout="noshowd()">
             <li id="l4" onmouseover="">食品</li>
           </ul>
-          <ul class="shopclass_item">
+          <ul class="shopclass_item" id="l1" onmouseover="showe( )" onmouseout="noshowe()">
             <li id="l5" onmouseover="">个护</li>
           </ul>
-           <ul class="shopclass_item">
+           <ul class="shopclass_item" id="l1" onmouseover="showf( )" onmouseout="noshowf()">
             <li id="l6" onmouseover="">其他</li>
           </ul>
-        </div>
-        <div id="shopclass_list1" >
-          <div class="shopclass_cont">
-            <dl class="shoplist_item">
-              <dd > <a href="#">单反</a> </dd>
-            </dl>
-          </div>
         </div>
         <div id="shopclass_list1" >
           <div class="shopclass_cont">
@@ -182,35 +225,36 @@ function noshow( ){
         <div id="shopclass_list2" >
           <div class="shopclass_cont">
             <dl class="shoplist_item">
-              <dd > <a href="#">单反</a> </dd>
+              <dd > <a href="#">2</a> </dd>
             </dl>
           </div>
         </div>
         <div id="shopclass_list3" >
           <div class="shopclass_cont">
             <dl class="shoplist_item">
-              <dd > <a href="#">单反</a> </dd>
+              <dd > <a href="#">3</a> </dd>
             </dl>
           </div>
         </div>
+        
         <div id="shopclass_list4" >
           <div class="shopclass_cont">
             <dl class="shoplist_item">
-              <dd > <a href="#">单反</a> </dd>
+              <dd > <a href="#">4</a> </dd>
             </dl>
           </div>
         </div>
         <div id="shopclass_list5" >
           <div class="shopclass_cont">
             <dl class="shoplist_item">
-              <dd > <a href="#">单反</a> </dd>
+              <dd > <a href="#">5</a> </dd>
             </dl>
           </div>
         </div>
         <div id="shopclass_list6" >
           <div class="shopclass_cont">
             <dl class="shoplist_item">
-              <dd > <a href="#">单反</a> </dd>
+              <dd > <a href="#">6</a> </dd>
             </dl>
           </div>
         </div>

@@ -90,7 +90,7 @@
 
 .quanping {
 	width: auto;
-	height: 1000px;
+	height: 3000px;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #FFE3E3;
@@ -237,8 +237,8 @@ a {
 }
 
 .pimage {
-	width: 300px;
-	height: 350px;
+	width: 220px;
+	height:220px;
 	background-color: #F9F9F9;
 }
 
@@ -249,8 +249,12 @@ a {
 	left: 1px;
 }
 
+.pimage{width:220px;height:220px;background-color:#F9F9F9;}
+.pright .title,.pright .price,.pright .inventory,.pright .describe{margin-top:10px;}
+.pright .btn{margin-top:70px;}
 .pright {
 	padding-left: 30px;
+	font-size:16px;
 }
 
 .btn {

@@ -25,9 +25,9 @@ myFocus.set({
 </script>
 <style>
 .comWidth{width:900px;margin-left:auto;margin-right:auto;}
-.comWidth2{width:900px;margin-left:auto;margin-right:auto;padding-top:10px;}
+.comWidth2{width:900px;margin-left:auto;margin-right:auto;padding-top:10px;height:250px;}
 .comWidth1{width:1090px;margin-left:auto;margin-right:auto;}
-.quanping{width:auto;height:1000px;margin-left:auto;margin-right:auto;background-color:#FFE3E3;}
+.quanping{width:auto;height:3000px;margin-left:auto;margin-right:auto;background-color:#FFE3E3;}
 .fr{float:right;}
 .fl{float:left;}
 .hide{display:none;}
@@ -60,8 +60,13 @@ a{text-decoration:none;color:#666;}
 .searchtext{width:300px;height:35px;padding:0 5px;margin-left:100px;}
 .search{padding-top:5px;}
 .s{margin-right:150px;}
-.pimage{width:300px;height:350px;background-color:#F9F9F9;}
-.pright{padding-left:30px;}
+.pimage{width:220px;height:220px;background-color:#F9F9F9;}
+.pright .title,.pright .price,.pright .inventory{margin-top:10px;}
+.pright .btn{margin-top:90px;}
+.pright {
+	padding-left: 30px;
+	font-size:16px;
+}
 .btn {
 	-moz-box-shadow: 0px 10px 14px -7px #bd4c4c;
 	-webkit-box-shadow: 0px 10px 14px -7px #bd4c4c;

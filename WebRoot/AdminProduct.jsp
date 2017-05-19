@@ -23,7 +23,7 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-2.1.1.min.js"></script>
 	
 <script type="text/javascript">
 	function getUser() {
@@ -221,15 +221,19 @@ a {
 .s {
 	margin-right: 150px;
 }
-
+.pshow{
+height:250px;
+}
 .pimage {
-	width: 300px;
-	height: 350px;
+	width: 220px;
+	height: 220px;
 	background-color: #F9F9F9;
 }
-
+.pright .title,.pright .price,.pright .inventory{margin-top:10px;}
+.pright .btn{margin-top:90px;}
 .pright {
 	padding-left: 30px;
+	font-size:16px;
 }
 
 .btn {
