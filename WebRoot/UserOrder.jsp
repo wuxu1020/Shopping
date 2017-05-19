@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>商品结算</title>
+<title>购物车</title>
 <link href="css/head.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 myFocus.set({
@@ -97,26 +97,25 @@ a{text-decoration:none;color:#666;}
 	background-color:#f76868;
 }
 .btn:active {position:relative;top:1px;}
-.pay{padding-left:300px;padding-top:15px;}
-.pay1{padding-left:360px;padding-top:15px;}
-.pay2{padding-left:600px;padding-top:25px;}
 </style>
 </head>
 
 <body>
 <div class="header">
+
+
   <div class="top">
     <div class="comWidth">
       <div class="leftarea fl"> 欢迎来到嗨购! </div>
       
       <div class="rightarea fr"> 
-         <a href="<%=basePath %>Homepage.jsp" class="login">首页</a> <span>|</span>
+        <a href="<%=basePath %>Homepage.jsp" class="login">首页</a> <span>|</span>
       <%   if(session.getAttribute("UID")==null){ %>
       <a href="<%=basePath %>UserLogin.jsp" class="login">请登录</a> <span>|</span> <a href="<%=basePath %>UserRegister.jsp" class="register">免费注册</a>
       <%}else{ %>
       <span>欢迎！  <%=session.getAttribute("UID") %></span>
       <%} %>
-     <span>|</span> <a href="<%=basePath %>ShoppingCar.jsp" class="shopcar1"> 我的购物车</a> <span>|</span> <a href="<%=basePath %>UserOrder.jsp" class="order">全部订单</a> <span>|</span> <a href="AdminLogin.jsp" class="order">系统维护</a> 
+       <span>|</span> <a href="<%=basePath %>ShoppingCar.jsp" class="shopcar1">我的购物车</a> <span>|</span> <a href="<%=basePath %>UserOrder.jsp"  class="order">全部订单</a> <span>|</span> <a href="AdminLogin.jsp" class="order">系统维护</a> 
        <%   if(session.getAttribute("UID")!=null){ %>
        <span>|</span> <a onclick="check()" class="register">退出登录</a>
         <%} %>
@@ -126,22 +125,12 @@ a{text-decoration:none;color:#666;}
   <div class="logo">
     <div class="comWidth1">
       <div class="logoimage fl"> <a href="#"><img src="image/haigou.png" alt="嗨购"></a> </div>
-     
+    
     </div>
   </div>
-  </div>
   <div class="quanping">
-  <div class="pay">
-    请输入收货地址：
-  <input type="text" class="address"  style="margin-top: 7px;height: 35px;width:300px;" >
-   </div>
-   <div class="pay1">
-    留言： 
-   <input type="text" class="words"  style="margin-top: 7px;height: 35px;width:300px;" >
-   </div>
-   <div class="pay2"><button type="submit" class="btn btn-xs btn-green fl" >提交订单 </button></div>
- 
-
+  订单
   </div>
-  </body>
+   </body>
   </html>
+ 

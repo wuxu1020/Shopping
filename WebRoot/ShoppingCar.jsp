@@ -538,7 +538,7 @@ a {
       <%}else{ %>
       <span>欢迎！  <%=session.getAttribute("UID") %></span>
       <%} %>
-       <span>|</span> <a href="<%=basePath %>ShoppingCar.jsp" class="shopcar1">我的购物车</a> <span>|</span> <a href="#" class="order">全部订单</a> <span>|</span> <a href="AdminLogin.jsp" class="order">系统维护</a> 
+       <span>|</span> <a href="<%=basePath %>ShoppingCar.jsp" class="shopcar1">我的购物车</a> <span>|</span> <a href="<%=basePath %>UserOrder.jsp" class="order">全部订单</a> <span>|</span> <a href="AdminLogin.jsp" class="order">系统维护</a> 
        <%   if(session.getAttribute("UID")!=null){ %>
        <span>|</span> <a onclick="check()" class="register">退出登录</a>
         <%} %>
@@ -654,34 +654,14 @@ a {
 <span class="txt">合计（不含运费）：</span>
 <strong class="price"><em id="J_Total"><span class="total-symbol">&nbsp;</span>0.00</em></strong></div>
 <div class="btn-area">
-<a href="javascript:void(0)" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
+<a href="UserPay.jsp" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
 <span>结&nbsp;算</span>
 <b></b></a></div>
 </div>
 </div> </div></div></div>
 </div></div>
-<!--   <div class="comWidth2"> -->
-<!--      <div class="pimage fl"> -->
-<!--      显示商品图片    -->
-<!--      </div> -->
-<!--      <div class="pright fl">   -->
-<!--      <div class="title "> -->
-<!--    商品名称:  -->
-<!--      </div> -->
-     
-<!--      <div class="price"> -->
-<!--      商品价格: -->
-<!--      </div> -->
-<!--      <div class="inventory"> -->
-<!--      库存: -->
-<!--      </div>    -->
-<!--  <a href="Product.jsp" > <input type="button" value="详情" class="btn fr s" /></a> -->
-<!--      </div> -->
-<!--      </div> -->
-<!--    <a href="UserPay.jsp" > <input type="button" value="结算" class="btn fr s" /></a>   -->
-     
-     </div>
-  </div>
+
+   
   </body>
   </html>
  

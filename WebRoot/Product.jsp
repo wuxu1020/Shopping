@@ -61,6 +61,7 @@
 	}
 </script>
 <style>
+
 .comWidth {
 	width: 900px;
 	margin-left: auto;
@@ -325,7 +326,7 @@ a {
 						}
 					%>
 					<span>|</span> <a href="<%=basePath%>ShoppingCar.jsp"
-						class="shopcar1"> 我的购物车</a> <span>|</span> <a href="#"
+						class="shopcar1"> 我的购物车</a> <span>|</span> <a href="<%=basePath %>UserOrder.jsp"
 						class="order">全部订单</a> <span>|</span> <a href="AdminLogin.jsp"
 						class="order">系统维护</a>
 					<%
@@ -356,7 +357,7 @@ a {
 				<div class="price">商品价格:</div>
 				<div class="inventory">库存:</div>
 				<div class="describe">描述:</div>
-				<div>
+				<div >
 					<input type="button" value="加入购物车" class="btn" /><a
 						href="UserPay.jsp"><input type="button" value="立即购买"
 						class="btn" /></a>
