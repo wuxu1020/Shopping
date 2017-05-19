@@ -97,14 +97,255 @@ a{text-decoration:none;color:#666;}
 	background-color:#f76868;
 }
 .btn:active {position:relative;top:1px;}
-/* 固定条 */
-.float-bar-holder {
+/* 购物车导航条 */
+.cart-main {
+    min-height: 210px;
+}
+.cart-table-th {
+    overflow: hidden;
+    height: 50px;
+    line-height: 50px;
+    color: #3c3c3c;
+}
+.wp {
+    width: 990px;
+    margin: 0 auto;
+}
+.cart-table-th .th-chk {
+    font-size: 12px;
+    text-align: left;
     position: relative;
     height: 50px;
 }
-.float-bar{
+.cart-table-th .th {
+    float: left;
+}
+.th-item, .td-item {
+    width: 302px;
+}
+.th-chk, .td-chk {
+    width: 45px;
+}
+.th-info, .td-info {
+    width: 172px;
+    padding-right: 20px;
+}
+.cart-table-th .th-item .td-inner {
+    padding-left: 91px;
+}
+.th .td-inner {
+    padding: 0 0 0 10px;
+}
+.th-price, .td-price {
+    width: 120px;
+}
+.item-content .td-price .td-inner {
+    padding-top: 12px;
+}
+.item-content .td-price {
+    color: #9c9c9c;
+    margin-left:130px;
+}
+.item-content .price-content {
+    padding: 8px 0 0 10px;
+    line-height: 1;
+    width: 74px;
+}
+.item-content .td-price .price-line {
+    padding: 0 0 4px 0;
+}
+.item-content .price-now {
+    color: #3c3c3c;
+    font-weight: 700;
+    font-family: Verdana,Tahoma,arial;
+}
+.th-amount, .td-amount {
+    width: 120px;
+}
+.th-sum, .td-sum {
+    width: 105px;
+}
+.th-op, .td-op {
+    width: 84px;
+    padding: 0 0 0 15px;
+}
+.cart-table-th .th-chk .select-all {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80px;
+}
+.select-all {
+    cursor: pointer;
+}
+.item-content .item-props {
+    padding: 16px 0;
+    min-height: 84px;
+    _height: 84px;
+    border: 1px dashed transparent;
+    position: relative;
+    _border-color: #EEF6FF;
+}
+/* 订单内容 */
+.order-body {
+    height:100%;
+}
+.order-content {
+    width:auto;
+    height:100%;
+    margin-left:15%;
+}
+.item-holder {
+    position: relative;
+}
+.last-item {
+    border-bottom: none;
+}
+.item-body {
+    background: #fcfcfc;
+}
+ ul {
+    list-style: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width:90%;
+    height:300px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.item-content .td-chk {
+    position: relative;
+    overflow: hidden;
+}
+.item-content .td {
+    float: left;
+    min-height: 119px;
+    padding-right:13px;
+}
+.th-chk, .td-chk {
+    width: 45px;
+}
+.th-item, .td-item {
+    width: 302px;
+}
+.item-info {
+    height:40px;
+    width:200px;
+    margin-left:220px;
+}
+.td-inner {
+    padding-top: 20px;
+}
+
+.item-content .img-loaded {
+    background: #fff;
+}
+.item-content .item-pic {
+    width: 220px;
+    height: 220px;
+    border: 1px solid #eee;
+    float: left;
+    overflow: hidden;
+    background: #fff no-repeat 50% 50%;
+}
+.item-content .item-pic a {
+    display: table-cell;
+    width: 80px;
+    height: 80px;
+    vertical-align: middle;
+    text-align: center;
+}
+.item-content .item-title {
+    font-size: 12px;
+    max-height: 36px;
+    display:block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* 商品数量 */
+.item-content .item-amount {
+    height: 25px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: 77px;
+}
+.item-content .item-amount .no-minus {
+    color: #e5e5e5;
+}
+.item-content .item-amount .minus, .item-content .item-amount .no-minus {
+    border-right-color: transparent;
+    left: 0;
+}
+.item-content .item-amount a {
+    display: block;
+    height: 23px;
+    width: 17px;
+    border: 1px solid #e5e5e5;
+    background: #f0f0f0;
+    text-align: center;
+    line-height: 23px;
+    color: #444;
+    position: absolute;
+    top: 0;
+}
+.item-content .item-amount a, .item-content .text-amount {
+    float: left;
+}
+input.text.text-amount.J_ItemAmount {
+    width: 39px;
+    height: 25px;
+    line-height: 25px;
+    border: 1px solid #aaa;
+    color: #343434;
+    text-align: center;
+    padding: 4px 0;
+    background-color: #fff;
+    background-position: -75px -375px;
+    position: absolute;
+    z-index: 2;
+    left: 18px;
+    top: 0;
+}
+.item-content .item-amount .plus, .item-content .item-amount .no-plus {
+    border-left-color: transparent;
+    right: 0;
+}
+.item-content .item-amount a {
+    display: block;
+    height: 35px;
+    width: 40px;
+    border: 1px solid #e5e5e5;
+    background: #f0f0f0;
+    text-align: center;
+    line-height: 35px;
+    color: #444;
+    position: absolute;
+    top: 0;
+}
+
+/* 商品总价 */
+.item-content .td-sum {
+    color: #f40;
+    font-weight: 700;
+}
+.item-content .td-sum .td-inner {
+    padding-top: 16px;
+}
+.th-op, .td-op {
+    width: 84px;
+    padding: 0 0 0 15px;
+}
+/* 固定条 */
+.float-bar-holder {
+    position:fixed;
+    height: 50px;
     width: 990px;
-    margin: 0 auto;
+    left:10%;
+    bottom:0;
 }
 .float-bar-wrapper {
     height: 50px;
@@ -116,29 +357,22 @@ a{text-decoration:none;color:#666;}
     width: 50px;
     height: 50px;
     line-height: 50px;
-    padding-left: 5px;
-}
-.select-all {
+    padding-left:5px;
     cursor: pointer;
-    margin-top: -2px;
 }
-.select-all .cart-checkbox {
+.cart-checkbox {
     vertical-align: middle;
-    margin-top: -2px;
-}
-。cart-checkbox {
     position: relative;
     display: inline-block;
     width: 15px;
     height: 15px;
-    overflow: hidden;
 }
 .cart-checkbox input {
     position: absolute;
     z-index: 0;
-    left: -20px;
-    top: -20px;
+
 }
+
 .cart-checkbox label {
     position: relative;
     z-index: 1;
@@ -165,11 +399,10 @@ a {
 }
 .float-bar-right {
     float: right;
-    position: absolute;
     right: 0;
     top: 0;
     z-index: 4;
-    padding-left: 20px;
+    
 }
 .float-bar-right, .float-bar-wrapper {
     background: #e5e5e5;
@@ -256,16 +489,36 @@ address, cite, dfn, em, var {
     font-weight: 400;
     color: #f40;
 }
+/* 结算 */
 .float-bar .btn-area {
     float: left;
 }
-.submit-btn-disabled {
+.float-bar .submit-btn-disabled:link, .float-bar .submit-btn-disabled:hover {
     background: #B0B0B0;
     color: #fff;
     border-left: 1px solid #e7e7e7;
     width: 119px;
     cursor: not-allowed;
     text-decoration: none;
+}
+.float-bar .submit-btn {
+    display: inline-block;
+    width: 120px;
+    height: 50px;
+    line-height: 50px;
+    background: #f40;
+    text-align: center;
+    font-family: 'Lantinghei SC','Microsoft Yahei';
+    font-size: 20px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    text-decoration: none;
+    cursor: pointer;
+}
+a {
+    color: #3c3c3c;
 }
 </style>
 </head>
@@ -325,15 +578,9 @@ address, cite, dfn, em, var {
 <div class="th th-op">
 <div class="td-inner">操作</div></div>
 </div></div>
-<div id="J_OrderList" data-spm="1997196601">
-<div id="J_OrderHolder_s_818035833_1" style="height: auto;">
-<div id="J_Order_s_818035833_1" class="J_Order clearfix order-body">
 <!-- 订单内容 -->
-<div class="order-content">
-<div id="J_BundleList_s_818035833_1" class="item-list">
-<div id="J_Bundle_s_818035833_1_0" class="bundle  bundle-last ">
-<div id="J_ItemHolder_445439946879" class="item-holder">
-<div id="J_Item_445439946879" class="J_ItemBody item-body clearfix item-normal  first-item">  
+<div  class="order-body">
+<div class="order-content"> 
 <ul class="item-content clearfix"> 
 <!-- 勾选框 -->
 <li class="td td-chk"> 
@@ -349,57 +596,43 @@ address, cite, dfn, em, var {
 <img src="" class="itempic J_ItemImg"></a></div> 
 <div class="item-info"> 
 <div class="item-basic-info"> 
-<a href="" target="_blank" title="夏季韩版新款百搭高腰显瘦牛仔裙单排扣短裙半身裙纯色A字裙女夏" class="item-title J_MakePoint" data-point="tbcart.8.11">夏季韩版新款百搭高腰显瘦牛仔裙单排扣短裙半身裙纯色A字裙女夏</a> </div> 
-<div class="item-other-info">  
-<div class="promo-logos"></div> 
-<div class="item-icon-list clearfix">
-<div class="item-icons J_ItemIcons  item-icons-fixed ">
-<span class="item-icon item-icon-0" title="支持信用卡支付">
-<img src="//assets.alicdn.com/sys/common/icon/trade/xcard.png" alt=""></span>
-<a href="" target="_blank" class="item-icon item-icon-1 J_MakePoint" data-point="tbcart.8.26" title="0首付，慢慢还，拥有所爱，无需等待！">
-<img src="//img.alicdn.com/tps/TB1GnsWJXXXXXbCXpXXXXXXXXXX-43-16.png" alt=""></a>
-<a href="" target="_blank" class="item-icon item-icon-2 J_MakePoint" data-point="tbcart.8.26" title="15天退货，退货邮费买家承担">
-<img src="//img.alicdn.com/tps/i2/TB1XY_zGpXXXXbeXXXXAz6UFXXX-16-16.png" alt="15天退货"></a>
-<a href="" data-point="tbcart.8.26" title="消费者保障服务，卖家承诺商品如实描述">
-<img src="//img.alicdn.com/tps/i3/T1bnR4XEBhXXcQVo..-14-16.png" alt="">
-</a></div></div> </div> </div> </div> </li> 
+<a href="" target="_blank" title="夏季韩版新款百搭高腰显瘦牛仔裙单排扣短裙半身裙纯色A字裙女夏" class="item-title J_MakePoint" data-point="tbcart.8.11">夏季韩版新款百搭高腰显瘦牛仔裙单排扣短裙半身裙纯色A字裙女夏</a> 
+</div></div></div> </li> 
 <!-- 商品价格 -->
 <li class="td td-price"> 
 <div class="td-inner">
 <div class="item-price price-promo-seller">
 <div class="price-content">
 <div class="price-line">
-<em class="price-original">￥26.00</em></div>
-<div class="price-line">
-<em class="J_Price price-now" tabindex="0">￥19.98</em></div></div>
-<div class="promo-main promo-seller">
-<div class="promo-content  promo-viptool20120502 J_ItemPromotions">
-卖家降价<span class="arrow"></span>
-</div></div></div></div> </li> 
+<em class="J_Price price-now" tabindex="0">￥</em></div></div>
+</div></div> </li> 
 <!-- 商品数量 -->
 <li class="td td-amount"> 
 <div class="td-inner">
 <div class="amount-wrapper ">
 <div class="item-amount ">
-<a href="#" class="J_Minus no-minus">-</a>
-<input type="text" value="1" class="text text-amount J_ItemAmount" data-max="9805" data-now="1" autocomplete="off">
-<a href="#" class="J_Plus plus">+</a></div>
+
+<input type="number" value="1" class="text text-amount J_ItemAmount" data-max="9805" data-now="1" autocomplete="off">
+</div>
 <div class="amount-msg J_AmountMsg"></div></div></div> </li> 
 <!-- 商品总价 -->
 <li class="td td-sum"> 
 <div class="td-inner">
-<em tabindex="0" class="J_ItemSum number">￥19.98</em>
+<em tabindex="0" class="J_ItemSum number">￥</em>
 <div class="J_ItemLottery"></div></div> </li>
 <!-- 删除商品 -->
 <li class="td td-op"> 
 <div class="td-inner">
-<a href="" data-point-url="" class="J_Del J_MakePoint">删除</a></div> </li></ul>  </div> </div>
+<a href="" data-point-url="" class="J_Del J_MakePoint">删除</a></div> 
+</li>
+</ul>  
+</div> 
+</div>
 <!-- 固定条 -->
-<div id="J_FloatBarHolder" class="float-bar-holder">
-<div id="J_FloatBar" class="float-bar clearfix default" style="position: static;">
-
+<div  class="float-bar-holder">
+<div  class="float-bar clearfix default" >
 <div class="float-bar-wrapper">
-<div id="J_SelectAll2" class="select-all J_SelectAll">
+<div class="select-all J_SelectAll">
 <div class="cart-checkbox">
 <input class="J_CheckBoxShop" id="J_SelectAllCbx2" type="checkbox" name="select-all" value="true">
 <label for="J_SelectAllCbx2">勾选购物车内所有商品</label></div>&nbsp;全选</div>
@@ -414,15 +647,19 @@ address, cite, dfn, em, var {
 <span class="txt">件</span>
 <div class="arrow-box">
 <span class="selected-items-arrow"></span>
-<span class="arrow"></span></div></div>
+<span class="arrow"></span></div>
+</div>
 <div class="pipe"></div>
 <div class="price-sum">
 <span class="txt">合计（不含运费）：</span>
 <strong class="price"><em id="J_Total"><span class="total-symbol">&nbsp;</span>0.00</em></strong></div>
 <div class="btn-area">
 <a href="javascript:void(0)" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
-<span>结&nbsp;算</span><b></b></a></div></div></div> </div></div>
-
+<span>结&nbsp;算</span>
+<b></b></a></div>
+</div>
+</div> </div></div></div>
+</div></div>
 <!--   <div class="comWidth2"> -->
 <!--      <div class="pimage fl"> -->
 <!--      显示商品图片    -->
