@@ -1,38 +1,37 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page import="shopping.model.*"%>
+ <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>订单管理</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
- <script type="text/javascript">
-   function getUser(){
-     location.href="http://localhost:8080/shopping/Admin_getUser.action";
-  }
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>购物车</title>
+<link href="css/head.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jQuery.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script> 
+<script type="text/javascript">
+
  function check() {
 	      if(confirm("您确定要退出吗?")){
-		        window.location.href = "Homepage.jsp"
+		        window.location.href = "UserLogout.jsp"
 	           }
 	           }
- </script>
- <style>
+</script>
+<script type="text/javascript">
+    $(function(){
+    $("#myTab a").click(function(e){
+        e.preventDefault();
+        $(this).tab("show");
+    });
+})
+</script>
+<style>
 .comWidth{width:900px;margin-left:auto;margin-right:auto;}
+.comWidth2{width:900px;margin-left:auto;margin-right:auto;padding-top:10px;}
 .comWidth1{width:1090px;margin-left:auto;margin-right:auto;}
 .quanping{width:auto;height:1000px;margin-left:auto;margin-right:auto;background-color:#FFE3E3;}
 .fr{float:right;}
@@ -49,7 +48,6 @@ body,ul,li,p,h3,div{margin:0;padding:0;}
 body{font-size:12px;}
 img{border:none;}
 li{list-style:none;}
-input{border:none;}
 hr{color:#FFF;}
 dt{padding-left:10px;paddind-top:5px;}
 /*dl{border-bottom:1px solid #FFF;}*/
@@ -61,6 +59,15 @@ a{text-decoration:none;color:#666;}
 .nav a{height:36px;display:inline-block;padding:0 60px;color:#FFF; }
 .nav a:hover{color:black;}
 .nav .active{background-color:#FF9D9D;}
+.search_box{width:440px;padding-top:29px;padding-left:185px;}
+.search_text{width:350px;height:35px;padding:0 5px;}
+.search_button{width:80px;height:35px;font-size:14px;font-family:"Microsoft YaHei","微软雅黑";background-color:#F00;color:#FFF; }
+
+.searchtext{width:300px;height:35px;padding:0 5px;margin-left:100px;}
+.search{padding-top:5px;}
+.s{margin-right:150px;}
+.pimage{width:300px;height:350px;background-color:#F9F9F9;}
+.pright{padding-left:30px;}
 .btn {
 	-moz-box-shadow: 0px 10px 14px -7px #bd4c4c;
 	-webkit-box-shadow: 0px 10px 14px -7px #bd4c4c;
@@ -95,43 +102,203 @@ a{text-decoration:none;color:#666;}
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f76868', endColorstr='#f27e7e',GradientType=0);
 	background-color:#f76868;
 }
-.btn:active {
-	position:relative;
-	top:1px;
+.btn:active {position:relative;top:1px;}
+#myTab{
+     width:60%;
+     margin:0 auto;
+}
+.nav{
+    line-height:50px;
+}
+#myTab li{
+     width:33%;
+     height:50px;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #fff;
+    background-color:#FF4848;
+}
+.nav a{
+     height:50px; 
+     color:#000;
+}
+/* 未发货 */
+.weifa{
+    margin-left:145px;
+     width:85%;
+     height: 50px;
+    line-height: 50px;
+    color: #3c3c3c;
+
+}
+.th-item {
+    float:left;
+    width:200px;
+}
+.th-info {
+    width: 150px;
+    padding-right: 20px;
+    float:left;
+}
+.th-price{
+    float:left;
+    width:50px;
+    margin-left:150px;
+}
+.th-amount{
+    float:left;
+    padding:0px 55px; 
+}
+.th-sum {
+    color: #f40;
+    font-weight: 700;
+    float:left;
+    padding:0px 30px;
+}
+.th-time{
+    float:left;
+    padding:0px 30px;
+}
+/* 订单内容 */
+.user{
+    float:left;
+    margin-right:150px; 
+}
+.username{
+    float:left;  
+    margin:0px 145px;
+}
+.tupian{
+   width: 220px;
+    height: 220px;
+    border: 1px solid #eee;
+    float: left;
+    overflow: hidden;
+    background: #fff no-repeat 50% 50%;
+}
+.mingchen{
+   float:left;
+   width:250px;
+   height:220px;
+}
+.price-content{
+   float:left;
+   padding:0px 30px;
+}
+.amount{
+   float:left;
+   padding:0px 30px;
+}
+.sum{
+   float:left;
+   padding:0px 30px;
+}
+.time{
+   float:left;
+   padding:0px 30px;
 }
 </style>
-  </head>
-  
-  
-  <body>
-  <div class="quanping">
-   <div class="top">
+
+</head>
+
+<body>
+<div class="header">
+      <div class="top">
     <div class="comWidth">
       <div class="leftarea fl"> 欢迎来到嗨购! </div>
-      <div class="rightarea fr">
-                                 <a onclick="check()" class="register">退出登录</a> 
+      <div class="rightarea fr"> 
+         <a onclick="check()" class="register">退出登录</a> 
       </div>
     </div>
  </div>
+    </div>
+  </div>
   <div class="logo">
     <div class="comWidth1">
       <div class="logoimage fl"> <a href="#"><img src="image/haigou.png" alt="嗨购"></a> </div>
+    
     </div>
   </div>
-   <div class="navbox">
-    <div class="comWidth">
-     <ul class="nav ">
-        <li><a  onclick="getUser()" class=active>用户管理</a></li>
-        <li><a href="AdminProduct.jsp" >商品管理</a></li>
-        <li><a href="AdminOrder.jsp" class=active>订单管理</a></li>
-        <li><a href="AdminSale.jsp">销售统计</a></li>
-        <li><a href="AdminSort.jsp" class=active>分类管理</a></li>
-      </ul>
-   </div>
-  </div>
-   <div>这是订单管理</div>
-   </div>
-  </body>
-  
-  
+<!--   订单 -->
+  <div class="quanping">
+<ul id="myTab" class="nav nav-pills" role="tablist">
+    <li class="active"><a href="#weifahuo" role="tab" data-toggle="pill">未发货</a></li>
+    <li><a href="#yifahuo" role="tab" data-toggle="pill">已发货</a></li>
+    <li><a href="#yiwancheng" role="tab" data-toggle="pill">已完成</a></li>
+</ul>
+<!-- 选项卡面板 -->
+<div id="myTabContent" class="tab-content">
+<!--   未发货 -->
+	<div class="tab-pane fade active" id="weifahuo">
+		<div class="weifa">
+		 <div class="user">用户</div>
+		 <div class="th-item">商品信息</div>
+	     <div class="th-info">&nbsp;</div>
+	     <div class="th-price">单价</div>
+	     <div class="th-amount">数量</div>
+	     <div class="th-sum">金额</div>
+	     <div class="th-time">时间</div>
+	    </div>
+	 <div class="username">张三</div>
+	 <div class="tupian"></div>
+	 <div class="mingchen"></div>
+	 <div class="price-content">
+	 <em tabindex="0">￥<span >单价钱</span></em>
+	 </div>
+	 <div class="amount">数量</div>
+	 <div class="sum">
+	 <em tabindex="0" >￥<span >总金额</span></em>
+	 </div>
+	 <div class="time">下单时间</div>
+    </div>
+<!--     已发货 -->
+	<div class="tab-pane fade" id="yifahuo">
+	<div class="weifa">
+	     <div class="user">用户</div>
+		 <div class="th-item">商品信息</div>
+	     <div class="th-info">&nbsp;</div>
+	     <div class="th-price">单价</div>
+	     <div class="th-amount">数量</div>
+	     <div class="th-sum">金额</div>
+	     <div class="th-time">时间</div>
+	 </div>
+	 <div class="username">张三</div>
+	 <div class="tupian"></div>
+	 <div class="mingchen"></div>
+	 <div class="price-content">
+	 <em tabindex="0">￥<span >单价钱</span></em>
+	 </div>
+	 <div class="amount">数量</div>
+	 <div class="sum">
+	 <em tabindex="0" >￥<span >总金额</span></em>
+	 </div>
+	 <div class="time">下单时间</div>
+    </div>
+<!--     已完成 -->
+	<div class="tab-pane fade" id="yiwancheng">
+	<div class="weifa">
+	     <div class="user">用户</div>
+		 <div class="th-item">商品信息</div>
+	     <div class="th-info">&nbsp;</div>
+	     <div class="th-price">单价</div>
+	     <div class="th-amount">数量</div>
+	     <div class="th-sum">金额</div>
+	     <div class="th-time">时间</div>
+	 </div>
+	 <div class="username">张三</div>
+	 <div class="tupian"></div>
+	 <div class="mingchen"></div>
+	 <div class="price-content">
+	 <em tabindex="0">￥<span >单价钱</span></em>
+	 </div>
+	 <div class="amount">数量</div>
+	 <div class="sum">
+	 <em tabindex="0" >￥<span >总金额</span></em>
+	 </div>
+	 <div class="time">下单时间</div>
+	 </div>
+</div> 
+</div>
+</body>
 </html>
+ 

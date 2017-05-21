@@ -368,8 +368,9 @@ a {
 			<h2>查询分类：</h2>
 			<input type="button" onclick="showsort()" value="搜索" class="btn" onchange="showsort()" />
 			<input type="text" name="searchsort" id="searchsort"
-				class="searchtext" /> 显示查询结果
+				class="searchtext" /> 
 			<hr />
+			
 			
 			<%-- <div class="quanping">
 				<table class="table">

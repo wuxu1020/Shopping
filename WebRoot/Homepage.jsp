@@ -195,10 +195,10 @@ function noshowf( ){
     <div class="comWidth">
       <div class="shopclass fl">
         <p>全部商品分类</p>
-        <div class="shopclass_show">
-          <ul class="shopclass_item " id="l1" onmouseover="showa( )" onmouseout="noshowa()">
-            <li >数码 </li>
-          </ul>
+        <div class="shopclass_show" >
+          <ul class="shopclass_item " id="l1" onmouseover="showa( )"  onmouseout="noshowa()"> 
+            <li >数码 </li>  
+          </ul>    
           <ul class="shopclass_item" id="l1" onmouseover="showb( )" onmouseout="noshowb()">
             <li id="l2" onmouseover="">家电 </li>
           </ul>

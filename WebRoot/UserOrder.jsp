@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+ <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,6 +10,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>购物车</title>
 <link href="css/head.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jQuery.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script> 
 <script type="text/javascript">
 myFocus.set({
 	id:'template_main',
@@ -97,7 +100,102 @@ a{text-decoration:none;color:#666;}
 	background-color:#f76868;
 }
 .btn:active {position:relative;top:1px;}
+#myTab{
+     width:60%;
+     margin:0 auto;
+}
+.nav{
+    line-height:50px;
+}
+#myTab li{
+     width:33%;
+     height:50px;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #fff;
+    background-color:#FF4848;
+}
+.nav a{
+     height:50px; 
+     color:#000;
+}
+/* 未发货 */
+.weifa{
+    margin-left:200px;
+     width:85%;
+     height: 50px;
+    line-height: 50px;
+    color: #3c3c3c;
+
+}
+.th-item {
+    float:left;
+    width:200px;
+}
+.th-info {
+    width: 150px;
+    padding-right: 20px;
+    float:left;
+}
+.th-price{
+    float:left;
+    width:50px;
+    margin-left:150px;
+}
+.th-amount{
+    float:left;
+    padding:0px 55px; 
+}
+.th-sum {
+    color: #f40;
+    font-weight: 700;
+    float:left;
+    padding:0px 30px;
+}
+.th-time{
+    float:left;
+    padding:0px 30px;
+}
+/* 订单内容 */
+.tupian{
+   width: 220px;
+    height: 220px;
+    border: 1px solid #eee;
+    float: left;
+    overflow: hidden;
+    background: #fff no-repeat 50% 50%;
+    margin-left:200px;
+}
+.mingchen{
+   float:left;
+   width:250px;
+   height:220px;
+}
+.price-content{
+   float:left;
+   padding:0px 30px;
+}
+.amount{
+   float:left;
+   padding:0px 30px;
+}
+.sum{
+   float:left;
+   padding:0px 30px;
+}
+.time{
+   float:left;
+   padding:0px 30px;
+}
 </style>
+<script type="text/javascript">
+    $(function(){
+    $("#myTab a").click(function(e){
+        e.preventDefault();
+        $(this).tab("show");
+    });
+})
+</script>
 </head>
 
 <body>
@@ -128,9 +226,80 @@ a{text-decoration:none;color:#666;}
     
     </div>
   </div>
+<!--   订单 -->
   <div class="quanping">
-  订单
-  </div>
-   </body>
-  </html>
+<ul id="myTab" class="nav nav-pills" role="tablist">
+    <li class="active"><a href="#weifahuo" role="tab" data-toggle="pill">未发货</a></li>
+    <li><a href="#yifahuo" role="tab" data-toggle="pill">已发货</a></li>
+    <li><a href="#yiwancheng" role="tab" data-toggle="pill">已完成</a></li>
+</ul>
+<!-- 选项卡面板 -->
+<div id="myTabContent" class="tab-content">
+<!--   未发货 -->
+	<div class="tab-pane fade active" id="weifahuo">
+		<div class="weifa">
+		 <div class="th-item">商品信息</div>
+	     <div class="th-info">&nbsp;</div>
+	     <div class="th-price">单价</div>
+	     <div class="th-amount">数量</div>
+	     <div class="th-sum">金额</div>
+	     <div class="th-time">时间</div>
+	    </div>
+	 <div class="tupian"></div>
+	 <div class="mingchen"></div>
+	 <div class="price-content">
+	 <em tabindex="0">￥<span >单价钱</span></em>
+	 </div>
+	 <div class="amount">数量</div>
+	 <div class="sum">
+	 <em tabindex="0" >￥<span >总金额</span></em>
+	 </div>
+	 <div class="time">下单时间</div>
+    </div>
+<!--     已发货 -->
+	<div class="tab-pane fade" id="yifahuo">
+	<div class="weifa">
+		 <div class="th-item">商品信息</div>
+	     <div class="th-info">&nbsp;</div>
+	     <div class="th-price">单价</div>
+	     <div class="th-amount">数量</div>
+	     <div class="th-sum">金额</div>
+	     <div class="th-time">时间</div>
+	 </div>
+	 <div class="tupian"></div>
+	 <div class="mingchen"></div>
+	 <div class="price-content">
+	 <em tabindex="0">￥<span >单价钱</span></em>
+	 </div>
+	 <div class="amount">数量</div>
+	 <div class="sum">
+	 <em tabindex="0" >￥<span >总金额</span></em>
+	 </div>
+	 <div class="time">下单时间</div>
+    </div>
+<!--     已完成 -->
+	<div class="tab-pane fade" id="yiwancheng">
+	<div class="weifa">
+		 <div class="th-item">商品信息</div>
+	     <div class="th-info">&nbsp;</div>
+	     <div class="th-price">单价</div>
+	     <div class="th-amount">数量</div>
+	     <div class="th-sum">金额</div>
+	     <div class="th-time">时间</div>
+	 </div>
+	 <div class="tupian"></div>
+	 <div class="mingchen"></div>
+	 <div class="price-content">
+	 <em tabindex="0">￥<span >单价钱</span></em>
+	 </div>
+	 <div class="amount">数量</div>
+	 <div class="sum">
+	 <em tabindex="0" >￥<span >总金额</span></em>
+	 </div>
+	 <div class="time">下单时间</div>
+	 </div>
+</div> 
+</div>
+</body>
+</html>
  
