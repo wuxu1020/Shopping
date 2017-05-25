@@ -196,40 +196,40 @@ function noshowf( ){
       <div class="shopclass fl">
         <p>全部商品分类</p>
         <div class="shopclass_show" >
-          <ul class="shopclass_item " id="l1" onmouseover="showa( )"  onmouseout="noshowa()"> 
+          <ul class="shopclass_item " id="l1" onmouseover="showa( )"  > 
             <li >数码 </li>  
           </ul>    
-          <ul class="shopclass_item" id="l1" onmouseover="showb( )" onmouseout="noshowb()">
+          <ul class="shopclass_item" id="l1" onmouseover="showb( )">
             <li id="l2" onmouseover="">家电 </li>
           </ul>
-          <ul class="shopclass_item" id="l1" onmouseover="showc( )" onmouseout="noshowc()">
+          <ul class="shopclass_item" id="l1" onmouseover="showc( )">
             <li id="l3" onmouseover="">服装</li>
           </ul>
-          <ul class="shopclass_item" id="l1" onmouseover="showd( )" onmouseout="noshowd()">
+          <ul class="shopclass_item" id="l1" onmouseover="showd( )">
             <li id="l4" onmouseover="">食品</li>
           </ul>
-          <ul class="shopclass_item" id="l1" onmouseover="showe( )" onmouseout="noshowe()">
+          <ul class="shopclass_item" id="l1" onmouseover="showe( )">
             <li id="l5" onmouseover="">个护</li>
           </ul>
-           <ul class="shopclass_item" id="l1" onmouseover="showf( )" onmouseout="noshowf()">
+           <ul class="shopclass_item" id="l1" onmouseover="showf( )">       
             <li id="l6" onmouseover="">其他</li>
           </ul>
         </div>
-        <div id="shopclass_list1" >
+        <div id="shopclass_list1">
           <div class="shopclass_cont">
             <dl class="shoplist_item">
               <dd > <a href="#">单反</a> </dd>
             </dl>
           </div>
         </div>
-        <div id="shopclass_list2" >
+        <div id="shopclass_list2" onmouseout="noshowa()">
           <div class="shopclass_cont">
             <dl class="shoplist_item">
               <dd > <a href="#">2</a> </dd>
             </dl>
           </div>
         </div>
-        <div id="shopclass_list3" >
+        <div id="shopclass_list3" onmouseout="noshowb()">
           <div class="shopclass_cont">
             <dl class="shoplist_item">
               <dd > <a href="#">3</a> </dd>
@@ -237,21 +237,21 @@ function noshowf( ){
           </div>
         </div>
         
-        <div id="shopclass_list4" >
+        <div id="shopclass_list4" onmouseout="noshowc()">
           <div class="shopclass_cont">
             <dl class="shoplist_item">
               <dd > <a href="#">4</a> </dd>
             </dl>
           </div>
         </div>
-        <div id="shopclass_list5" >
+        <div id="shopclass_list5" onmouseout="noshowd()">
           <div class="shopclass_cont">
             <dl class="shoplist_item">
               <dd > <a href="#">5</a> </dd>
             </dl>
           </div>
         </div>
-        <div id="shopclass_list6" >
+        <div id="shopclass_list6" onmouseout="noshowe()">
           <div class="shopclass_cont">
             <dl class="shoplist_item">
               <dd > <a href="#">6</a> </dd>
@@ -260,16 +260,15 @@ function noshowf( ){
         </div>
       </div>
       <ul class="nav fr">
-        <li><a href="#" class=active >最新上架</a></li>
-        <li><a href="#" >最热商品</a></li>
-        <li><a href="#" class=active>数码城</a></li>
-        <li><a href="#">连衣裙</a></li>
-        <li><a href="#" class=active>抢购</a></li>
+        <li><a href="UserShow.jsp" class=active >最新上架</a></li>
+        <li><a href="UserShow.jsp" >最热商品</a></li>
+        <li><a href="UserShow.jsp" class=active>数码城</a></li>
+        <li><a href="UserShow.jsp">连衣裙</a></li>
       </ul>
     </div>
   </div>
 <!--   轮播图 -->
-  <div class="middle">
+  <div class="middle"  onmouseout="noshowf()">
     <div class="slider"> 
       <!--0.修改view->Template 关键字替换，增加template id-->
       <div class="main" id="template_main">

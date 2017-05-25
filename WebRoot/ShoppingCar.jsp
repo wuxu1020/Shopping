@@ -741,11 +741,6 @@ a {
 <div class="cart-checkbox">
 <input class="J_CheckBoxShop" id="J_SelectAllCbx2" type="checkbox" name="select-all" value="true">
 <label for="J_SelectAllCbx2">勾选购物车内所有商品</label></div>&nbsp;全选</div>
-<div class="operations">
-<a href="#" hidefocus="true" class="J_DeleteSelected">删除</a>
-<a href="#" hidefocus="true" class="J_ClearInvalid hidden" style="display: inline;">清除失效宝贝</a>
-<a href="#" hidefocus="true" class="J_BatchFav">移入收藏夹</a>
-<a href="#" hidefocus="true" class="J_BatchShare">分享</a></div>
 <div class="float-bar-right">
 <div id="J_ShowSelectedItems" class="amount-sum">
 <span class="txt">已选商品</span><em id="J_SelectedItemsCount">0</em>
@@ -759,9 +754,9 @@ a {
 <span class="txt">合计（不含运费）：</span>
 <strong class="price"><em id="J_Total"><span class="total-symbol">&nbsp;</span><span id="totalpay">0.00</span></em></strong></div>
 <div class="btn-area">
-<a href="UserPay.jsp" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
+<a href="javascript:void(0)" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
 <span>结&nbsp;算</span>
-<b></b></a></div>
+<b></b></a></div>  
 </div>
 </div> </div></div></div>
 </div></div>
