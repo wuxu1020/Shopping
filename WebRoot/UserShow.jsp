@@ -160,24 +160,7 @@ a{text-decoration:none;color:#666;}
   </div>
  
  <div class="quanping" id="productshow">
-  <div class="comWidth2">
-     <div class="pimage fl">
-     显示商品图片   
-     </div>
-     <div class="pright fl">  
-     <div class="title ">
-   商品名称: 
-     </div>
-     
-     <div class="price">
-     商品价格:
-     </div>
-     <div class="inventory">
-     库存:
-     </div>   
- <a href="Product.jsp" > <input type="button" value="详情" class="btn fr s" /></a>
-     </div>
-     </div>
+  
      </div>
   </div>
   </body>

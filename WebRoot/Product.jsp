@@ -374,30 +374,7 @@ a {
 	</div>
 	<div class="quanping" id="show">
 
-		<div class="comWidth2">
-			<div class="pimage fl">显示商品图片</div>
-			<div class="pright fl">
-				<div class="title ">商品名称:</div>
-				<div class="price">商品价格:</div>
-				<div class="inventory">库存:</div>
-				<div class="describe">描述:</div>
-				<div >
-					<input type="button" value="加入购物车" class="btn" /><a
-						href="UserPay.jsp"><input type="button" value="立即购买"
-						class="btn" /></a>
-				</div>
-			</div>
-
-		</div>
-
-
-		<div class="comWidth3 fl">
-			<hr>
-			<div class="pimages fl">细节图片</div>
-			<div class="pimages fr">细节图片</div>
-			<div class="pimages fr">细节图片</div>
-		</div>
-
+		
 
 	</div>
 </body>
