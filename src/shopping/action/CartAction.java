@@ -89,4 +89,12 @@ public class CartAction extends SuperAction {
 		
 		return "AjaxResult";
 	}
+	
+	public String delcart(){
+		Cart cart=cartservice.getCartDAO().findById(uid);
+		if(cart!=null){
+			cartservice.getCartDAO().delete(cart);
+		}
+		return "AjaxResult";
+	}
 }

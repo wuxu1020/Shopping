@@ -64,9 +64,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							+'<em tabindex="0" class="J_ItemSum number">￥<span class="totalprice">'+cartlist[i].price*cartlist[i].ptotal+'</span></em>'
 							+'<div class="J_ItemLottery"></div></div> </li><li class="td td-op">'
 							+'<div class="td-inner">'
-							+'<a href="" data-point-url="" class="J_Del J_MakePoint">删除</a></div>'
+							+'<a '+"onclick=\"del('"+cartlist[i].cid+"')\""+' data-point-url="" class="J_Del J_MakePoint">删除</a></div>'
 							+'</li></ul>';
-						$('#showcart').append(showitem);
+						$('#showcart').append(showitem); 
 				}
 			},
 			error : function(text) {
@@ -96,6 +96,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 		$('#totalpay').html(total-(-tp));
 	 	}
 	 	else $('#totalpay').html(total-tp);
+	 }
+	 
+	 function del(cid){
+	 	$.ajax({
+			type : "post",
+			url : "Cart_delcart.action",
+			data : {'uid':cid},
+			datatype : "json",
+			success : function(json) {
+				var tp=$('#'+cid).find('.totalprice').html();
+	 			if($('#'+cid).find('.J_CheckBoxItem1475').eq(0).is(':checked')){
+	 				$('#totalpay').html(total-tp);
+	 			}
+	 			$('#'+cid).remove();
+			},
+			error : function(text) {
+				alert("访问服务器失败！");
+			}
+		});
 	 }
 </script> 
 <style>
