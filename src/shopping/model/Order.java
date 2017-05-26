@@ -12,10 +12,11 @@ public class Order implements java.io.Serializable {
 	private String username;
 	private String pid;
 	private Double price;
-	private String ptotal;
+	private Integer ptotal;
 	private String ostate;
 	private String obuytime;
 	private String odelivertime;
+	private String oaddress;
 
 	// Constructors
 
@@ -30,7 +31,7 @@ public class Order implements java.io.Serializable {
 
 	/** full constructor */
 	public Order(String oid, String username, String pid, Double price,
-			String ptotal, String ostate, String obuytime, String odelivertime) {
+			Integer ptotal, String ostate, String obuytime, String odelivertime,String oaddress) {
 		this.oid = oid;
 		this.username = username;
 		this.pid = pid;
@@ -39,6 +40,7 @@ public class Order implements java.io.Serializable {
 		this.ostate = ostate;
 		this.obuytime = obuytime;
 		this.odelivertime = odelivertime;
+		this.oaddress=oaddress;
 	}
 
 	// Property accessors
@@ -75,11 +77,11 @@ public class Order implements java.io.Serializable {
 		this.price = price;
 	}
 
-	public String getPtotal() {
+	public Integer getPtotal() {
 		return this.ptotal;
 	}
 
-	public void setPtotal(String ptotal) {
+	public void setPtotal(Integer ptotal) {
 		this.ptotal = ptotal;
 	}
 
@@ -107,4 +109,11 @@ public class Order implements java.io.Serializable {
 		this.odelivertime = odelivertime;
 	}
 
+	public String getOaddress() {
+		return oaddress;
+	}
+
+	public void setOaddress(String oaddress) {
+		this.oaddress = oaddress;
+	}
 }

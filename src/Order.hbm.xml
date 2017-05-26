@@ -19,8 +19,8 @@
         <property name="price" type="java.lang.Double">
             <column name="price" precision="22" scale="0" />
         </property>
-        <property name="ptotal" type="java.lang.String">
-            <column name="ptotal" length="45" />
+        <property name="ptotal" type="java.lang.Integer">
+            <column name="ptotal"  />
         </property>
         <property name="ostate" type="java.lang.String">
             <column name="ostate" length="45" />
@@ -30,6 +30,9 @@
         </property>
         <property name="odelivertime" type="java.lang.String">
             <column name="odelivertime" length="45" />
+        </property>
+        <property name="oaddress" type="java.lang.String">
+            <column name="oaddress" length="45" />
         </property>
     </class>
 </hibernate-mapping>

@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				for(var i=0;i<cartlist.length;i++){
 					var showitem='';
 					showitem+='<ul class="item-content clearfix" id="'+cartlist[i].cid+'"><li class="td td-chk">'
-							+'<div class="td-inner"><div class="cart-checkbox ">'
+							+'<div class="td-inner"><div class="cart-checkbox">'
 							+'<input class="J_CheckBoxItem1475" id="J_CheckBox_445439946879" type="checkbox" name="items[]" value="445439946879" '+"onclick=\"checkboxin('"+cartlist[i].cid+"')\">"
 							+'<label for="J_CheckBox_445439946879">勾选商品</label></div></div> </li>'
 							+'<li class="td td-item"><div class="td-inner"><div class="item-pic J_ItemPic img-loaded">'
@@ -65,7 +65,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							+'<div class="J_ItemLottery"></div></div> </li><li class="td td-op">'
 							+'<div class="td-inner">'
 							+'<a '+"onclick=\"del('"+cartlist[i].cid+"')\""+' data-point-url="" class="J_Del J_MakePoint">删除</a></div>'
-							+'</li></ul>';
+							+'</li>'
+							+'<input class="cpid" type="hidden" value="'+cartlist[i].pid+'"><div class="input-item"></div> </ul>';
 						$('#showcart').append(showitem); 
 				}
 			},
@@ -94,8 +95,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 	var total=$('#totalpay').html();
 	 	if($('#'+cid).find('.J_CheckBoxItem1475').eq(0).is(':checked')){
 	 		$('#totalpay').html(total-(-tp));
+	 		var uid='<%=session.getAttribute("UID")%>';
+	 		var title=$('#'+cid).find('.item-title').html();
+	 		var pid=$('#'+cid).find('.cpid').val();
+	 		var price=$('#'+cid).find('.price').html();
+	 		var total=$('#'+cid).find('.ptotal').val();
+	 		var inputh='<input  type="hidden" value="';
+	 		var inputm='" name=';
+	 		var inpute='>';
+	 		var input=inputh+uid+inputm+'"uid" class="input-uid"'+inpute
+	 				 +inputh+pid+inputm+'"pid" class="input-pid"'+inpute
+	 				 +inputh+title+inputm+'"ptitle" class="input-ptitle"'+inpute
+	 				 +inputh+price+inputm+'"price" class="input-price"'+inpute
+	 				 +inputh+total+inputm+'"ptotal" class="input-ptotal"'+inpute;
+	 		$('#'+cid).find('.input-item').eq(0).append(input);
 	 	}
-	 	else $('#totalpay').html(total-tp);
+	 	else{
+	 		$('#'+cid).find('.input-item').eq(0).find('input').remove();
+	 		$('#totalpay').html(total-tp);
+	 	 }
 	 }
 	 
 	 function del(cid){
@@ -191,6 +209,7 @@ a{text-decoration:none;color:#666;}
 	background-color:#f76868;
 }
 .btn:active {position:relative;top:1px;}
+.pay{padding-left:20px;}
 /* 购物车导航条 */
 .cart-main {
     min-height: 210px;
@@ -550,12 +569,7 @@ address, cite, dfn, em, var {
     background-position: 0 -115px;
     margin: 21px 10px 0 6px;
 }
-.float-bar .pipe {
-    float: left;
-    margin: 0 10px 0 18px;
-    width: 1px;
-    height: 12px;
-}
+
 .float-bar .amount-sum, .float-bar .price-sum {
     height: 48px;
     color: #3c3c3c;
@@ -614,10 +628,12 @@ address, cite, dfn, em, var {
 a {
     color: #3c3c3c;
 }
+.pay{float: left;}
 </style>
 </head>
 
 <body onload="show()">
+<form action="Order_addtoorder.action" method="post">
 <div class="header">
 
 
@@ -642,10 +658,7 @@ a {
   <div class="logo">
     <div class="comWidth1">
       <div class="logoimage fl"> <a href="#"><img src="image/haigou.png" alt="嗨购"></a> </div>
-      <div class="search_box fl">
-        <input type="text" class="search_text fl" />
-        <input type="button" value="搜索" class="search_button fr" />
-      </div>
+      
     </div>
   </div>
  
@@ -673,94 +686,40 @@ a {
 <div class="td-inner">操作</div></div>
 </div></div>
 <!-- 订单内容 -->
+
 <div  class="order-body">
 <div class="order-content" id="showcart"> 
 
-
-
-<ul class="item-content clearfix cartitem" > 
-<!-- 勾选框 -->
-<li class="td td-chk"> 
-<div class="td-inner">
-<div class="cart-checkbox ">
-<input class="J_CheckBoxItem" id="J_CheckBox_445439946879" type="checkbox" name="items[]" value="445439946879">
-<label for="J_CheckBox_445439946879">勾选商品</label></div></div> </li> 
-<!-- 商品图片内容 -->
-<li class="td td-item"> 
-<div class="td-inner"> 
-<div class="item-pic J_ItemPic img-loaded">
-<a href="" target="_blank"  class="J_MakePoint" data-point="tbcart.8.12">
-<img src="" class="itempic J_ItemImg"></a></div> 
-<div class="item-info"> 
-<div class="item-basic-info"> 
-<a href="" target="_blank"  class="item-title J_MakePoint" data-point="tbcart.8.11">夏季韩版</a> 
-</div></div></div> </li> 
-<!-- 商品价格 -->
-<li class="td td-price"> 
-<div class="td-inner">
-<div class="item-price price-promo-seller">
-<div class="price-content">
-<div class="price-line">
-<em class="J_Price price-now" tabindex="0">￥<span class="price">10</span></em></div></div>
-</div></div> </li> 
-<!-- 商品数量 -->
-<li class="td td-amount"> 
-<div class="td-inner">
-<div class="amount-wrapper ">
-<div class="item-amount "> 
-
-<input type="number" value="1" class="text text-amount J_ItemAmount" min="1" max="9805" data-now="1" autocomplete="off">
-</div>
-<div class="amount-msg J_AmountMsg"></div></div></div> </li> 
-<!-- 商品总价 --> 
-<li class="td td-sum"> 
-<div class="td-inner">
-<em tabindex="0" class="J_ItemSum number">￥<span class='totalprice'>100</span></em>
-<div class="J_ItemLottery"></div></div> </li>
-<!-- 删除商品 -->
-<li class="td td-op"> 
-<div class="td-inner">
-<a href="" data-point-url="" class="J_Del J_MakePoint">删除</a></div> 
-</li>
-</ul>  
-
-
-
-
-
-
-
-
 </div> 
 </div>
+
 <!-- 固定条 -->
 <div  class="float-bar-holder">
 <div  class="float-bar clearfix default" >
 <div class="float-bar-wrapper">
-<div class="select-all J_SelectAll">
-<div class="cart-checkbox">
-<input class="J_CheckBoxShop" id="J_SelectAllCbx2" type="checkbox" name="select-all" value="true">
-<label for="J_SelectAllCbx2">勾选购物车内所有商品</label></div>&nbsp;全选</div>
+
 <div class="float-bar-right">
 <div id="J_ShowSelectedItems" class="amount-sum">
-<span class="txt">已选商品</span><em id="J_SelectedItemsCount">0</em>
-<span class="txt">件</span>
+ <div class="pay">
+    请输入收货地址：
+  <input type="text" class="address"  style="margin-top: 7px;height: 35px;width:300px;" >
+   </div>
 <div class="arrow-box">
 <span class="selected-items-arrow"></span>
 <span class="arrow"></span></div>
 </div>
-<div class="pipe"></div>
+
 <div class="price-sum">
 <span class="txt">合计（不含运费）：</span>
 <strong class="price"><em id="J_Total"><span class="total-symbol">&nbsp;</span><span id="totalpay">0.00</span></em></strong></div>
 <div class="btn-area">
-<a href="javascript:void(0)" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
-<span>结&nbsp;算</span>
-<b></b></a></div>  
+<input type="submit"  id="J_Go" class="submit-btn submit-btn-abled" aria-label="请注意如果没有选择宝贝，将无法结算" value="结  算">
+<span></span>
+<b></b></div>  
 </div>
 </div> </div></div></div>
 </div></div>
-
+</form>
    
   </body>
   </html>

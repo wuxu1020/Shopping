@@ -15,6 +15,8 @@
 			<result name="AjaxResult" type="json"></result>
 			<result name="UserProductShow">/UserShow.jsp</result>
 			<result name="editProduct">/AdminProduct.jsp</result>
+			<result name="ToUserPay">/UserPay.jsp</result>
+			<result name="ToCart">/ShoppingCar.jsp</result>
 		</action>
 	</package>
 

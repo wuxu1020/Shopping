@@ -28,6 +28,7 @@
 				<value>Product.hbm.xml</value>
 				<value>Sort.hbm.xml</value>
 				<value>Cart.hbm.xml</value>
+				<value>Order.hbm.xml</value>
 			</list>
 		</property> 
 		<property name="hibernateProperties">
@@ -88,6 +89,12 @@
 	<bean id="cartservice" class="shopping.service.CartService">
 		<property name="cartDAO">
 			<ref bean="CartDAO" />
+		</property>
+	</bean>
+	
+	<bean id="orderservice" class="shopping.service.OrderService">
+		<property name="orderDAO">
+			<ref bean="OrderDAO" />
 		</property>
 	</bean>
 	
