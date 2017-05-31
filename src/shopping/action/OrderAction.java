@@ -14,8 +14,15 @@ public class OrderAction extends SuperAction{
 	private List<String> ptitle;
 	private List<Double> price;
 	private List<Integer> ptotal;
+	private String oaddress;
 	private OrderService orderservice;
 	
+	public String getOaddress() {
+		return oaddress;
+	}
+	public void setOaddress(String oaddress) {
+		this.oaddress = oaddress;
+	}
 	public OrderService getOrderservice() {
 		return orderservice;
 	}
@@ -67,6 +74,7 @@ public class OrderAction extends SuperAction{
 			order.setOstate("Î´·¢»õ");
 			order.setPtotal(ptotal.get(i));
 			order.setObuytime(ntime);
+			order.setOaddress(oaddress);
 			orderservice.getOrderDAO().merge(order);
 		}
 		return "ToUserPay";

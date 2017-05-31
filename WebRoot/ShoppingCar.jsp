@@ -702,7 +702,7 @@ a {
 <div id="J_ShowSelectedItems" class="amount-sum">
  <div class="pay">
     请输入收货地址：
-  <input type="text" class="address"  style="margin-top: 7px;height: 35px;width:300px;" >
+  <input type="text" class="address" name="oaddress" style="margin-top: 7px;height: 35px;width:300px;" >
    </div>
 <div class="arrow-box">
 <span class="selected-items-arrow"></span>
