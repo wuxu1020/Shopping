@@ -16,7 +16,7 @@
 .leftarea{font-weight:bold;}
 
 /*logo*/
-.logo{height:108px;background-color:#EA0000;}
+.logo{height:110px;background-color:#EA0000;margin-top:-12px;}
 /*.logoimage{padding-top:8px;}*/
 /*search*/
 .search_box{width:440px;padding-top:29px;padding-left:185px;}

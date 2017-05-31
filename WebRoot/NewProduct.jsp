@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>商品结算</title>
+<title>最新上架商品</title>
 <link href="css/head.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 myFocus.set({
@@ -36,7 +36,7 @@ myFocus.set({
 .top a:hover{color:red;}
 .login{font-weight:bold;}
 .leftarea{font-weight:bold;}
-.logo{height:108px;background-color:#EA0000;}
+.logo{height:108px;background-color:#EA0000;margin-top:1px;}
 /*.logoimage{padding-top:8px;}*/
 body,ul,li,p,h3,div{margin:0;padding:0;}
 body{font-size:12px;}
@@ -131,17 +131,8 @@ a{text-decoration:none;color:#666;}
   </div>
   </div>
   <div class="quanping">
-  <div class="pay">
-    请输入收货地址：
-  <input type="text" class="address"  style="margin-top: 7px;height: 35px;width:300px;" >
-   </div>
-   <div class="pay1">
-    留言： 
-   <input type="text" class="words"  style="margin-top: 7px;height: 35px;width:300px;" >
-   </div>
-   <div class="pay2"><button type="submit" class="btn btn-xs btn-green fl" >提交订单 </button></div>
  
-
+   
   </div>
   </body>
   </html>

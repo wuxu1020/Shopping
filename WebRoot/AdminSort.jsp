@@ -92,7 +92,7 @@
 	
 	function delSort(sid){
 	 	var id=sid;
-	 	if (confirm("您确定要删除该用户吗?")) {
+	 	if (confirm("您确定要删除该分类吗?")) {
 			$.ajax({
 			type : "post",
 			url : "Sort_delsort.action",

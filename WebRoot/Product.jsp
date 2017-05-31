@@ -44,7 +44,6 @@
 						+'<div class="inventory">库存:'+result.pstock+'</div>'
 						+'<div class="describe">描述:'+result.pdescription+'</div>'
 						+'<div><input type="button" value="加入购物车" class="btn"'+" onclick=\"addtocart('"+result.pid+"')\"/>"
-						+'<a href="UserPay.jsp"><input type="button" value="立即购买" class="btn" /></a>'
 						+'</div></div></div>'
 						+'<div class="comWidth3 fl"><hr>';
 						for(var i=0;i<result.pdpic.length;i++){
@@ -159,6 +158,7 @@
 .logo {
 	height: 108px;
 	background-color: #EA0000;
+	margin-top:1px;
 }
 /*.logoimage{padding-top:8px;}*/
 body, ul, li, p, h3, div {
