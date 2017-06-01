@@ -18,6 +18,7 @@ public class Product implements java.io.Serializable {
 	private String pdetail;
 	private String pdescription;
 	private Integer psales;
+	private String uptime;
 
 	// Constructors
 
@@ -33,7 +34,7 @@ public class Product implements java.io.Serializable {
 	/** full constructor */
 	public Product(String pid, String pname, Double price, Integer pstock,
 			String ptype, String pmpic, String pdpic, String pdetail,
-			String pdescription, Integer psales) {
+			String pdescription, Integer psales,String uptime) {
 		this.pid = pid;
 		this.pname = pname;
 		this.price = price;
@@ -44,12 +45,21 @@ public class Product implements java.io.Serializable {
 		this.pdetail = pdetail;
 		this.pdescription = pdescription;
 		this.psales = psales;
+		this.uptime=uptime;
 	}
 
 	// Property accessors
-
+    
 	public String getPid() {
 		return this.pid;
+	}
+
+	public String getUptime() {
+		return uptime;
+	}
+
+	public void setUptime(String uptime) {
+		this.uptime = uptime;
 	}
 
 	public void setPid(String pid) {

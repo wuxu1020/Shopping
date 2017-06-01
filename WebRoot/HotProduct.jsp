@@ -10,7 +10,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>最新上架商品</title>
 <link href="css/head.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery.min.js"></script>
 <script type="text/javascript">
 myFocus.set({
 	id:'template_main',
@@ -102,12 +101,12 @@ a{text-decoration:none;color:#666;}
 .pay1{padding-left:360px;padding-top:15px;}
 .pay2{padding-left:600px;padding-top:25px;}
 </style>
-
+<script src="js/jquery.min.js"></script>
 <script type="text/javascript">
   function getproduct(){
 		$.ajax({
 			type : "post",
-			url : "ProductAjax_newproduct.action",
+			url : "ProductAjax_hotproduct.action",
 			data : {},
 			datatype : "json",
 			success : function(json) { 
@@ -162,7 +161,7 @@ a{text-decoration:none;color:#666;}
     </div>
   </div>
   </div>
-  <div class="quanping" id="productshow">
+  <div class="quanping"  id="productshow">
  
    
   </div>

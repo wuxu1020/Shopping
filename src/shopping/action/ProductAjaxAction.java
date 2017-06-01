@@ -13,10 +13,6 @@ public class ProductAjaxAction {
 	private Integer page;
 	private ProductService productservice;
 	
-	
-	public String getSearchvalue() {
-		return searchvalue;
-	}
 
 
 	public void setSearchvalue(String searchvalue) {
@@ -54,11 +50,6 @@ public class ProductAjaxAction {
 	}
 
 
-	public ProductService getProductservice() {
-		return productservice;
-	}
-
-
 	public void setProductservice(ProductService productservice) {
 		this.productservice = productservice;
 	}
@@ -80,6 +71,18 @@ public class ProductAjaxAction {
 			int toindex=(i+perpage)<=plist.size()?i+10:plist.size();
 			searchresult=JsonUtil.listToJson(plist.subList(i, toindex));
 		}
+		return "AjaxResult";
+	}
+	
+	public String newproduct(){
+		List<Product> plist=productservice.getProductDAO().getNewProduct();
+		searchresult=JsonUtil.listToJson(plist);
+		return "AjaxResult";
+	}
+	
+	public String hotproduct(){
+		List<Product> plist=productservice.getProductDAO().getHotProduct();
+		searchresult=JsonUtil.listToJson(plist);
 		return "AjaxResult";
 	}
 }

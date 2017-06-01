@@ -37,5 +37,8 @@
         <property name="psales" type="java.lang.Integer">
             <column name="psales" />
         </property>
+        <property name="uptime" type="java.lang.String">
+            <column name="uptime" />
+        </property>
     </class>
 </hibernate-mapping>

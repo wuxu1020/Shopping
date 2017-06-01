@@ -116,6 +116,30 @@ public class ProductDAO {
 		}
 	}
 	
+	public List getHotProduct() {
+		try {
+			String queryString = "from Product as model order by model.psales desc";
+			Query queryObject = getCurrentSession().createQuery(queryString);
+			queryObject.setMaxResults(10);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
+	public List getNewProduct() {
+		try {
+			String queryString = "from Product as model order by model.uptime desc";
+			Query queryObject = getCurrentSession().createQuery(queryString);
+			queryObject.setMaxResults(10);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
 	public List findByPropertyV(String propertyName, Object value) {
 		log.debug("finding Product instance with property: " + propertyName
 				+ ", value: " + value);

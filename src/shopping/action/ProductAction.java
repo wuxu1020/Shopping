@@ -7,7 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -288,6 +290,9 @@ public class ProductAction extends SuperAction{
 			return "SupplierNotLogin";
 		}*/
 		product=new Product();
+		Date nowTime=new Date();
+		SimpleDateFormat time=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+		String ntime=time.format(nowTime);
 		uploadmainPic(0);
     	for (int i = 0; i < detimgUpload.size(); i++) {   
             //循环上传每个文件   
@@ -313,6 +318,7 @@ public class ProductAction extends SuperAction{
     	product.setPdescription(gexplain);
     	product.setPname(pname);
     	product.setPrice(price);
+    	product.setUptime(ntime);
     	productservice.getProductDAO().merge(product);
         return "UpProduct";
     }
