@@ -72,17 +72,18 @@
 			datatype : "json",
 			success : function(json) {
 				var sortlist=json.sortlist;
-				var showitem='';
 				$("#allsort").find('tr').remove();
 				for(var i=0;i<sortlist.length;i++){
+				    var showitem='';
 					showitem+='<tr class="yonghu" align="center" id="'+sortlist[i].sid+'">'
 							 +'<td><input type="text" readonly="readonly" style="background-color:transparent" value="'+sortlist[i].sname+'"></td>'
 							 +'<td><span>'+sortlist[i].stype+'</span></td>'
-							 +"<td><a onclick=\"editSort('"+sortlist[i].sid+"')\" class=\"btn\">修改</a>"
+							 +"<td>"
 							 +"<a onclick=\"delSort('"+sortlist[i].sid+"')\" class=\"btn\">删除</a>"
-							 +'</td></tr>'
+							 +'</td></tr>';
+					$("#allsort").append(showitem);
 				}
-				$("#allsort").append(showitem);
+				
 			},
 			error : function(text) {
 				alert("访问服务器失败！");
@@ -352,11 +353,11 @@ a {
 			<div class="fenlei">
 				<label class="name">所属类别 ：</label> <select class="lihai" id="ptype">
 					<option value="">请选择所属类别</option>
-					<option value="智能数码">智能数码</option>
-					<option value="家用电器">家用电器</option>
+					<option value="数码">智能数码</option>
+					<option value="家电">家用电器</option>
 					<option value="服装">服装</option>
 					<option value="食品">食品</option>
-					<option value="个人护理">个人护理</option>
+					<option value="个护">个人护理</option>
 					<option value="其他">其他</option>
 				</select>  
 			</div>

@@ -154,14 +154,42 @@ function noshowf( ){
 
 } 
 
+function getSort(){
+			$.ajax({
+			type : "post",
+			url : "Sort_getAllsort.action",
+			data : {},
+			datatype : "json",
+			success : function(json) {
+				var sortlist=json.sortlist;
+				for(var i=0;i<sortlist.length;i++){
+					switch(sortlist[i].stype){
+						case "数码":appendtodd('shopclass_list1',sortlist[i].sname);break;
+						case "家电":appendtodd('shopclass_list2',sortlist[i].sname);break;
+						case "服装":appendtodd('shopclass_list3',sortlist[i].sname);break;
+						case "食品":appendtodd('shopclass_list4',sortlist[i].sname);break;
+						case "个护":appendtodd('shopclass_list5',sortlist[i].sname);break;
+						case "其他":appendtodd('shopclass_list6',sortlist[i].sname);break;
+					}
+				}
+			},
+			error : function(text) {
+				alert("删除失败！");
+			}
+		});
+		}
+   function appendtodd(pid,sname){
+   		$('#'+pid).find('.it').append('<a href="Product_showproductToUser?page=1&searchvalue='+sname+'">'+sname+'</a>&nbsp;');
+   }
 </script>
+<script src="js/jquery.min.js"></script>
 <style>
 .shopclass_item hover{color:black}
 .shopclass_show hover{background-color:#FF9D9D;}
 </style>
 </head>
 
-<body>
+<body onload="getSort()">
 <div class="header">
   <div class="top">
     <div class="comWidth">
@@ -218,21 +246,23 @@ function noshowf( ){
         <div id="shopclass_list1">
           <div class="shopclass_cont">
             <dl class="shoplist_item">
-              <dd > <a href="#">单反</a> </dd>
+              <dd class="it"> </dd>
+              
             </dl>
+            
           </div>
         </div>
         <div id="shopclass_list2" onmouseout="noshowa()">
           <div class="shopclass_cont">
             <dl class="shoplist_item">
-              <dd > <a href="#">2</a> </dd>
+              <dd class="it"> </dd>
             </dl>
           </div>
         </div>
         <div id="shopclass_list3" onmouseout="noshowb()">
           <div class="shopclass_cont">
             <dl class="shoplist_item">
-              <dd > <a href="#">3</a> </dd>
+              <dd class="it">  </dd>
             </dl>
           </div>
         </div>
@@ -240,21 +270,21 @@ function noshowf( ){
         <div id="shopclass_list4" onmouseout="noshowc()">
           <div class="shopclass_cont">
             <dl class="shoplist_item">
-              <dd > <a href="#">4</a> </dd>
+              <dd class="it"> </dd>
             </dl>
           </div>
         </div>
         <div id="shopclass_list5" onmouseout="noshowd()">
           <div class="shopclass_cont">
             <dl class="shoplist_item">
-              <dd > <a href="#">5</a> </dd>
+              <dd class="it"> </dd>
             </dl>
           </div>
         </div>
         <div id="shopclass_list6" onmouseout="noshowe()">
           <div class="shopclass_cont">
             <dl class="shoplist_item">
-              <dd > <a href="#">6</a> </dd>
+              <dd class="it">  </dd>
             </dl>
           </div>
         </div>

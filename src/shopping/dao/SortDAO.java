@@ -112,9 +112,8 @@ public class SortDAO {
 	public List findsort(Object value) {
 		
 		try {
-			String queryString = "from Sort as model where model.sname like ?";
+			String queryString = "from Sort as model where model.sname like '%"+value+"%'";
 			Query queryObject = getCurrentSession().createQuery(queryString);
-			queryObject.setParameter(0, "%"+value+"%");
 			return queryObject.list();
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);

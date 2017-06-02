@@ -98,4 +98,9 @@ public class SortAction extends SuperAction{
 			sortservice.getSortDAO().delete(sort);
 		return "AjaxResult";
 	}
+	
+	public String getAllsort(){
+		sortlist=sortservice.getSortDAO().findAll();
+		return "AjaxResult";
+	}
 }
