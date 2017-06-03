@@ -201,7 +201,7 @@ function getSort(){
       <%}else{ %>
       <span>欢迎！  <%=session.getAttribute("UID") %></span>
       <%} %>
-       <span>|</span> <a href="<%=basePath %>ShoppingCar.jsp" class="shopcar1">我的购物车</a> <span>|</span> <a href="<%=basePath %>UserOrder.jsp" class="order">全部订单</a> <span>|</span> <a href="AdminLogin.jsp" class="order">系统维护</a> 
+       <span>|</span> <a href="<%=basePath %>ShoppingCar.jsp" class="shopcar1">我的购物车</a> <span>|</span> <a href="Order_usershoworder.action" class="order">全部订单</a> <span>|</span> <a href="AdminLogin.jsp" class="order">系统维护</a> 
        <%   if(session.getAttribute("UID")!=null){ %>
        <span>|</span> <a onclick="check()" class="register">退出登录</a>
         <%} %>

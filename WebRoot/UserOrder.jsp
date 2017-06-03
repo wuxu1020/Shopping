@@ -1,4 +1,5 @@
  <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -39,7 +40,7 @@ myFocus.set({
 .top a:hover{color:red;}
 .login{font-weight:bold;}
 .leftarea{font-weight:bold;}
-.logo{height:108px;background-color:#EA0000;}
+.logo{height:108px;background-color:#EA0000;margin-top:}
 /*.logoimage{padding-top:8px;}*/
 body,ul,li,p,h3,div{margin:0;padding:0;}
 body{font-size:12px;}
@@ -238,65 +239,76 @@ a{text-decoration:none;color:#666;}
 <!--   未发货 -->
 	<div class="tab-pane fade active" id="weifahuo">
 		<div class="weifa">
-		 <div class="th-item">商品信息</div>
-	     <div class="th-info">&nbsp;</div>
+		 
+	     <div class="th-info">商品名</div>
 	     <div class="th-price">单价</div>
 	     <div class="th-amount">数量</div>
 	     <div class="th-sum">金额</div>
 	     <div class="th-time">时间</div>
 	    </div>
-	 <div class="tupian"></div>
-	 <div class="mingchen"></div>
+	    <c:forEach items="${request.orderlist}" var="order">
+	    <c:if test="${order.ostate=='未发货' }">
+	 <div class="mingchen ">商品名</div>
 	 <div class="price-content">
-	 <em tabindex="0">￥<span >单价钱</span></em>
+	 <em tabindex="0">￥<span >${order.price }</span></em>
 	 </div>
-	 <div class="amount">数量</div>
+	 <div class="amount">${order.ptotal }</div>
 	 <div class="sum">
-	 <em tabindex="0" >￥<span >总金额</span></em>
+	 <em tabindex="0" >￥<span >${order.ptotal*order.price }</span></em>
 	 </div>
-	 <div class="time">下单时间</div>
+	 <div class="time">${order.obuytime }</div> <br>
+	 </c:if>
+	 </c:forEach>
     </div>
 <!--     已发货 -->
 	<div class="tab-pane fade" id="yifahuo">
 	<div class="weifa">
 		 <div class="th-item">商品信息</div>
-	     <div class="th-info">&nbsp;</div>
+	     <div class="th-info">商品名</div>
 	     <div class="th-price">单价</div>
 	     <div class="th-amount">数量</div>
 	     <div class="th-sum">金额</div>
 	     <div class="th-time">时间</div>
 	 </div>
-	 <div class="tupian"></div>
+	  <c:forEach items="${request.orderlist}" var="order">
+	    <c:if test="${order.ostate=='已发货' }">
 	 <div class="mingchen"></div>
 	 <div class="price-content">
-	 <em tabindex="0">￥<span >单价钱</span></em>
+	 <em tabindex="0">￥<span >${order.price }</span></em>
 	 </div>
-	 <div class="amount">数量</div>
+	 <div class="amount">${order.ptotal }</div>
 	 <div class="sum">
-	 <em tabindex="0" >￥<span >总金额</span></em>
+	 <em tabindex="0" >￥<span >${order.ptotal*order.price }</span></em>
 	 </div>
-	 <div class="time">下单时间</div>
+	 <div class="time">${order.obuytime }</div>
+	 </c:if>
+	 </c:forEach>
     </div>
 <!--     已完成 -->
 	<div class="tab-pane fade" id="yiwancheng">
 	<div class="weifa">
 		 <div class="th-item">商品信息</div>
-	     <div class="th-info">&nbsp;</div>
+	     <div class="th-info">商品名</div>
 	     <div class="th-price">单价</div>
 	     <div class="th-amount">数量</div>
 	     <div class="th-sum">金额</div>
 	     <div class="th-time">时间</div>
-	 </div>
-	 <div class="tupian"></div>
+	 </div> 
+	 
+	  <c:forEach items="${request.orderlist}" var="order">
+	    <c:if test="${order.ostate=='已完成' }">
 	 <div class="mingchen"></div>
 	 <div class="price-content">
-	 <em tabindex="0">￥<span >单价钱</span></em>
+	 <em tabindex="0">￥<span >${order.price }</span></em>
 	 </div>
-	 <div class="amount">数量</div>
+	 <div class="amount">${order.ptotal }</div>
 	 <div class="sum">
-	 <em tabindex="0" >￥<span >总金额</span></em>
+	 <em tabindex="0" >￥<span >${order.ptotal*order.price }</span></em>
 	 </div>
-	 <div class="time">下单时间</div>
+	 <div class="time">${order.obuytime }</div>
+	
+	 </c:if>
+	 </c:forEach>
 	 </div>
 </div> 
 </div>

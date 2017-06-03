@@ -138,9 +138,7 @@ public class ProductAction extends SuperAction{
 		this.gexplain = gexplain.trim();
 	}
 	
-	public ProductService getProductservice() {
-		return productservice;
-	}
+	
 	public void setProductservice(ProductService productservice) {
 		this.productservice = productservice;
 	}

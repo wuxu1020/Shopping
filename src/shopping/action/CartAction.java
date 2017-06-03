@@ -41,17 +41,11 @@ public class CartAction extends SuperAction {
 		this.pid = pid;
 	}
 
-	public CartService getCartservice() {
-		return cartservice;
-	}
 
 	public void setCartservice(CartService cartservice) {
 		this.cartservice = cartservice;
 	}
 
-	public ProductService getProductservice() {
-		return productservice;
-	}
 
 	public void setProductservice(ProductService productservice) {
 		this.productservice = productservice;

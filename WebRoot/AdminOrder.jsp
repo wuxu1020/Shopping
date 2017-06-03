@@ -1,4 +1,5 @@
  <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+  <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -233,23 +234,32 @@ a{text-decoration:none;color:#666;}
 		<div class="weifa">
 		 <div class="user">用户</div>
 		 <div class="th-item">商品信息</div>
-	     <div class="th-info">&nbsp;</div>
+	     <!-- <div class="th-info">&nbsp;</div> -->
 	     <div class="th-price">单价</div>
 	     <div class="th-amount">数量</div>
 	     <div class="th-sum">金额</div>
 	     <div class="th-time">时间</div>
 	    </div>
-	 <div class="username">张三</div>
+	    <c:forEach items="${request.orderlist }" var="order">
+	    <c:if test="${order.ostate=='未发货' }">
+	 <div class="username">${order.username }</div>
 	 <div class="tupian"></div>
-	 <div class="mingchen"></div>
+	<!--  <div class="mingchen">?</div> -->
+	
 	 <div class="price-content">
-	 <em tabindex="0">￥<span >单价钱</span></em>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 <em tabindex="0">￥<span >${order.price }</span></em>
 	 </div>
-	 <div class="amount">数量</div>
+	 <div class="amount">&nbsp;&nbsp;&nbsp;&nbsp;${order.ptotal }</div>
 	 <div class="sum">
-	 <em tabindex="0" >￥<span >总金额</span></em>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 <em tabindex="0" >￥<span >${order.ptotal*order.price }</span></em>
 	 </div>
-	 <div class="time">下单时间</div>
+	 <div class="time">${order.obuytime }</div>
+	 </c:if>
+	 <br>
+	 </c:forEach>
     </div>
 <!--     已发货 -->
 	<div class="tab-pane fade" id="yifahuo">
@@ -262,17 +272,26 @@ a{text-decoration:none;color:#666;}
 	     <div class="th-sum">金额</div>
 	     <div class="th-time">时间</div>
 	 </div>
-	 <div class="username">张三</div>
+	 <c:forEach items="${request.orderlist }" var="order">
+	    <c:if test="${order.ostate=='已发货' }">
+	 <div class="username">${order.username }</div>
 	 <div class="tupian"></div>
-	 <div class="mingchen"></div>
+	<!--  <div class="mingchen">?</div> -->
+	
 	 <div class="price-content">
-	 <em tabindex="0">￥<span >单价钱</span></em>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 <em tabindex="0">￥<span >${order.price }</span></em>
 	 </div>
-	 <div class="amount">数量</div>
+	 <div class="amount">&nbsp;&nbsp;&nbsp;&nbsp;${order.ptotal }</div>
 	 <div class="sum">
-	 <em tabindex="0" >￥<span >总金额</span></em>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 <em tabindex="0" >￥<span >${order.ptotal*order.price }</span></em>
 	 </div>
-	 <div class="time">下单时间</div>
+	 <div class="time">${order.obuytime }</div>
+	 </c:if>
+	 <br>
+	 </c:forEach>
     </div>
 <!--     已完成 -->
 	<div class="tab-pane fade" id="yiwancheng">
@@ -285,17 +304,26 @@ a{text-decoration:none;color:#666;}
 	     <div class="th-sum">金额</div>
 	     <div class="th-time">时间</div>
 	 </div>
-	 <div class="username">张三</div>
+	 <c:forEach items="${request.orderlist }" var="order">
+	    <c:if test="${order.ostate=='已完成' }">
+	 <div class="username">${order.username }</div>
 	 <div class="tupian"></div>
-	 <div class="mingchen"></div>
+	<!--  <div class="mingchen">?</div> -->
+	
 	 <div class="price-content">
-	 <em tabindex="0">￥<span >单价钱</span></em>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 <em tabindex="0">￥<span >${order.price }</span></em>
 	 </div>
-	 <div class="amount">数量</div>
+	 <div class="amount">&nbsp;&nbsp;&nbsp;&nbsp;${order.ptotal }</div>
 	 <div class="sum">
-	 <em tabindex="0" >￥<span >总金额</span></em>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 <em tabindex="0" >￥<span >${order.ptotal*order.price }</span></em>
 	 </div>
-	 <div class="time">下单时间</div>
+	 <div class="time">${order.obuytime }</div>
+	 </c:if>
+	 <br>
+	 </c:forEach>
 	 </div>
 </div> 
 </div>

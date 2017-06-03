@@ -107,7 +107,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 				 +inputh+pid+inputm+'"pid" class="input-pid"'+inpute
 	 				 +inputh+title+inputm+'"ptitle" class="input-ptitle"'+inpute
 	 				 +inputh+price+inputm+'"price" class="input-price"'+inpute
-	 				 +inputh+total+inputm+'"ptotal" class="input-ptotal"'+inpute;
+	 				 +inputh+total+inputm+'"ptotal" class="input-ptotal"'+inpute
+	 				 +inputh+cid+inputm+'"cid" class="input-cid"'+inpute;
 	 		$('#'+cid).find('.input-item').eq(0).append(input);
 	 	}
 	 	else{
@@ -713,7 +714,7 @@ a {
 <span class="txt">合计（不含运费）：</span>
 <strong class="price"><em id="J_Total"><span class="total-symbol">&nbsp;</span><span id="totalpay">0.00</span></em></strong></div>
 <div class="btn-area">
-<input type="submit"  id="J_Go" class="submit-btn submit-btn-abled" aria-label="请注意如果没有选择宝贝，将无法结算" value="结  算">
+<input type="submit" onclick="alert('订单正在提交，点击继续...')" id="J_Go" class="submit-btn submit-btn-abled" aria-label="请注意如果没有选择宝贝，将无法结算" value="结  算">
 <span></span>
 <b></b></div>  
 </div>

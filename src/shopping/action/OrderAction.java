@@ -5,7 +5,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import shopping.model.Cart;
 import shopping.model.Order;
+import shopping.service.CartService;
 import shopping.service.OrderService;
 
 public class OrderAction extends SuperAction{
@@ -14,9 +16,22 @@ public class OrderAction extends SuperAction{
 	private List<String> ptitle;
 	private List<Double> price;
 	private List<Integer> ptotal;
+	private List<String> cid;
 	private String oaddress;
 	private OrderService orderservice;
+	private CartService cartservice;
 	
+	
+	
+	public List<String> getCid() {
+		return cid;
+	}
+	public void setCid(List<String> cid) {
+		this.cid = cid;
+	}
+	public void setCartservice(CartService cartservice) {
+		this.cartservice = cartservice;
+	}
 	public String getOaddress() {
 		return oaddress;
 	}
@@ -76,9 +91,25 @@ public class OrderAction extends SuperAction{
 			order.setObuytime(ntime);
 			order.setOaddress(oaddress);
 			orderservice.getOrderDAO().merge(order);
+			Cart cart=cartservice.getCartDAO().findById(cid.get(i));
+			if(cart!=null) cartservice.getCartDAO().delete(cart);
 		}
-		return "ToUserPay";
 		}
 		return "ToCart";
+	}
+	
+	public String usershoworder(){
+		String username=(String)session.getAttribute("UID");
+		if(username!=null){
+		List<Order> orderlist=orderservice.getOrderDAO().findByUsername(username);
+		request.setAttribute("orderlist", orderlist);
+		}
+		return "ToUserOrder";
+	}
+	
+	public String showorder(){
+		List<Order> orderlist=orderservice.getOrderDAO().findAll();
+		request.setAttribute("orderlist", orderlist);
+		return "ToAdminOrder";
 	}
 }
