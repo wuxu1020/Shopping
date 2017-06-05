@@ -29,6 +29,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         $(this).tab("show");
     });
 })
+
+    function suborder(oid){
+    	$.ajax({
+			type : "post",
+			url : "Order_deliver.action",
+			data : {'oid':oid},
+			datatype : "json",
+			success : function(json) {
+	 			alert("订单  "+oid+" 已发货");
+				window.location.reload();	 			
+			},
+			error : function(text) {
+				alert("访问服务器失败！");
+			}
+		});
+    }
 </script>
 <style>
 .comWidth{width:900px;margin-left:auto;margin-right:auto;}
@@ -239,9 +255,11 @@ a{text-decoration:none;color:#666;}
 	     <div class="th-amount">数量</div>
 	     <div class="th-sum">金额</div>
 	     <div class="th-time">时间</div>
+	     <div class="th-time">发货</div>
 	    </div>
 	    <c:forEach items="${request.orderlist }" var="order">
 	    <c:if test="${order.ostate=='未发货' }">
+	    <div id="${order.oid }" >
 	 <div class="username">${order.username }</div>
 	 <div class="tupian"></div>
 	<!--  <div class="mingchen">?</div> -->
@@ -257,7 +275,10 @@ a{text-decoration:none;color:#666;}
 	 <em tabindex="0" >￥<span >${order.ptotal*order.price }</span></em>
 	 </div>
 	 <div class="time">${order.obuytime }</div>
+	 <div class="time"><input type="button" value="确认发货" class="btn" onclick="suborder('${order.oid }')"></div>
+	 </div>
 	 </c:if>
+	 
 	 <br>
 	 </c:forEach>
     </div>
@@ -288,7 +309,7 @@ a{text-decoration:none;color:#666;}
 	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	 <em tabindex="0" >￥<span >${order.ptotal*order.price }</span></em>
 	 </div>
-	 <div class="time">${order.obuytime }</div>
+	 <div class="time">${order.odelivertime }</div>
 	 </c:if>
 	 <br>
 	 </c:forEach>

@@ -26,6 +26,23 @@ myFocus.set({
 		        window.location.href = "UserLogout.jsp"
 	           }
 	           }
+	           
+	           
+	   function usersuborder(oid){
+    	$.ajax({
+			type : "post",
+			url : "Order_subfinish.action",
+			data : {'oid':oid},
+			datatype : "json",
+			success : function(json) {
+	 			alert("订单  "+oid+" 已完成");
+	 			window.location.reload();
+			},
+			error : function(text) {
+				alert("访问服务器失败！");
+			}
+		});
+    }
 </script>
 <style>
 .comWidth{width:900px;margin-left:auto;margin-right:auto;}
@@ -240,7 +257,7 @@ a{text-decoration:none;color:#666;}
 	<div class="tab-pane fade active" id="weifahuo">
 		<div class="weifa">
 		 
-	     <div class="th-info">商品名</div>
+	     <div class="th-info">订单号</div>
 	     <div class="th-price">单价</div>
 	     <div class="th-amount">数量</div>
 	     <div class="th-sum">金额</div>
@@ -248,8 +265,8 @@ a{text-decoration:none;color:#666;}
 	    </div>
 	    <c:forEach items="${request.orderlist}" var="order">
 	    <c:if test="${order.ostate=='未发货' }">
-	 <div class="mingchen ">商品名</div>
-	 <div class="price-content">
+	 <div class="mingchen ">${order.oid }</div>
+	 <div class="price-content"> 
 	 <em tabindex="0">￥<span >${order.price }</span></em>
 	 </div>
 	 <div class="amount">${order.ptotal }</div>
@@ -263,16 +280,17 @@ a{text-decoration:none;color:#666;}
 <!--     已发货 -->
 	<div class="tab-pane fade" id="yifahuo">
 	<div class="weifa">
-		 <div class="th-item">商品信息</div>
-	     <div class="th-info">商品名</div>
+	     <div class="th-info">订单号</div>
 	     <div class="th-price">单价</div>
 	     <div class="th-amount">数量</div>
 	     <div class="th-sum">金额</div>
 	     <div class="th-time">时间</div>
+	     <div class="th-time">收货</div>
 	 </div>
 	  <c:forEach items="${request.orderlist}" var="order">
 	    <c:if test="${order.ostate=='已发货' }">
-	 <div class="mingchen"></div>
+	    <div id="${order.oid }"> 
+	 <div class="mingchen">${order.oid }</div>
 	 <div class="price-content">
 	 <em tabindex="0">￥<span >${order.price }</span></em>
 	 </div>
@@ -280,24 +298,24 @@ a{text-decoration:none;color:#666;}
 	 <div class="sum">
 	 <em tabindex="0" >￥<span >${order.ptotal*order.price }</span></em>
 	 </div>
-	 <div class="time">${order.obuytime }</div>
+	 <div class="time">${order.odelivertime }</div>
+	 <div class="time"><input type="button" value="确认收货" class="btn" onclick="usersuborder('${order.oid }')"></div>
+	 </div>
 	 </c:if>
 	 </c:forEach>
     </div>
 <!--     已完成 -->
 	<div class="tab-pane fade" id="yiwancheng">
 	<div class="weifa">
-		 <div class="th-item">商品信息</div>
-	     <div class="th-info">商品名</div>
+	     <div class="th-info">订单号</div>
 	     <div class="th-price">单价</div>
 	     <div class="th-amount">数量</div>
 	     <div class="th-sum">金额</div>
 	     <div class="th-time">时间</div>
 	 </div> 
-	 
 	  <c:forEach items="${request.orderlist}" var="order">
 	    <c:if test="${order.ostate=='已完成' }">
-	 <div class="mingchen"></div>
+	 <div class="mingchen">${order.oid }</div>
 	 <div class="price-content">
 	 <em tabindex="0">￥<span >${order.price }</span></em>
 	 </div>

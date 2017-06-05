@@ -18,11 +18,18 @@ public class OrderAction extends SuperAction{
 	private List<Integer> ptotal;
 	private List<String> cid;
 	private String oaddress;
+	private String oid;
 	private OrderService orderservice;
 	private CartService cartservice;
 	
 	
 	
+	public String getOid() {
+		return oid;
+	}
+	public void setOid(String oid) {
+		this.oid = oid;
+	}
 	public List<String> getCid() {
 		return cid;
 	}
@@ -111,5 +118,23 @@ public class OrderAction extends SuperAction{
 		List<Order> orderlist=orderservice.getOrderDAO().findAll();
 		request.setAttribute("orderlist", orderlist);
 		return "ToAdminOrder";
+	}
+	
+	public String deliver(){
+		Order order=orderservice.getOrderDAO().findById(oid);
+		if(order!=null){
+			order.setOstate("已发货");
+			orderservice.getOrderDAO().merge(order);
+		}
+		return "AjaxResult";
+	}
+	
+	public String subfinish(){
+		Order order=orderservice.getOrderDAO().findById(oid);
+		if(order!=null){
+			order.setOstate("已完成");
+			orderservice.getOrderDAO().merge(order);
+		}
+		return "AjaxResult";
 	}
 }
