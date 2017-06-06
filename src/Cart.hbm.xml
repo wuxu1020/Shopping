@@ -31,5 +31,6 @@
         <property name="ptitle" type="java.lang.String">
             <column name="ptitle" length="45" />
         </property>
+        
     </class>
 </hibernate-mapping>

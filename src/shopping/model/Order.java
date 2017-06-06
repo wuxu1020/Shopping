@@ -17,7 +17,8 @@ public class Order implements java.io.Serializable {
 	private String obuytime;
 	private String odelivertime;
 	private String oaddress;
-
+	private String ptitle;
+	private String pmpic;
 	// Constructors
 
 	/** default constructor */
@@ -31,7 +32,8 @@ public class Order implements java.io.Serializable {
 
 	/** full constructor */
 	public Order(String oid, String username, String pid, Double price,
-			Integer ptotal, String ostate, String obuytime, String odelivertime,String oaddress) {
+			Integer ptotal, String ostate, String obuytime, String odelivertime,
+			String oaddress,String ptitle,String pmpic) {
 		this.oid = oid;
 		this.username = username;
 		this.pid = pid;
@@ -41,6 +43,8 @@ public class Order implements java.io.Serializable {
 		this.obuytime = obuytime;
 		this.odelivertime = odelivertime;
 		this.oaddress=oaddress;
+		this.ptitle=ptitle;
+		this.pmpic=pmpic;
 	}
 
 	// Property accessors
@@ -116,4 +120,21 @@ public class Order implements java.io.Serializable {
 	public void setOaddress(String oaddress) {
 		this.oaddress = oaddress;
 	}
+
+	public String getPtitle() {
+		return ptitle;
+	}
+
+	public void setPtitle(String ptitle) {
+		this.ptitle = ptitle;
+	}
+
+	public String getPmpic() {
+		return pmpic;
+	}
+
+	public void setPmpic(String pmpic) {
+		this.pmpic = pmpic;
+	}
+	
 }

@@ -34,5 +34,11 @@
         <property name="oaddress" type="java.lang.String">
             <column name="oaddress" length="45" />
         </property>
+        <property name="ptitle" type="java.lang.String">
+            <column name="ptitle" length="100" />
+        </property>
+        <property name="pmpic" type="java.lang.String">
+            <column name="pmpic" length="100" />
+        </property>
     </class>
 </hibernate-mapping>

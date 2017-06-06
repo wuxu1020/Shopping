@@ -95,20 +95,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 	var total=$('#totalpay').html();
 	 	if($('#'+cid).find('.J_CheckBoxItem1475').eq(0).is(':checked')){
 	 		$('#totalpay').html(total-(-tp));
-	 		var uid='<%=session.getAttribute("UID")%>';
+	 		<%-- var uid='<%=session.getAttribute("UID")%>';
 	 		var title=$('#'+cid).find('.item-title').html();
 	 		var pid=$('#'+cid).find('.cpid').val();
 	 		var price=$('#'+cid).find('.price').html();
-	 		var total=$('#'+cid).find('.ptotal').val();
+	 		var total=$('#'+cid).find('.ptotal').val(); --%>
 	 		var inputh='<input  type="hidden" value="';
 	 		var inputm='" name=';
 	 		var inpute='>';
-	 		var input=inputh+uid+inputm+'"uid" class="input-uid"'+inpute
+	 		var input=inputh+cid+inputm+'"cid" class="input-cid"'+inpute;
+	 		         /* inputh+uid+inputm+'"uid" class="input-uid"'+inpute
 	 				 +inputh+pid+inputm+'"pid" class="input-pid"'+inpute
 	 				 +inputh+title+inputm+'"ptitle" class="input-ptitle"'+inpute
 	 				 +inputh+price+inputm+'"price" class="input-price"'+inpute
 	 				 +inputh+total+inputm+'"ptotal" class="input-ptotal"'+inpute
-	 				 +inputh+cid+inputm+'"cid" class="input-cid"'+inpute;
+	 				 +inputh+cid+inputm+'"cid" class="input-cid"'+inpute; */
 	 		$('#'+cid).find('.input-item').eq(0).append(input);
 	 	}
 	 	else{

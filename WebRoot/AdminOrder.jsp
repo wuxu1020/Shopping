@@ -249,7 +249,7 @@ a{text-decoration:none;color:#666;}
 	<div class="tab-pane fade active" id="weifahuo">
 		<div class="weifa">
 		 <div class="user">用户</div>
-		 <div class="th-item">商品信息</div>
+		 <div class="th-item">商品图片</div>
 	     <!-- <div class="th-info">&nbsp;</div> -->
 	     <div class="th-price">单价</div>
 	     <div class="th-amount">数量</div>
@@ -261,8 +261,8 @@ a{text-decoration:none;color:#666;}
 	    <c:if test="${order.ostate=='未发货' }">
 	    <div id="${order.oid }" >
 	 <div class="username">${order.username }</div>
-	 <div class="tupian"></div>
-	<!--  <div class="mingchen">?</div> -->
+	 <div class="tupian"><img alt="正在加载图片..." src="product/${order.pmpic} "></div>
+	<div class="mingchen">${order.ptitle}</div>
 	
 	 <div class="price-content">
 	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -296,8 +296,8 @@ a{text-decoration:none;color:#666;}
 	 <c:forEach items="${request.orderlist }" var="order">
 	    <c:if test="${order.ostate=='已发货' }">
 	 <div class="username">${order.username }</div>
-	 <div class="tupian"></div>
-	<!--  <div class="mingchen">?</div> -->
+	 <div class="tupian"><img alt="正在加载图片..." src="product/${order.pmpic} "></div>
+	<div class="mingchen">${order.ptitle}</div>
 	
 	 <div class="price-content">
 	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -328,8 +328,8 @@ a{text-decoration:none;color:#666;}
 	 <c:forEach items="${request.orderlist }" var="order">
 	    <c:if test="${order.ostate=='已完成' }">
 	 <div class="username">${order.username }</div>
-	 <div class="tupian"></div>
-	<!--  <div class="mingchen">?</div> -->
+	 <div class="tupian"><img alt="正在加载图片..." src="product/${order.pmpic} "></div>
+	<div class="mingchen">${order.ptitle}</div>
 	
 	 <div class="price-content">
 	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

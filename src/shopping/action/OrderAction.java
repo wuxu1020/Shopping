@@ -1,6 +1,7 @@
 package shopping.action;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -11,11 +12,11 @@ import shopping.service.CartService;
 import shopping.service.OrderService;
 
 public class OrderAction extends SuperAction{
-	private List<String> uid;
+	/*private List<String> uid;
 	private List<String> pid;
 	private List<String> ptitle;
 	private List<Double> price;
-	private List<Integer> ptotal;
+	private List<Integer> ptotal;*/
 	private List<String> cid;
 	private String oaddress;
 	private String oid;
@@ -51,7 +52,7 @@ public class OrderAction extends SuperAction{
 	public void setOrderservice(OrderService orderservice) {
 		this.orderservice = orderservice;
 	}
-	public List<String> getUid() {
+	/*public List<String> getUid() {
 		return uid;
 	}
 	public void setUid(List<String> uid) {
@@ -80,26 +81,34 @@ public class OrderAction extends SuperAction{
 	}
 	public void setPtotal(List<Integer> ptotal) {
 		this.ptotal = ptotal;
-	}
+	}*/
 	
 	public String addtoorder(){
 		Date nowTime=new Date();
 		SimpleDateFormat time=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
 		String ntime=time.format(nowTime);
-		if(uid!=null&&uid.size()>0){
-		for(int i=0;i<uid.size();i++){
+		if(cid!=null&&cid.size()>0){
+			List<Cart> olist=new ArrayList<Cart>();
+			for(int j=0;j<cid.size();j++){
+				Cart cart=cartservice.getCartDAO().findById(cid.get(j));
+				if(cart!=null){
+					olist.add(cart);
+				}
+			}
+		for(int i=0;i<olist.size();i++){
 			Order order=new Order();
 			order.setOid(UUID.randomUUID().toString());
-			order.setUsername(uid.get(i));
-			order.setPid(pid.get(i));
-			order.setPrice(price.get(i));
+			order.setUsername(olist.get(i).getUid());
+			order.setPid(olist.get(i).getPid());
+			order.setPrice(olist.get(i).getPrice());
 			order.setOstate("Î´·¢»õ");
-			order.setPtotal(ptotal.get(i));
+			order.setPtotal(olist.get(i).getPtotal());
+			order.setPtitle(olist.get(i).getPtitle());
+			order.setPmpic(olist.get(i).getPmpic());
 			order.setObuytime(ntime);
 			order.setOaddress(oaddress);
 			orderservice.getOrderDAO().merge(order);
-			Cart cart=cartservice.getCartDAO().findById(cid.get(i));
-			if(cart!=null) cartservice.getCartDAO().delete(cart);
+			cartservice.getCartDAO().delete(olist.get(i));
 		}
 		}
 		return "ToCart";
