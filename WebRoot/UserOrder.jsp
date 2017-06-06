@@ -57,7 +57,7 @@ myFocus.set({
 .top a:hover{color:red;}
 .login{font-weight:bold;}
 .leftarea{font-weight:bold;}
-.logo{height:108px;background-color:#EA0000;margin-top:}
+.logo{height:108px;background-color:#EA0000;margin-top:1px;}
 /*.logoimage{padding-top:8px;}*/
 body,ul,li,p,h3,div{margin:0;padding:0;}
 body{font-size:12px;}

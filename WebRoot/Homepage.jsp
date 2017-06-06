@@ -292,8 +292,6 @@ function getSort(){
       <ul class="nav fr">
         <li><a href="NewProduct.jsp" class=active >最新上架</a></li>
         <li><a href="HotProduct.jsp" >最热商品</a></li>
-        <li><a href="UserShow.jsp" class=active>数码城</a></li>
-        <li><a href="UserShow.jsp">连衣裙</a></li>
       </ul>
     </div>
   </div>
