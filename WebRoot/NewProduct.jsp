@@ -26,7 +26,7 @@ myFocus.set({
 </script>
 <style>
 .comWidth{width:900px;margin-left:auto;margin-right:auto;}
-.comWidth2{width:900px;height:250px;margin-left:auto;margin-right:auto;padding-top:10px;}
+.comWidth2{width:900px;margin-left:auto;margin-right:auto;padding-top:10px;}
 .comWidth1{width:1090px;margin-left:auto;margin-right:auto;}
 .quanping{width:auto;height:1000px;margin-left:auto;margin-right:auto;background-color:#FFE3E3;}
 .fr{float:right;}
@@ -61,7 +61,7 @@ a{text-decoration:none;color:#666;}
 .searchtext{width:300px;height:35px;padding:0 5px;margin-left:100px;}
 .search{padding-top:5px;}
 .s{margin-right:150px;}
-.pimage{width:220px;height:220px;background-color:#F9F9F9;}
+.pimage{width:300px;height:350px;background-color:#F9F9F9;}
 .pright{padding-left:30px;}
 .btn {
 	-moz-box-shadow: 0px 10px 14px -7px #bd4c4c;
@@ -148,7 +148,7 @@ a{text-decoration:none;color:#666;}
       <%}else{ %>
       <span>欢迎！  <%=session.getAttribute("UID") %></span>
       <%} %>
-     <span>|</span> <a href="<%=basePath %>ShoppingCar.jsp" class="shopcar1"> 我的购物车</a> <span>|</span> <a href="<%=basePath %>UserOrder.jsp" class="order">全部订单</a> <span>|</span> <a href="AdminLogin.jsp" class="order">系统维护</a> 
+     <span>|</span> <a href="<%=basePath %>ShoppingCar.jsp" class="shopcar1"> 我的购物车</a> <span>|</span> <a href="<%=basePath %>Order_usershoworder.action" class="order">全部订单</a> <span>|</span> <a href="AdminLogin.jsp" class="order">系统维护</a> 
        <%   if(session.getAttribute("UID")!=null){ %>
        <span>|</span> <a onclick="check()" class="register">退出登录</a>
         <%} %>
@@ -157,8 +157,8 @@ a{text-decoration:none;color:#666;}
   </div>
   <div class="logo">
     <div class="comWidth1">
-      <div class="logoimage fl"> <a href="#"><img src="image/haigou.png" alt="嗨购"></a>
-       </div>
+      <div class="logoimage fl"> <a href="#"><img src="image/haigou.png" alt="嗨购"></a> </div>
+     
     </div>
   </div>
   </div>

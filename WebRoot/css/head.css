@@ -40,19 +40,21 @@
 
 /*商品列表*/
 .shopclass_show{background-color:#FF6060;position:absolute;left:0px;top:36px;width:100%;}
-.shopclass_item{padding:18px 70px;border-bottom:#FFACAC solid 1px;font-size:16px;}
+/*.shopclass_item .b{font-size:14px;font-weight:bold;font-family:"Microsoft YaHei","微软雅黑";}*/
+/*.shopclass_item a{color:#FFF;}*/
+.shopclass_item{padding:26px 70px;border-bottom:#FFACAC solid 1px;font-size:16px; }
 
 /*shopclass_item active状态*/
 .shopclass_active{background-color:#FFF;border-left:#FF9B9B solid 1px;}
 .shopclass_active li{color:#000;}
 
 /*弹出的菜单*/
-#shopclass_list1{width:568px;border:#CCC solid 1px;position:absolute;left:150px;top:-1px;background-color:#fff;display:none;z-index:1000;}
-#shopclass_list2{width:568px;border:#CCC solid 1px;position:absolute;left:150px;top:69px;background-color:#fff;display:none;z-index:1000;}
-#shopclass_list3{width:568px;border:#CCC solid 1px;position:absolute;left:150px;top:139px;background-color:#fff;display:none;z-index:1000;}
-#shopclass_list4{width:568px;border:#CCC solid 1px;position:absolute;left:150px;top:209px;background-color:#fff;display:none;z-index:1000;}
-#shopclass_list5{width:568px;border:#CCC solid 1px;position:absolute;left:150px;top:279px;background-color:#fff;display:none;z-index:1000;}
-#shopclass_list6{width:568px;border:#CCC solid 1px;position:absolute;left:150px;top:349px;background-color:#fff;display:none;z-index:1000;}
+#shopclass_list1{width:568px;border:#CCC solid 1px;position:absolute;left:190px;top:40px;background-color:#fff;display:none;z-index:1000;}
+#shopclass_list2{width:568px;border:#CCC solid 1px;position:absolute;left:190px;top:40px;background-color:#fff;display:none;z-index:1000;margin-top:70px;}
+#shopclass_list3{width:568px;border:#CCC solid 1px;position:absolute;left:190px;top:40px;background-color:#fff;display:none;z-index:1000;margin-top:140px;}
+#shopclass_list4{width:568px;border:#CCC solid 1px;position:absolute;left:190px;top:40px;background-color:#fff;display:none;z-index:1000;margin-top:210px;}
+#shopclass_list5{width:568px;border:#CCC solid 1px;position:absolute;left:190px;top:40px;background-color:#fff;display:none;z-index:1000;margin-top:280px;}
+#shopclass_list6{width:568px;border:#CCC solid 1px;position:absolute;left:190px;top:40px;background-color:#fff;display:none;z-index:1000;margin-top:350px;}
 .shopclass_cont{padding:5px 20px;}
 .shoplist_item dd{margin-top:-14px;line-height:24px;}
 .shoplist_item dd{margin-right:12px;}

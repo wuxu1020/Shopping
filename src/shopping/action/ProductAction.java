@@ -292,10 +292,12 @@ public class ProductAction extends SuperAction{
 		SimpleDateFormat time=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
 		String ntime=time.format(nowTime);
 		uploadmainPic(0);
+		if(detimgUpload!=null){
     	for (int i = 0; i < detimgUpload.size(); i++) {   
             //循环上传每个文件   
 				uploadFile(i);
         }  
+		
     	for(int i=0;i<goodpicaddr.size();i++)
     		if(goodpicaddr.get(i).equals("")) goodpicaddr.remove(i);
     	
@@ -303,6 +305,7 @@ public class ProductAction extends SuperAction{
     		jsonResult = JsonUtil.listToJson(goodpicaddr);
     		product.setPdpic(jsonResult);
     	}
+		}
     	if(ptype!=null)
     	{
     		jsonResult = JsonUtil.listToJson(ptype);

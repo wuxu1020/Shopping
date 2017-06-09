@@ -92,7 +92,68 @@ function switchSlider(n){
 		addSliders(1);
 		switchSlider(1);
 		}
-		
+//鼠标悬浮显现内容
+function showa( ){ 
+ document.getElementById("shopclass_list1").style.display='block'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function noshowa( ){ 
+ document.getElementById("shopclass_list1").style.display='none'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function showb( ){ 
+ document.getElementById("shopclass_list2").style.display='block'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function noshowb( ){ 
+ document.getElementById("shopclass_list2").style.display='none'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function showc( ){ 
+ document.getElementById("shopclass_list3").style.display='block'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function noshowc( ){ 
+ document.getElementById("shopclass_list3").style.display='none'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function showd( ){ 
+ document.getElementById("shopclass_list4").style.display='block'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function noshowd( ){ 
+ document.getElementById("shopclass_list4").style.display='none'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function showe( ){ 
+ document.getElementById("shopclass_list5").style.display='block'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function noshowe( ){ 
+ document.getElementById("shopclass_list5").style.display='none'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function showf( ){ 
+ document.getElementById("shopclass_list6").style.display='block'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+function noshowf( ){ 
+ document.getElementById("shopclass_list6").style.display='none'; 
+ document.getElementsByName("shopclass_item").style.color='#FF9D9D';
+
+} 
+
 function getSort(){
 			$.ajax({
 			type : "post",
@@ -120,15 +181,6 @@ function getSort(){
    function appendtodd(pid,sname){
    		$('#'+pid).find('.it').append('<a href="Product_showproductToUser?page=1&searchvalue='+sname+'">'+sname+'</a>&nbsp;');
    }
-   
-   function app(x)
-{
-x.style.display="block";
-}
-function diap(x)
-{
-x.style.display="none";
-}
 </script>
 <script src="js/jquery.min.js"></script>
 <style>
@@ -172,86 +224,76 @@ x.style.display="none";
       <div class="shopclass fl">
         <p>全部商品分类</p>
         <div class="shopclass_show" >
-          <dl class="shopclass_item " id="l1" onmousemove="app(document.getElementById('shopclass_list1'))"
-				onmouseout="diap(document.getElementById('shopclass_list1'))"  > 
-            <dt >数码 </dt>  
-            <dd id="shopclass_list1">
+          <ul class="shopclass_item " id="l1" onmouseover="showa( )"  > 
+            <li >数码 </li>  
+          </ul>    
+          <ul class="shopclass_item" id="l1" onmouseover="showb( )">
+            <li id="l2" onmouseover="">家电 </li>
+          </ul>
+          <ul class="shopclass_item" id="l1" onmouseover="showc( )">
+            <li id="l3" onmouseover="">服装</li>
+          </ul>
+          <ul class="shopclass_item" id="l1" onmouseover="showd( )">
+            <li id="l4" onmouseover="">食品</li>
+          </ul>
+          <ul class="shopclass_item" id="l1" onmouseover="showe( )">
+            <li id="l5" onmouseover="">个护</li>
+          </ul>
+           <ul class="shopclass_item" id="l1" onmouseover="showf( )">       
+            <li id="l6" onmouseover="">其他</li>
+          </ul>
+        </div>
+        <div id="shopclass_list1">
+          <div class="shopclass_cont">
+            <dl class="shoplist_item">
+              <dd class="it"> </dd>
+              
+            </dl>
+            
+          </div>
+        </div>
+        <div id="shopclass_list2" onmouseout="noshowa()">
           <div class="shopclass_cont">
             <dl class="shoplist_item">
               <dd class="it"> </dd>
             </dl>
           </div>
-            </dd>
-          </dl> 
-             
-          <dl class="shopclass_item" id="l1" onmousemove="app(document.getElementById('shopclass_list2'))"
-				onmouseout="diap(document.getElementById('shopclass_list2'))">
-            <dt id="l2" onmouseover="">家电 </dt>
-            
-            <dd  id="shopclass_list2">
-          <div class="shopclass_cont">
-            <dl class="shoplist_item">
-              <dd class="it"> </dd>
-            </dl>
-          </div>
-            </dd>
-          </dl>
-          
-          <dl class="shopclass_item" id="l1"onmousemove="app(document.getElementById('shopclass_list3'))"
-				onmouseout="diap(document.getElementById('shopclass_list3'))">
-            <dt id="l3" onmouseover="">服装</dt>
-            
-            <dd id="shopclass_list3">
+        </div>
+        <div id="shopclass_list3" onmouseout="noshowb()">
           <div class="shopclass_cont">
             <dl class="shoplist_item">
               <dd class="it">  </dd>
             </dl>
           </div>
-            </dd>
-          </dl>
-          
-          <dl class="shopclass_item" id="l1" onmousemove="app(document.getElementById('shopclass_list4'))"
-				onmouseout="diap(document.getElementById('shopclass_list4'))">
-            <dt id="l4" onmouseover="">食品</dt>
-            <dd id="shopclass_list4">
-          <div class="shopclass_cont">
-            <dl class="shoplist_item">
-              <dd class="it"> </dd>
-            </dl>
-          </div>
-          </dd>
-          </dl>
-          
-          <dl class="shopclass_item" id="l1" onmousemove="app(document.getElementById('shopclass_list5'))"
-				onmouseout="diap(document.getElementById('shopclass_list5'))">
-            <dt id="l5" onmouseover="">个护</dt>
-            <dd id="shopclass_list5">
-          <div class="shopclass_cont">
-            <dl class="shoplist_item">
-              <dd class="it"> </dd>
-            </dl>
-          </div>
-            </dd>
-          </dl>
-          
-           <dl class="shopclass_item" id="l1" onmousemove="app(document.getElementById('shopclass_list6'))"
-				onmouseout="diap(document.getElementById('shopclass_list6'))">       
-            <dt id="l6" onmouseover="">其他</dt>
-            <dd id="shopclass_list6">
-          <div class="shopclass_cont">
-            <dl class="shoplist_item">
-              <dd class="it">  </dd>
-            </dl>
-          </div>
-            </dd>
-          </dl>
         </div>
         
-       
+        <div id="shopclass_list4" onmouseout="noshowc()">
+          <div class="shopclass_cont">
+            <dl class="shoplist_item">
+              <dd class="it"> </dd>
+            </dl>
+          </div>
+        </div>
+        <div id="shopclass_list5" onmouseout="noshowd()">
+          <div class="shopclass_cont">
+            <dl class="shoplist_item">
+              <dd class="it"> </dd>
+            </dl>
+          </div>
+        </div>
+        <div id="shopclass_list6" onmouseout="noshowe()">
+          <div class="shopclass_cont">
+            <dl class="shoplist_item">
+              <dd class="it">  </dd>
+            </dl>
+          </div>
+        </div>
       </div>
       <ul class="nav fr">
         <li><a href="NewProduct.jsp" class=active >最新上架</a></li>
         <li><a href="HotProduct.jsp" >最热商品</a></li>
+        <li><a href="UserShow.jsp" class=active>数码城</a></li>
+        <li><a href="UserShow.jsp">连衣裙</a></li>
       </ul>
     </div>
   </div>

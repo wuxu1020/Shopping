@@ -350,7 +350,7 @@ a {
 						}
 					%>
 					<span>|</span> <a href="<%=basePath%>ShoppingCar.jsp"
-						class="shopcar1"> 我的购物车</a> <span>|</span> <a href="<%=basePath %>UserOrder.jsp"
+						class="shopcar1"> 我的购物车</a> <span>|</span> <a href="<%=basePath %>Order_usershoworder.action"
 						class="order">全部订单</a> <span>|</span> <a href="AdminLogin.jsp"
 						class="order">系统维护</a>
 					<%
