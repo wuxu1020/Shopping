@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>购物车</title>
+<title>全部订单</title>
 <link href="css/head.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/jQuery.js" type="text/javascript"></script>
@@ -138,31 +138,37 @@ a{text-decoration:none;color:#666;}
      color:#000;
 }
 /* 未发货 */
+.tab-content{
+  width:100%;
+  height:auto;
+}
+.order-content{
+  width:100%;
+  height:250px;
+}
 .weifa{
     margin-left:200px;
      width:85%;
      height: 50px;
     line-height: 50px;
     color: #3c3c3c;
-
 }
 .th-item {
     float:left;
     width:200px;
 }
-.th-info {
-    width: 150px;
-    padding-right: 20px;
-    float:left;
+.th-name{
+   float:left;
+   width:100px;
 }
 .th-price{
     float:left;
     width:50px;
-    margin-left:150px;
+    margin-left:50px;
 }
 .th-amount{
     float:left;
-    padding:0px 55px; 
+    padding:0px 45px; 
 }
 .th-sum {
     color: #f40;
@@ -172,21 +178,29 @@ a{text-decoration:none;color:#666;}
 }
 .th-time{
     float:left;
-    padding:0px 30px;
+    padding:0px 70px;
 }
 /* 订单内容 */
+.user{
+    float:left;
+    margin-right:150px; 
+}
+.username{
+    float:left;  
+    margin:0px 145px;
+}
 .tupian{
    width: 220px;
     height: 220px;
     border: 1px solid #eee;
     float: left;
+    margin-left:180px;
     overflow: hidden;
     background: #fff no-repeat 50% 50%;
-    margin-left:200px;
 }
 .mingchen{
    float:left;
-   width:250px;
+   width:100px;
    height:220px;
 }
 .price-content{
@@ -256,10 +270,8 @@ a{text-decoration:none;color:#666;}
 <!--   未发货 -->
 	<div class="tab-pane fade active" id="weifahuo">
 		<div class="weifa">
-		 
-	     <div class="user">用户</div>
-		 <div class="th-item">商品信息</div>
-	     <div class="th-info">&nbsp;</div>
+		 <div class="th-item">商品图片</div>
+	     <div class="th-name">商品名称</div>
 	     <div class="th-price">单价</div>
 	     <div class="th-amount">数量</div>
 	     <div class="th-sum">金额</div>
@@ -267,45 +279,44 @@ a{text-decoration:none;color:#666;}
 	    </div>
 	    <c:forEach items="${request.orderlist}" var="order">
 	    <c:if test="${order.ostate=='未发货' }">
-	 <div class="username">${order.username }</div>
+	    <div class="order-content">
 	 <div class="tupian"><img alt="正在加载图片..." src="product/${order.pmpic} "></div>
 	<div class="mingchen">${order.ptitle}</div>
 	 <div class="price-content"> 
 	 <em tabindex="0">￥<span >${order.price }</span></em>
 	 </div>
-	 <div class="amount">${order.ptotal }</div>
+	 <div class="amount">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${order.ptotal }</div>
 	 <div class="sum">
-	 <em tabindex="0" >￥<span >${order.ptotal*order.price }</span></em>
+	 <em tabindex="0" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥<span >${order.ptotal*order.price }</span></em>
 	 </div>
-	 <div class="time">${order.obuytime }</div> <br>
+	 <div class="time">${order.obuytime }</div>
+	 </div>
 	 </c:if>
 	 </c:forEach>
     </div>
 <!--     已发货 -->
 	<div class="tab-pane fade" id="yifahuo">
 	<div class="weifa">
-	     <div class="user">用户</div>
-		 <div class="th-item">商品信息</div>
-	     <div class="th-info">&nbsp;</div>
+		 <div class="th-item">商品图片</div>
+	     <div class="th-name">商品名称</div>
 	     <div class="th-price">单价</div>
 	     <div class="th-amount">数量</div>
 	     <div class="th-sum">金额</div>
 	     <div class="th-time">时间</div>
-	     <div class="th-time">收货</div>
 	 </div>
 	  <c:forEach items="${request.orderlist}" var="order">
 	    <c:if test="${order.ostate=='已发货' }">
-	    <div class="username">${order.username }</div>
+	    <div class="order-content">
 	 <div class="tupian"><img alt="正在加载图片..." src="product/${order.pmpic} "></div>
 	<div class="mingchen">${order.ptitle}</div> 
 	 <div class="price-content">
 	 <em tabindex="0">￥<span >${order.price }</span></em>
 	 </div>
-	 <div class="amount">${order.ptotal }</div>
+	 <div class="amount">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${order.ptotal }</div>
 	 <div class="sum">
-	 <em tabindex="0" >￥<span >${order.ptotal*order.price }</span></em>
+	 <em tabindex="0" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥<span >${order.ptotal*order.price }</span></em>
 	 </div>
-	 <div class="time">${order.odelivertime }</div>
+	 <div class="time">${order.obuytime }</div>
 	 <div class="time"><input type="button" value="确认收货" class="btn" onclick="usersuborder('${order.oid }')"></div>
 	 </div>
 	 </c:if>
@@ -314,9 +325,8 @@ a{text-decoration:none;color:#666;}
 <!--     已完成 -->
 	<div class="tab-pane fade" id="yiwancheng">
 	<div class="weifa">
-	     <div class="user">用户</div>
-		 <div class="th-item">商品信息</div>
-	     <div class="th-info">&nbsp;</div>
+		 <div class="th-item">商品图片</div>
+	     <div class="th-name">商品名称</div>
 	     <div class="th-price">单价</div>
 	     <div class="th-amount">数量</div>
 	     <div class="th-sum">金额</div>
@@ -324,18 +334,18 @@ a{text-decoration:none;color:#666;}
 	 </div> 
 	  <c:forEach items="${request.orderlist}" var="order">
 	    <c:if test="${order.ostate=='已完成' }">
-	 <div class="username">${order.username }</div>
+	    <div class="order-content">
 	 <div class="tupian"><img alt="正在加载图片..." src="product/${order.pmpic} "></div>
 	<div class="mingchen">${order.ptitle}</div>
 	 <div class="price-content">
 	 <em tabindex="0">￥<span >${order.price }</span></em>
 	 </div>
-	 <div class="amount">${order.ptotal }</div>
+	 <div class="amount">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${order.ptotal }</div>
 	 <div class="sum">
-	 <em tabindex="0" >￥<span >${order.ptotal*order.price }</span></em>
+	 <em tabindex="0" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥<span >${order.ptotal*order.price }</span></em>
 	 </div>
 	 <div class="time">${order.obuytime }</div>
-	
+	</div>
 	 </c:if>
 	 </c:forEach>
 	 </div>

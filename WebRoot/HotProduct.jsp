@@ -25,7 +25,7 @@ myFocus.set({
 </script>
 <style>
 .comWidth{width:900px;margin-left:auto;margin-right:auto;}
-.comWidth2{width:900px;margin-left:auto;margin-right:auto;padding-top:10px;}
+.comWidth2{width:900px;height:250px;margin-left:auto;margin-right:auto;padding-top:10px;}
 .comWidth1{width:1090px;margin-left:auto;margin-right:auto;}
 .quanping{width:auto;height:1000px;margin-left:auto;margin-right:auto;background-color:#FFE3E3;}
 .fr{float:right;}
@@ -60,7 +60,7 @@ a{text-decoration:none;color:#666;}
 .searchtext{width:300px;height:35px;padding:0 5px;margin-left:100px;}
 .search{padding-top:5px;}
 .s{margin-right:150px;}
-.pimage{width:300px;height:350px;background-color:#F9F9F9;}
+.pimage{width:220px;height:220px;background-color:#F9F9F9;}
 .pright{padding-left:30px;}
 .btn {
 	-moz-box-shadow: 0px 10px 14px -7px #bd4c4c;
