@@ -117,10 +117,10 @@ public class OrderAction extends SuperAction{
 			
 			Product product = productservice.getProductDAO().findById(olist.get(i).getPid());
 			if(product!=null){
-				product.setPstock(product.getPstock()-1>=0?product.getPstock()-1:0);
+				product.setPstock(product.getPstock()-olist.get(i).getPtotal()>=0?product.getPstock()-olist.get(i).getPtotal():0);
 				if(product.getPsales()==null)
 					product.setPsales(1);
-				else product.setPsales(product.getPsales()+1);
+				else product.setPsales(product.getPsales()+olist.get(i).getPtotal());
 				productservice.getProductDAO().merge(product);
 			}
 		}
