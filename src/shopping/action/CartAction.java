@@ -13,10 +13,22 @@ import shopping.service.ProductService;
 public class CartAction extends SuperAction {
 	private String uid;
 	private String pid;
+	private String cid;
+	private Integer ptotal;
 	private CartService cartservice;
 	private ProductService productservice;
 	private List<Cart> cartlist;
 	
+	
+
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
+
+	public void setPtotal(Integer ptotal) {
+		this.ptotal = ptotal;
+	}
+
 	public List<Cart> getCartlist() {
 		return cartlist;
 	}
@@ -84,9 +96,18 @@ public class CartAction extends SuperAction {
 	}
 	
 	public String delcart(){
-		Cart cart=cartservice.getCartDAO().findById(uid);
+		Cart cart=cartservice.getCartDAO().findById(cid);
 		if(cart!=null){
 			cartservice.getCartDAO().delete(cart);
+		}
+		return "AjaxResult";
+	}
+	
+	public String changetotal(){
+		Cart cart=cartservice.getCartDAO().findById(cid);
+		if(cart!=null){
+			cart.setPtotal(ptotal);
+			cartservice.getCartDAO().merge(cart);
 		}
 		return "AjaxResult";
 	}

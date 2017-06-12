@@ -187,7 +187,7 @@ public class ProductAction extends SuperAction{
 	}
 	
 	public String showproduct(){
-		int perpage=10;
+		//int perpage=10;
 		List<Product> plist;
 		if(searchvalue.equals("")||searchvalue==null){
 			plist=productservice.getProductDAO().findAll();
@@ -196,12 +196,13 @@ public class ProductAction extends SuperAction{
 			plist=productservice.getProductDAO().findByPropertyV("pname", searchvalue);
 			
 		}
-		maxpage=(plist.size()+perpage-1)/perpage;
-		int i=(page-1)*perpage;
-		if(i<plist.size()){
-			int toindex=(i+perpage)<=plist.size()?i+10:plist.size();
-			searchresult=JsonUtil.listToJson(plist.subList(i, toindex));
-		}
+		//maxpage=(plist.size()+perpage-1)/perpage;
+		//int i=(page-1)*perpage;
+		//if(i<plist.size()){
+			//int toindex=(i+perpage)<=plist.size()?i+10:plist.size();
+		if(plist!=null)
+			searchresult=JsonUtil.listToJson(plist);
+		//}
 		return "AjaxResult";
 	}
 	
@@ -212,7 +213,7 @@ public class ProductAction extends SuperAction{
 	}
 	
 	public String showproductToUser(){
-		int perpage=10;
+		//int perpage=10;
 		List<Product> plist;
 		if(searchvalue.equals("")||searchvalue==null){
 			plist=productservice.getProductDAO().findAll();
@@ -221,12 +222,13 @@ public class ProductAction extends SuperAction{
 			plist=productservice.getProductDAO().findByPropertyV("pname", searchvalue);
 			
 		}
-		maxpage=(plist.size()+perpage-1)/perpage;
-		int i=(page-1)*perpage;
-		if(i<plist.size()){
-			int toindex=(i+perpage)<=plist.size()?i+10:plist.size();
-			searchresult=JsonUtil.listToJson(plist.subList(i, toindex));
-		}
+		//maxpage=(plist.size()+perpage-1)/perpage;
+		//int i=(page-1)*perpage;
+		//if(i<plist.size()){
+			//int toindex=(i+perpage)<=plist.size()?i+10:plist.size();
+		if(plist!=null)
+			searchresult=JsonUtil.listToJson(plist);
+		//}
 		request.setAttribute("productlist", searchresult);
 		return "UserProductShow";
 	}

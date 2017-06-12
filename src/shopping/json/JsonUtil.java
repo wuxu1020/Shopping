@@ -16,7 +16,10 @@ import java.util.List;
             if (object == null) {  
                 json.append("\"\"");  
             } else if (object instanceof String || object instanceof Integer || object instanceof Double||object instanceof Timestamp) { 
-            	if(name.equals("\"pdpic\"")||name.equals("\"ptype\""))
+                if(name.equals("\"pdpic\"")||name.equals("\"ptype\""))
+                	if(object==null)
+                		json.append("\"\"");
+                	else
             		json.append(object.toString());
             	else
             		json.append("\"").append(object.toString()).append("\"");  

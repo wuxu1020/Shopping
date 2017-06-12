@@ -8,8 +8,10 @@ import java.util.UUID;
 
 import shopping.model.Cart;
 import shopping.model.Order;
+import shopping.model.Product;
 import shopping.service.CartService;
 import shopping.service.OrderService;
+import shopping.service.ProductService;
 
 public class OrderAction extends SuperAction{
 	/*private List<String> uid;
@@ -22,9 +24,14 @@ public class OrderAction extends SuperAction{
 	private String oid;
 	private OrderService orderservice;
 	private CartService cartservice;
+	private ProductService productservice;
 	
 	
 	
+	
+	public void setProductservice(ProductService productservice) {
+		this.productservice = productservice;
+	}
 	public String getOid() {
 		return oid;
 	}
@@ -46,9 +53,7 @@ public class OrderAction extends SuperAction{
 	public void setOaddress(String oaddress) {
 		this.oaddress = oaddress;
 	}
-	public OrderService getOrderservice() {
-		return orderservice;
-	}
+	
 	public void setOrderservice(OrderService orderservice) {
 		this.orderservice = orderservice;
 	}
@@ -109,6 +114,15 @@ public class OrderAction extends SuperAction{
 			order.setOaddress(oaddress);
 			orderservice.getOrderDAO().merge(order);
 			cartservice.getCartDAO().delete(olist.get(i));
+			
+			Product product = productservice.getProductDAO().findById(olist.get(i).getPid());
+			if(product!=null){
+				product.setPstock(product.getPstock()-1>=0?product.getPstock()-1:0);
+				if(product.getPsales()==null)
+					product.setPsales(1);
+				else product.setPsales(product.getPsales()+1);
+				productservice.getProductDAO().merge(product);
+			}
 		}
 		}
 		return "ToCart";

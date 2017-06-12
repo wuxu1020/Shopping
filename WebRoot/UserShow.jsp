@@ -125,7 +125,7 @@ a{text-decoration:none;color:#666;}
 </script>
 </head>
 
-<body onload="productshow()">
+<body onload="productshow()" >
 <div class="header">
 
 
