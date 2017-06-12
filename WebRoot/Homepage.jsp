@@ -21,7 +21,7 @@ myFocus.set({
 	      if(confirm("您确定要退出吗?")){
 		        window.location.href = "UserLogout.jsp"
 	           }
-	           }
+	      }
 </script>
 <script type="text/javascript">
 //1.数据定义 实际生产应由后台给出
