@@ -312,7 +312,6 @@ public class ProductAction extends SuperAction{
     		product.setPtype(jsonResult);
     	}
     	else product.setPtype("");
-    	//good.setGsid(session.getAttribute("SupplierID").toString());
     	product.setPid(UUID.randomUUID().toString());
     	product.setPstock(stock);
     	product.setPdetail(gdetails);

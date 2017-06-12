@@ -98,7 +98,7 @@
 
 .quanping {
 	width: auto;
-	height: 1000px;
+	height: 5000px;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #FFE3E3;
@@ -312,8 +312,8 @@ input[type="text"] {
 					<li><a onclick="getUser()" class=active>用户管理</a></li>
 					<li><a href="AdminProduct.jsp">商品管理</a></li>
 					<li><a href="Order_showorder.action" class=active>订单管理</a></li>
-					<li><a href="AdminSale.jsp">销售统计</a></li>
-					<li><a href="AdminSort.jsp" class=active>分类管理</a></li>
+					
+					<li><a href="AdminSort.jsp" >分类管理</a></li>
 				</ul>
 			</div>
 		</div>

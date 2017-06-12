@@ -235,9 +235,13 @@ a{text-decoration:none;color:#666;}
 .cart-table-th .th {
     float: left;
 }
-.th-item, .td-item {
+.td-item {
     width: 302px;
 }
+.th-item{
+margin-left:50px;
+width:250px;    
+}  
 .th-chk, .td-chk {
     width: 45px;
 }
@@ -247,6 +251,9 @@ a{text-decoration:none;color:#666;}
 }
 .cart-table-th .th-item .td-inner {
     padding-left: 91px;
+}
+.td-inner{
+width:150px;
 }
 .th .td-inner {
     padding: 0 0 0 10px;
@@ -281,7 +288,7 @@ a{text-decoration:none;color:#666;}
     width: 105px;
 }
 .th-op, .td-op {
-    width: 84px;
+    width:100px;
     padding: 0 0 0 15px;
 }
 .cart-table-th .th-chk .select-all {
@@ -342,9 +349,6 @@ li {
 }
 .th-chk, .td-chk {
     width: 45px;
-}
-.th-item, .td-item {
-    width: 302px;
 }
 .item-info {
     height:40px;
@@ -669,23 +673,18 @@ a {
 <div id="J_CartMain" class="cart-main">
 <div class="cart-table-th">
 <div class="wp">
-<div class="th th-chk">
-<div id="J_SelectAll1" class="select-all J_SelectAll">
-<div class="cart-checkbox">
-<input class="J_CheckBoxShop"  id="J_SelectAllCbx1" type="checkbox" name="select-all" value="true">
-<label for="J_SelectAllCbx1">勾选购物车内所有商品</label></div>&nbsp;&nbsp;全选</div></div>
 <div class="th th-item">
-<div class="td-inner">商品信息</div></div>
+<div class="td-inner">商品图片</div></div>
 <div class="th th-info">
-<div class="td-inner">&nbsp;</div></div>
+<div class="td-inner">商品名称</div></div>
 <div class="th th-price">
-<div class="td-inner">单价</div></div>
+<div class="td-inner">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单价</div></div>
 <div class="th th-amount">
-<div class="td-inner">数量</div></div>
+<div class="td-inner">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数量</div></div>
 <div class="th th-sum">
-<div class="td-inner">金额</div></div>
+<div class="td-inner">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金额</div></div>
 <div class="th th-op">
-<div class="td-inner">操作</div></div>
+<div class="td-inner">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;操作</div></div>
 </div></div>
 <!-- 订单内容 -->
 

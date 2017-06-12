@@ -60,7 +60,7 @@ a{text-decoration:none;color:#666;}
 .searchtext{width:300px;height:35px;padding:0 5px;margin-left:100px;}
 .search{padding-top:5px;}
 .s{margin-right:150px;}
-.pimage{width:220px;height:220px;background-color:#F9F9F9;}
+.pimage{width:220px;height:220px;}
 .pright .title,.pright .price,.pright .inventory{margin-top:10px;}
 .pright .btn{margin-top:90px;}
 .pright {

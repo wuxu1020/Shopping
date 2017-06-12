@@ -268,8 +268,8 @@ a {
 }
 
 .pimages {
-	width: 300px;
-	height: 350px;
+	width:auto;
+	height:auto;
 	background-color: #F9F9F9;
 	left: 1px;
 }
@@ -373,9 +373,6 @@ a {
 		</div>
 	</div>
 	<div class="quanping" id="show">
-
-		
-
 	</div>
 </body>
 </html>

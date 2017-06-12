@@ -51,7 +51,7 @@
 				var showitem='<tr class="yonghu" align="center" id="'+sort.sid+'0">'
 							 +'<td><input type="text" readonly="readonly" style="background-color:transparent" value="'+sort.sname+'"></td>'
 							 +'<td><span>'+sort.stype+'</span></td>'
-							 +"<td><a onclick=\"delUser('"+sort.sid+"')\" class=\"btn\">修改</a>"
+							 +"<td>"
 							 +"<a onclick=\"delSort('"+sort.sid+"')\" class=\"btn\">删除</a>"
 							 +'</td></tr>'
 				$("#allsort").prepend(showitem);
@@ -139,7 +139,7 @@
 
 .quanping {
 	width: auto;
-	height: 1000px;
+	height: 2000px;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #FFE3E3;
@@ -189,7 +189,7 @@ body, ul, li, p, h3, div {
 	margin: 0;
 	padding: 0;
 }
-
+.yonghu:hover{background-color:#FF9D9D;}
 body {
 	font-size: 12px;
 }
@@ -338,8 +338,8 @@ a {
 					<li><a onclick="getUser()" class=active>用户管理</a></li>
 					<li><a href="AdminProduct.jsp">商品管理</a></li>
 					<li><a href="Order_showorder.action" class=active>订单管理</a></li>
-					<li><a href="AdminSale.jsp">销售统计</a></li>
-					<li><a href="AdminSort.jsp" class=active>分类管理</a></li>
+					
+					<li><a href="AdminSort.jsp" >分类管理</a></li>
 				</ul>
 			</div>
 		</div>
@@ -405,7 +405,7 @@ a {
 			<div class="quanping">
 				<table class="table">
 				<thead>
-					<tr>
+					<tr class="yonghu">
 						<th  style="width:18%"><strong>分类名</strong></th>
 						<th align="center" style="width:18%"><strong>分类类别</strong></th>
 						<th align="center" style="width:18%"><strong>操作</strong></th>

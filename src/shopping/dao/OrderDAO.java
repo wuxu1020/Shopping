@@ -52,55 +52,41 @@ public class OrderDAO {
 	}
 
 	public void save(Order transientInstance) {
-		log.debug("saving Order instance");
 		try {
 			getCurrentSession().save(transientInstance);
-			log.debug("save successful");
 		} catch (RuntimeException re) {
-			log.error("save failed", re);
 			throw re;
 		}
 	}
 
 	public void delete(Order persistentInstance) {
-		log.debug("deleting Order instance");
 		try {
 			getCurrentSession().delete(persistentInstance);
-			log.debug("delete successful");
 		} catch (RuntimeException re) {
-			log.error("delete failed", re);
 			throw re;
 		}
 	}
 
 	public Order findById(java.lang.String id) {
-		log.debug("getting Order instance with id: " + id);
 		try {
 			Order instance = (Order) getCurrentSession().get("shopping.model.Order", id);
 			return instance;
 		} catch (RuntimeException re) {
-			log.error("get failed", re);
 			throw re;
 		}
 	}
 
 	public List findByExample(Order instance) {
-		log.debug("finding Order instance by example");
 		try {
 			List results = getCurrentSession().createCriteria("shopping.model.Order")
 					.add(Example.create(instance)).list();
-			log.debug("find by example successful, result size: "
-					+ results.size());
 			return results;
 		} catch (RuntimeException re) {
-			log.error("find by example failed", re);
 			throw re;
 		}
 	}
 
 	public List findByProperty(String propertyName, Object value) {
-		log.debug("finding Order instance with property: " + propertyName
-				+ ", value: " + value);
 		try {
 			String queryString = "from Order as model where model."
 					+ propertyName + "= ?";
@@ -108,7 +94,6 @@ public class OrderDAO {
 			queryObject.setParameter(0, value);
 			return queryObject.list();
 		} catch (RuntimeException re) {
-			log.error("find by property name failed", re);
 			throw re;
 		}
 	}

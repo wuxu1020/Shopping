@@ -80,7 +80,6 @@ public class CartAction extends SuperAction {
 	
 	public String showcart(){
 		cartlist=cartservice.getCartDAO().findByUid(uid);
-		
 		return "AjaxResult";
 	}
 	

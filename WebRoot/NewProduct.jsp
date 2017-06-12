@@ -26,9 +26,9 @@ myFocus.set({
 </script>
 <style>
 .comWidth{width:900px;margin-left:auto;margin-right:auto;}
-.comWidth2{width:900px;margin-left:auto;margin-right:auto;padding-top:10px;}
+.comWidth2{width:900px;margin-left:auto;margin-right:auto;padding-top:10px;height:250px;}
 .comWidth1{width:1090px;margin-left:auto;margin-right:auto;}
-.quanping{width:auto;height:1000px;margin-left:auto;margin-right:auto;background-color:#FFE3E3;}
+.quanping{width:auto;height:auto;margin-left:auto;margin-right:auto;background-color:#FFE3E3;}
 .fr{float:right;}
 .fl{float:left;}
 .hide{display:none;}
@@ -40,7 +40,7 @@ myFocus.set({
 .logo{height:108px;background-color:#EA0000;margin-top:1px;}
 /*.logoimage{padding-top:8px;}*/
 body,ul,li,p,h3,div{margin:0;padding:0;}
-body{font-size:12px;}
+body{font-size:12px;width:100%;height:auto;}      
 img{border:none;}
 li{list-style:none;}
 hr{color:#FFF;}
@@ -61,7 +61,7 @@ a{text-decoration:none;color:#666;}
 .searchtext{width:300px;height:35px;padding:0 5px;margin-left:100px;}
 .search{padding-top:5px;}
 .s{margin-right:150px;}
-.pimage{width:300px;height:350px;background-color:#F9F9F9;}
+.pimage{width:250px;height:250px;}        
 .pright{padding-left:30px;}
 .btn {
 	-moz-box-shadow: 0px 10px 14px -7px #bd4c4c;

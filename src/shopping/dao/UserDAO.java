@@ -71,12 +71,10 @@ public class UserDAO {
 	}
 
 	public User findById(java.lang.String id) {
-		log.debug("getting User instance with id: " + id);
 		try {
 			User instance = (User) getCurrentSession().get("shopping.model.User", id);
 			return instance;
 		} catch (RuntimeException re) {
-			log.error("get failed", re);
 			throw re;
 		}
 	}

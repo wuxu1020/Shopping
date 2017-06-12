@@ -59,9 +59,11 @@ a{text-decoration:none;color:#666;}
 .nav a{height:36px;display:inline-block;padding:0 60px;color:#FFF; }
 .nav a:hover{color:black;}
 .nav .active{background-color:#FF9D9D;}
-.form .col-xs-4{margin-left:400px;}
+.form .col-xs-4 .control-label{margin-left:400px;}
 .form .col-xs-5{margin-left:420px;}
-.formm{margin-left:415px;}
+.formm{margin-left:360px;}
+.formm .namea{padding-left:27px;}
+.formm .nameb{padding-left:15px;}
 .form .formtext{margin-left:3px;}
 .form .formtext2{padding-left:10px;}
 .table{width:900px;margin-left:auto;margin-right:auto;}
@@ -245,15 +247,15 @@ function previewImage(file)
 							method="post" enctype="multipart/form-data">
   <input type="hidden" id="productid" name="pid">
   <div class="formm">
-    <label  class="name" >商品名 ：</label>
+    <label  class="nameb" >商品名 ：</label>
     <input type="text" class="formtext" onfocus="" id="pname" name="pname" style="margin-top: 7px;height: 30px;" >
   </div>
   <div class="formm">
-  <label class="name" >价 格 ：</label>
+  <label class="namea" >价格 ：</label>
     <input type="number" class="formtext2" onfocus="" id="price" name="price" style="margin-top: 7px;height: 30px;" >
 </div>
   <div class="formm">
-  <label class="name">库 存 ：</label>
+  <label class="namea">库存 ：</label>
     <input type="number" class="formtext2" onfocus="" id="inventory" name="inventory" style="margin-top: 7px;height: 30px;" >
 </div>
   <div class="formm" id="ptypeitem">
